@@ -1,0 +1,2779 @@
+[{
+        "property": "addresshierarchy.addressToEntryMapUpdaterLastStartTime",
+        "property_value": null,
+        "description": "The module uses this field to store when the AddressToEntryMapUpdater task was last started; DO NOT MODIFY",
+        "index": 0
+    },
+    {
+        "property": "addresshierarchy.allowFreetext",
+        "property_value": "true",
+        "description": "Valid values: true/false. When overriding the address portlet, allow the entry of free text for address fields associated with the address hierarchy by providing an \"Other\" option",
+        "index": 1
+    },
+    {
+        "property": "addresshierarchy.database_version",
+        "property_value": "2.10.0",
+        "description": "DO NOT MODIFY.  Current database version number for the addresshierarchy module.",
+        "index": 2
+    },
+    {
+        "property": "addresshierarchy.enableOverrideOfAddressPortlet",
+        "property_value": "true",
+        "description": "Valid values: true/false. When enabled, the existing \"edit\" component of the address portlet is overridden by the new functionality provided by the address hierarchy module",
+        "index": 3
+    },
+    {
+        "property": "addresshierarchy.initializeAddressHierarchyCacheOnStartup",
+        "property_value": "true",
+        "description": "Sets whether to initialize the address hierarchy in-memory cache (which is used to speed up address hierarchy searches.\r\nGenerally, you want to set this to \"true\", though developers may want to set it to false during development\r\nto speed module start-up.",
+        "index": 4
+    },
+    {
+        "property": "addresshierarchy.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the addresshierarchy module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 5
+    },
+    {
+        "property": "addresshierarchy.soundexProcessor",
+        "property_value": null,
+        "description": "If the Name Phonetics module is installed, this defines the name of a soundex algorithm used by the getPossibleFullAddresses service method.",
+        "index": 6
+    },
+    {
+        "property": "addresshierarchy.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the addresshierarchy module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 7
+    },
+    {
+        "property": "adminui.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the adminui module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 8
+    },
+    {
+        "property": "adminui.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the adminui module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 9
+    },
+    {
+        "property": "allergy.allergen.ConceptClasses",
+        "property_value": "Drug,MedSet",
+        "description": "A comma-separated list of the allowed concept classes for the allergen field of the allergy dialog",
+        "index": 10
+    },
+    {
+        "property": "allergy.concept.allergen.drug",
+        "property_value": "162552AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the drug allergens concept",
+        "index": 11
+    },
+    {
+        "property": "allergy.concept.allergen.environment",
+        "property_value": "162554AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the environment allergens concept",
+        "index": 12
+    },
+    {
+        "property": "allergy.concept.allergen.food",
+        "property_value": "162553AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the food allergens concept",
+        "index": 13
+    },
+    {
+        "property": "allergy.concept.otherNonCoded",
+        "property_value": "5622AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the allergy other non coded concept",
+        "index": 14
+    },
+    {
+        "property": "allergy.concept.reactions",
+        "property_value": "162555AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the allergy reactions concept",
+        "index": 15
+    },
+    {
+        "property": "allergy.concept.severity.mild",
+        "property_value": "1498AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the MILD severity concept",
+        "index": 16
+    },
+    {
+        "property": "allergy.concept.severity.moderate",
+        "property_value": "1499AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the MODERATE severity concept",
+        "index": 17
+    },
+    {
+        "property": "allergy.concept.severity.severe",
+        "property_value": "1500AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the SEVERE severity concept",
+        "index": 18
+    },
+    {
+        "property": "allergy.concept.unknown",
+        "property_value": "1067AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": "UUID for the allergy unknown concept",
+        "index": 19
+    },
+    {
+        "property": "allergy.reaction.ConceptClasses",
+        "property_value": "Symptom",
+        "description": "A comma-separated list of the allowed concept classes for the reaction field of the allergy dialog",
+        "index": 20
+    },
+    {
+        "property": "allergyui.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the allergyui module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 21
+    },
+    {
+        "property": "allergyui.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the allergyui module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 22
+    },
+    {
+        "property": "appframework.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the appframework module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 23
+    },
+    {
+        "property": "appframework.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the appframework module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 24
+    },
+    {
+        "property": "application.name",
+        "property_value": "OpenMRS",
+        "description": "The name of this application, as presented to the user, for example on the login and welcome pages.",
+        "index": 25
+    },
+    {
+        "property": "appointmentscheduling.cleanOpenAppointmentScheduler",
+        "property_value": "false",
+        "description": "Clean open appointments at end of the day.",
+        "index": 26
+    },
+    {
+        "property": "appointmentscheduling.defaultTimeSlotDuration",
+        "property_value": "60",
+        "description": "Default Time Slot Duration. (In Minutes)",
+        "index": 27
+    },
+    {
+        "property": "appointmentscheduling.defaultVisitType",
+        "property_value": "1",
+        "description": "Default Visit Type for the in consultation state change.",
+        "index": 28
+    },
+    {
+        "property": "appointmentscheduling.hideEndVisitButtons",
+        "property_value": "true",
+        "description": "Hide \"End Visit\" buttons on the patient dashboard.",
+        "index": 29
+    },
+    {
+        "property": "appointmentscheduling.manageAppointmentsFormTimout",
+        "property_value": "60",
+        "description": "Refresh the manage appointments page after this number of seconds. (60 Seconds Minimum,-1 to Disable auto Refresh)",
+        "index": 30
+    },
+    {
+        "property": "appointmentscheduling.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the appointmentscheduling module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 31
+    },
+    {
+        "property": "appointmentscheduling.phoneNumberPersonAttributeTypeId",
+        "property_value": "8",
+        "description": "Person attribute type id for the phone number.",
+        "index": 32
+    },
+    {
+        "property": "appointmentscheduling.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the appointmentscheduling module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 33
+    },
+    {
+        "property": "appointmentschedulingui.includeWeekends",
+        "property_value": "false",
+        "description": "Defines whether the calendar should include weekends",
+        "index": 34
+    },
+    {
+        "property": "appointmentschedulingui.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the appointmentschedulingui module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 35
+    },
+    {
+        "property": "appointmentschedulingui.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the appointmentschedulingui module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 36
+    },
+    {
+        "property": "appui.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the appui module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 37
+    },
+    {
+        "property": "appui.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the appui module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 38
+    },
+    {
+        "property": "atlas.id",
+        "property_value": "8e3ffbda-a907-4d72-8a4e-e1a8b7ed3484",
+        "description": null,
+        "index": 39
+    },
+    {
+        "property": "atlas.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the atlas module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 40
+    },
+    {
+        "property": "atlas.moduleEnabled",
+        "property_value": "false",
+        "description": null,
+        "index": 41
+    },
+    {
+        "property": "atlas.numberOfEncounters",
+        "property_value": "?",
+        "description": "Stores the last calculated count of non-voided encounters in the system (\"?\" if never calculated).",
+        "index": 42
+    },
+    {
+        "property": "atlas.numberOfObservations",
+        "property_value": "?",
+        "description": "Stores the last calculated count of non-voided observations in the system (\"?\" if never calculated).",
+        "index": 43
+    },
+    {
+        "property": "atlas.numberOfPatients",
+        "property_value": "?",
+        "description": "Stores the last calculated count of non-voided patients in the system (\"?\" if never calculated).",
+        "index": 44
+    },
+    {
+        "property": "atlas.sendCounts",
+        "property_value": "false",
+        "description": "Send counts to OpenMRS Atlas.",
+        "index": 45
+    },
+    {
+        "property": "atlas.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the atlas module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 46
+    },
+    {
+        "property": "atlas.stopAskingToConfigure",
+        "property_value": "true",
+        "description": "When set to 'true', we stop pestering admins to configure the atlas.",
+        "index": 47
+    },
+    {
+        "property": "batch_ndr_exports",
+        "property_value": "false",
+        "description": null,
+        "index": 48
+    },
+    {
+        "property": "biometric_server_URL",
+        "property_value": "http://localhost:2019/api/FingerPrint",
+        "description": "Finger Print",
+        "index": 49
+    },
+    {
+        "property": "calculation.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the calculation module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 50
+    },
+    {
+        "property": "calculation.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the calculation module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 51
+    },
+    {
+        "property": "chartsearch.httpSolrUrl",
+        "property_value": "http://localhost",
+        "description": "Url to HTTP SOLR. Uses only if 'Use Dedicated SOLR set to\r\ntrue'",
+        "index": 52
+    },
+    {
+        "property": "chartsearch.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the chartsearch module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 53
+    },
+    {
+        "property": "chartsearch.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the chartsearch module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 54
+    },
+    {
+        "property": "chartsearch.useDedicatedSolrServer",
+        "property_value": "false",
+        "description": "Use dedicated SOLR server instead of embedded SOLR (true,\r\nfalse).\r\nYou will need to specify SOLR url. Requires module restart.",
+        "index": 55
+    },
+    {
+        "property": "check_batch",
+        "property_value": "true",
+        "description": null,
+        "index": 56
+    },
+    {
+        "property": "concept.causeOfDeath",
+        "property_value": "5002",
+        "description": "Concept id of the concept defining the CAUSE OF DEATH concept",
+        "index": 57
+    },
+    {
+        "property": "concept.defaultConceptMapType",
+        "property_value": "NARROWER-THAN",
+        "description": "Default concept map type which is used when no other is set",
+        "index": 58
+    },
+    {
+        "property": "concept.false",
+        "property_value": "2",
+        "description": "Concept id of the concept defining the FALSE boolean concept",
+        "index": 59
+    },
+    {
+        "property": "concept.height",
+        "property_value": "5090",
+        "description": "Concept id of the concept defining the HEIGHT concept",
+        "index": 60
+    },
+    {
+        "property": "concept.medicalRecordObservations",
+        "property_value": "1238",
+        "description": "The concept id of the MEDICAL_RECORD_OBSERVATIONS concept.  This concept_id is presumed to be the generic grouping (obr) concept in hl7 messages.  An obs_group row is not created for this concept.",
+        "index": 61
+    },
+    {
+        "property": "concept.none",
+        "property_value": "1107",
+        "description": "Concept id of the concept defining the NONE concept",
+        "index": 62
+    },
+    {
+        "property": "concept.otherNonCoded",
+        "property_value": "5622",
+        "description": "Concept id of the concept defining the OTHER NON-CODED concept",
+        "index": 63
+    },
+    {
+        "property": "concept.patientDied",
+        "property_value": "1742",
+        "description": "Concept id of the concept defining the PATIENT DIED concept",
+        "index": 64
+    },
+    {
+        "property": "concept.problemList",
+        "property_value": "1284",
+        "description": "The concept id of the PROBLEM LIST concept.  This concept_id is presumed to be the generic grouping (obr) concept in hl7 messages.  An obs_group row is not created for this concept.",
+        "index": 65
+    },
+    {
+        "property": "concept.reasonExitedCare",
+        "property_value": null,
+        "description": "Concept id of the concept defining the REASON EXITED CARE concept",
+        "index": 66
+    },
+    {
+        "property": "concept.reasonOrderStopped",
+        "property_value": "1812",
+        "description": "Concept id of the concept defining the REASON ORDER STOPPED concept",
+        "index": 67
+    },
+    {
+        "property": "concept.true",
+        "property_value": "1",
+        "description": "Concept id of the concept defining the TRUE boolean concept",
+        "index": 68
+    },
+    {
+        "property": "concept.weight",
+        "property_value": "5089",
+        "description": "Concept id of the concept defining the WEIGHT concept",
+        "index": 69
+    },
+    {
+        "property": "conceptDrug.dosageForm.conceptClasses",
+        "property_value": null,
+        "description": "A comma-separated list of the allowed concept classes for the dosage form field of the concept drug management form.",
+        "index": 70
+    },
+    {
+        "property": "conceptDrug.route.conceptClasses",
+        "property_value": null,
+        "description": "A comma-separated list of the allowed concept classes for the route field of the concept drug management form.",
+        "index": 71
+    },
+    {
+        "property": "conceptmanagementapps.snomedCtConceptSource",
+        "property_value": "1ADDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD",
+        "description": null,
+        "index": 72
+    },
+    {
+        "property": "conceptname.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the conceptname module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 73
+    },
+    {
+        "property": "conceptname.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the conceptname module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 74
+    },
+    {
+        "property": "concepts.locked",
+        "property_value": "false",
+        "description": "if true, do not allow editing concepts",
+        "index": 75
+    },
+    {
+        "property": "concept_map_type_management.enable",
+        "property_value": "false",
+        "description": "Enables or disables management of concept map types",
+        "index": 76
+    },
+    {
+        "property": "conditionList.endReasonConceptSetUuid",
+        "property_value": null,
+        "description": "UUID of end reason concept set",
+        "index": 77
+    },
+    {
+        "property": "conditionList.nonCodedUuid",
+        "property_value": null,
+        "description": "UUID of non coded concept",
+        "index": 78
+    },
+    {
+        "property": "coreapps.conceptStickyNote",
+        "property_value": "CIEL:162169",
+        "description": "Mapping of the concept used for the Sticky Note. In the form of SOURCE:NUMBER.",
+        "index": 79
+    },
+    {
+        "property": "coreapps.conditionListClasses",
+        "property_value": "8d4918b0-c2cc-11de-8d13-0010c6dffd0f",
+        "description": "List of concept uuid's which limits the answers for condition list",
+        "index": 80
+    },
+    {
+        "property": "coreapps.dashboardUrl",
+        "property_value": "/coreapps/clinicianfacing/patient.page?patientId={{patientId}}",
+        "description": "Allows one to override the default dashboard url",
+        "index": 81
+    },
+    {
+        "property": "coreapps.defaultPatientIdentifierLocation",
+        "property_value": null,
+        "description": "When adding a new patient identifier via the patient dashboard, the location to use if not specified (and the identifier type requires a location)",
+        "index": 82
+    },
+    {
+        "property": "coreapps.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the coreapps module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 83
+    },
+    {
+        "property": "coreapps.patientDashboardEncounterCount",
+        "property_value": "100",
+        "description": "Maximum number of encounters to be loaded and displayed at once on the patient dashboard.",
+        "index": 84
+    },
+    {
+        "property": "coreapps.recentDiagnosisPeriodInDays",
+        "property_value": null,
+        "description": "Number of days to consider diagnosis as recent",
+        "index": 85
+    },
+    {
+        "property": "coreapps.searchDelayLong",
+        "property_value": "1000",
+        "description": "Time, in milliseconds, that the patient search waits for an additional keystroke if only 1 or 2 characters have been entered",
+        "index": 86
+    },
+    {
+        "property": "coreapps.searchDelayShort",
+        "property_value": "300",
+        "description": "Default time, in milliseconds, that the patient search waits for an additional keystroke before performed a search",
+        "index": 87
+    },
+    {
+        "property": "coreapps.showVisitTypeOnPatientHeaderSection",
+        "property_value": "false",
+        "description": "On the active status and patient header sections, display inpatient/outpatient (based on whether\r\n            a visit has an admission encounter) or the associated visit type.",
+        "index": 88
+    },
+    {
+        "property": "coreapps.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the coreapps module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 89
+    },
+    {
+        "property": "coreapps.transferEncounterUuid",
+        "property_value": null,
+        "description": "Set encounter uuid if you would like to create a transfer encounter when visit type is changed",
+        "index": 90
+    },
+    {
+        "property": "coreapps.visitsPageUrl",
+        "property_value": "/coreapps/patientdashboard/patientDashboard.page?patientId={{patientId}}#visits",
+        "description": "Allows one to override the default general patient visits page",
+        "index": 91
+    },
+    {
+        "property": "coreapps.visitsPageWithSpecificVisitUrl",
+        "property_value": "/coreapps/patientdashboard/patientDashboard.page?patientId={{patientId}}&visitId={{visit.id}}#",
+        "description": "Allows one to override the default page that displays the details of a specific patient visit",
+        "index": 92
+    },
+    {
+        "property": "coreapps.visitTypeColors",
+        "property_value": null,
+        "description": "Set visit type colors in JSON-like format. Syntax\r\n            [\r\n                {\"uuid\":\"visit_type1_uuid\", \"color\":\"red\", \"shortName\":\"inpatient\"},\r\n                {\"uuid\":\"visit_type2_uuid\", \"color\":\"blue\", \"shortName\":\"oper_theater\"}\r\n            ]",
+        "index": 93
+    },
+    {
+        "property": "custombranding.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the custombranding module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 94
+    },
+    {
+        "property": "custombranding.started",
+        "property_value": "false",
+        "description": "DO NOT MODIFY. true/false whether or not the custombranding module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 95
+    },
+    {
+        "property": "customuinmrs.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the customuinmrs module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 96
+    },
+    {
+        "property": "customuinmrs.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the customuinmrs module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 97
+    },
+    {
+        "property": "dashboard.encounters.maximumNumberToShow",
+        "property_value": null,
+        "description": "An integer which, if specified, would determine the maximum number of encounters to display on the encounter tab of the patient dashboard.",
+        "index": 98
+    },
+    {
+        "property": "dashboard.encounters.providerDisplayRoles",
+        "property_value": null,
+        "description": "A comma-separated list of encounter roles (by name or id). Providers with these roles in an encounter will be displayed on the encounter tab of the patient dashboard.",
+        "index": 99
+    },
+    {
+        "property": "dashboard.encounters.showEditLink",
+        "property_value": "true",
+        "description": "true/false whether or not to show the 'Edit Encounter' link on the patient dashboard",
+        "index": 100
+    },
+    {
+        "property": "dashboard.encounters.showEmptyFields",
+        "property_value": "true",
+        "description": "true/false whether or not to show empty fields on the 'View Encounter' window",
+        "index": 101
+    },
+    {
+        "property": "dashboard.encounters.showViewLink",
+        "property_value": "true",
+        "description": "true/false whether or not to show the 'View Encounter' link on the patient dashboard",
+        "index": 102
+    },
+    {
+        "property": "dashboard.encounters.usePages",
+        "property_value": "smart",
+        "description": "true/false/smart on how to show the pages on the 'View Encounter' window.  'smart' means that if > 50% of the fields have page numbers defined, show data in pages",
+        "index": 103
+    },
+    {
+        "property": "dashboard.header.programs_to_show",
+        "property_value": "165683,160538,165684,165658",
+        "description": "List of programs to show Enrollment details of in the patient header. (Should be an ordered comma-separated list of program_ids or names.)",
+        "index": 104
+    },
+    {
+        "property": "dashboard.header.showConcept",
+        "property_value": "5497",
+        "description": "Comma delimited list of concepts ids to show on the patient header overview",
+        "index": 105
+    },
+    {
+        "property": "dashboard.header.workflows_to_show",
+        "property_value": null,
+        "description": "List of programs to show Enrollment details of in the patient header. List of workflows to show current status of in the patient header. These will only be displayed if they belong to a program listed above. (Should be a comma-separated list of program_workflow_ids.)",
+        "index": 106
+    },
+    {
+        "property": "dashboard.metadata.caseConversion",
+        "property_value": null,
+        "description": "Indicates which type automatic case conversion is applied to program/workflow/state in the patient dashboard. Valid values: lowercase, uppercase, capitalize. If empty no conversion is applied.",
+        "index": 107
+    },
+    {
+        "property": "dashboard.overview.showConcepts",
+        "property_value": null,
+        "description": "Comma delimited list of concepts ids to show on the patient dashboard overview tab",
+        "index": 108
+    },
+    {
+        "property": "dashboard.regimen.displayDrugSetIds",
+        "property_value": "ANTIRETROVIRAL DRUGS,TUBERCULOSIS TREATMENT DRUGS",
+        "description": "Drug sets that appear on the Patient Dashboard Regimen tab. Comma separated list of name of concepts that are defined as drug sets.",
+        "index": 109
+    },
+    {
+        "property": "dashboard.regimen.displayFrequencies",
+        "property_value": "7 days/week,6 days/week,5 days/week,4 days/week,3 days/week,2 days/week,1 days/week",
+        "description": "Frequency of a drug order that appear on the Patient Dashboard. Comma separated list of name of concepts that are defined as drug frequencies.",
+        "index": 110
+    },
+    {
+        "property": "dashboard.relationships.show_types",
+        "property_value": null,
+        "description": "Types of relationships separated by commas.  Doctor/Patient,Parent/Child",
+        "index": 111
+    },
+    {
+        "property": "dashboard.showPatientName",
+        "property_value": "true",
+        "description": "Whether or not to display the patient name in the patient dashboard title. Note that enabling this could be security risk if multiple users operate on the same computer.",
+        "index": 112
+    },
+    {
+        "property": "databasebackup.folderPath",
+        "property_value": "backup",
+        "description": "Path to the backup folder. You can either enter an absolute path \r\n            (i.e. 'C:/backup') or a relative path (i.e. like the default value 'backup') which is relative to the\r\n            OpenMRS application data directory.",
+        "index": 113
+    },
+    {
+        "property": "databasebackup.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the databasebackup module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 114
+    },
+    {
+        "property": "databasebackup.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the databasebackup module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 115
+    },
+    {
+        "property": "databasebackup.tablesExcluded",
+        "property_value": "none",
+        "description": "Enter the tables to be excluded from the backup comma separated (i.e.: hl7_in_archive, hl7_in_error) into field 'databasebackup.tablesExcluded' or use 'all' (default) to exclude all. If you don't want to exclude any tables, you could also leave it to the default value 'none'.\r\nExplicitly entered table names overrule any eventual 'all' or 'none' entries in the opposite settings field.",
+        "index": 116
+    },
+    {
+        "property": "databasebackup.tablesIncluded",
+        "property_value": "all",
+        "description": "Enter the tables to be included into the backup comma separated (i.e.: cohort, concept) into field 'databasebackup.tablesIncluded' or use 'all' (default) to include all.\r\nExplicitly entered table names overrule any eventual 'all' or 'none' entries in the opposite settings field.",
+        "index": 117
+    },
+    {
+        "property": "dataentrystatistics.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the dataentrystatistics module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 118
+    },
+    {
+        "property": "dataentrystatistics.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the dataentrystatistics module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 119
+    },
+    {
+        "property": "dataexchange.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the dataexchange module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 120
+    },
+    {
+        "property": "dataexchange.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the dataexchange module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 121
+    },
+    {
+        "property": "dataintegrity.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the dataintegrity module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 122
+    },
+    {
+        "property": "dataintegrity.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the dataintegrity module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 123
+    },
+    {
+        "property": "datamigration.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the datamigration module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 124
+    },
+    {
+        "property": "datamigration.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the datamigration module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 125
+    },
+    {
+        "property": "dataquality.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the dataquality module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 126
+    },
+    {
+        "property": "dataquality.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the dataquality module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 127
+    },
+    {
+        "property": "datePicker.weekStart",
+        "property_value": "0",
+        "description": "First day of the week in the date picker. Domingo/Dimanche/Sunday:0  Lunes/Lundi/Monday:1",
+        "index": 128
+    },
+    {
+        "property": "default_locale",
+        "property_value": "en",
+        "description": "Specifies the default locale. You can specify both the language code(ISO-639) and the country code(ISO-3166), e.g. 'en_GB' or just country: e.g. 'en'",
+        "index": 129
+    },
+    {
+        "property": "default_location",
+        "property_value": "Federal Medical Centre Umuahia",
+        "description": "The name of the location to use as a system default",
+        "index": 130
+    },
+    {
+        "property": "default_theme",
+        "property_value": "purple",
+        "description": "Default theme for users.  OpenMRS ships with themes of 'green', 'orange', 'purple', and 'legacy'",
+        "index": 131
+    },
+    {
+        "property": "dqr_last_analysis_date",
+        "property_value": "2023-02-05 12:26",
+        "description": "Last time DQR Analysis was run",
+        "index": 132
+    },
+    {
+        "property": "drugOrder.drugOther",
+        "property_value": "purple",
+        "description": "Specifies the uuid of the concept which represents drug other non coded",
+        "index": 133
+    },
+    {
+        "property": "drugOrder.requireDrug",
+        "property_value": "false",
+        "description": "Set to value true if you need to specify a formulation(Drug) when creating a drug order.",
+        "index": 134
+    },
+    {
+        "property": "emr.concept.diagnosisSetOfSets",
+        "property_value": "160167AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "description": null,
+        "index": 135
+    },
+    {
+        "property": "emr.encounterMatcher",
+        "property_value": null,
+        "description": "Class name of a custom encounter matcher (e.g. org.openmrs.module.example.customEncounterMatcher)",
+        "index": 136
+    },
+    {
+        "property": "emrapi.conceptSourcesForDiagnosisSearch",
+        "property_value": "ICD-10-WHO",
+        "description": "Specifies comma separated list of reference term source names to be used for diagnosis and condition search",
+        "index": 137
+    },
+    {
+        "property": "emrapi.EmrApiVisitAssignmentHandler.adjustEncounterTimeOfDayIfNecessary",
+        "property_value": "false",
+        "description": "If true, and a visit is found on the same day but the encounter is not within that timeframe will adjust the encounter time as needed",
+        "index": 138
+    },
+    {
+        "property": "emrapi.EmrApiVisitAssignmentHandler.encounterTypeToNewVisitTypeMap",
+        "property_value": null,
+        "description": "Specifies the mapping of encounter types to new visit types for more see https://wiki.openmrs.org/x/vgF4Aw",
+        "index": 139
+    },
+    {
+        "property": "emrapi.lastViewedPatientSizeLimit",
+        "property_value": "50",
+        "description": "Specifies the system wide number of patients to store as last viewed for a single user,\r\n            defaults to 50 if not specified",
+        "index": 140
+    },
+    {
+        "property": "emrapi.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the emrapi module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 141
+    },
+    {
+        "property": "emrapi.nonDiagnosisConceptSets",
+        "property_value": null,
+        "description": "UUIDs or mapping of non diagnosis concept sets",
+        "index": 142
+    },
+    {
+        "property": "emrapi.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the emrapi module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 143
+    },
+    {
+        "property": "emrapi.suppressedDiagnosisConcepts",
+        "property_value": null,
+        "description": "UUIDs or mappings of suppressed diagnosis concepts",
+        "index": 144
+    },
+    {
+        "property": "emrapi.useLegacyDiagnosisService",
+        "property_value": "false",
+        "description": "When running Core 2.2+, use the legacy diagnosis service instead of the new one provided to work with the new diagnosis model",
+        "index": 145
+    },
+    {
+        "property": "encounterForm.obsSortOrder",
+        "property_value": "number",
+        "description": "The sort order for the obs listed on the encounter edit form.  'number' sorts on the associated numbering from the form schema.  'weight' sorts on the order displayed in the form schema.",
+        "index": 146
+    },
+    {
+        "property": "EncounterType.encounterTypes.locked",
+        "property_value": "false",
+        "description": "saving, retiring or deleting an Encounter Type is not permitted, if true",
+        "index": 147
+    },
+    {
+        "property": "event.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the event module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 148
+    },
+    {
+        "property": "event.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the event module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 149
+    },
+    {
+        "property": "facility_datim_code",
+        "property_value": "E2u2QfC5cNQ",
+        "description": null,
+        "index": 150
+    },
+    {
+        "property": "facility_local_id",
+        "property_value": "E2u2QfC5cNQ",
+        "description": "local facility id implemented by partner",
+        "index": 151
+    },
+    {
+        "property": "Facility_Name",
+        "property_value": "Federal Medical Centre Umuahia",
+        "description": "Facility name. This should correspond to the name on DATIM",
+        "index": 152
+    },
+    {
+        "property": "FormEntry.enableDashboardTab",
+        "property_value": "true",
+        "description": "true/false whether or not to show a Form Entry tab on the patient dashboard",
+        "index": 153
+    },
+    {
+        "property": "FormEntry.enableOnEncounterTab",
+        "property_value": "false",
+        "description": "true/false whether or not to show a Enter Form button on the encounters tab of the patient dashboard",
+        "index": 154
+    },
+    {
+        "property": "formentryapp.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the formentryapp module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 155
+    },
+    {
+        "property": "formentryapp.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the formentryapp module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 156
+    },
+    {
+        "property": "formfilter.database_version",
+        "property_value": "1.0-SNAPSHOT",
+        "description": "DO NOT MODIFY.  Current database version number for the formfilter module.",
+        "index": 157
+    },
+    {
+        "property": "formfilter.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the formfilter module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 158
+    },
+    {
+        "property": "formfilter.started",
+        "property_value": "false",
+        "description": "DO NOT MODIFY. true/false whether or not the formfilter module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 159
+    },
+    {
+        "property": "formFilter.useRoleInheritanceComparison",
+        "property_value": "yes",
+        "description": "Should we consider user role inheritance comparison ? (yes/no)",
+        "index": 160
+    },
+    {
+        "property": "forms.locked",
+        "property_value": "false",
+        "description": "Set to a value of true if you do not want any changes to be made on forms, else set to false.",
+        "index": 161
+    },
+    {
+        "property": "graph.color.absolute",
+        "property_value": "rgb(20,20,20)",
+        "description": "Color of the 'invalid' section of numeric graphs on the patient dashboard.",
+        "index": 162
+    },
+    {
+        "property": "graph.color.critical",
+        "property_value": "rgb(200,0,0)",
+        "description": "Color of the 'critical' section of numeric graphs on the patient dashboard.",
+        "index": 163
+    },
+    {
+        "property": "graph.color.normal",
+        "property_value": "rgb(255,126,0)",
+        "description": "Color of the 'normal' section of numeric graphs on the patient dashboard.",
+        "index": 164
+    },
+    {
+        "property": "gzip.enabled",
+        "property_value": "false",
+        "description": "Set to 'true' to turn on OpenMRS's gzip filter, and have the webapp compress data before sending it to any client that supports it. Generally use this if you are running Tomcat standalone. If you are running Tomcat behind Apache, then you'd want to use Apache to do gzip compression.",
+        "index": 165
+    },
+    {
+        "property": "hl7_archive.dir",
+        "property_value": "hl7_archives",
+        "description": "The default name or absolute path for the folder where to write the hl7_in_archives.",
+        "index": 166
+    },
+    {
+        "property": "hl7_processor.ignore_missing_patient_non_local",
+        "property_value": "false",
+        "description": "If true, hl7 messages for patients that are not found and are non-local will silently be dropped/ignored",
+        "index": 167
+    },
+    {
+        "property": "host.url",
+        "property_value": null,
+        "description": "The URL to redirect to after requesting for a password reset. Always provide a place holder in this url with name {activationKey}, it will get substituted by the actual activation key.",
+        "index": 168
+    },
+    {
+        "property": "htmlformentry.archiveDir",
+        "property_value": "htmlformentry/archive/%Y/%m",
+        "description": "Used to specify the directory used to serialize data as a blob submitted via html forms before propagation to the database.\r\nIf a relative is specified then the directory is created in the default application data directory otherwise the absolute\r\npath is used.The %Y and %M are replaced with 4 digit year and 2 digit month respectively. If this property is empty nothing then nothing is saved.",
+        "index": 169
+    },
+    {
+        "property": "htmlformentry.archiveHtmlForms",
+        "property_value": "False",
+        "description": "Set to True if you want to archive the submitted html forms and False otherwise",
+        "index": 170
+    },
+    {
+        "property": "htmlformentry.dateFormat",
+        "property_value": "dd/MM/yyyy",
+        "description": "Always display dates in HTML Forms in this (Java) date format. E.g. \"dd/MMM/yyyy\" for 31/Jan/2012.",
+        "index": 171
+    },
+    {
+        "property": "htmlformentry.datePickerYearsRange",
+        "property_value": "110,20",
+        "description": "datePickerYearsRange parameter can be  set here Eg:'110,20' meaning that the possible years that appear in the datepicker dropdown range from  20 years past the current year, and 110 years prior to the current year.",
+        "index": 172
+    },
+    {
+        "property": "htmlformentry.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the htmlformentry module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 173
+    },
+    {
+        "property": "htmlformentry.showDateFormat",
+        "property_value": "true",
+        "description": "Set to true if you want static text for the date format to be displayed next to date widgets, else set to false.",
+        "index": 174
+    },
+    {
+        "property": "htmlformentry.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the htmlformentry module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 175
+    },
+    {
+        "property": "htmlformentry.timeFormat",
+        "property_value": "HH:mm",
+        "description": "Always display times in HTML Forms in this (Java) date format. E.g. \"HH:mm\" for 14:45.",
+        "index": 176
+    },
+    {
+        "property": "htmlformentryui.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the htmlformentryui module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 177
+    },
+    {
+        "property": "htmlformentryui.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the htmlformentryui module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 178
+    },
+    {
+        "property": "htmlwidgets.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the htmlwidgets module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 179
+    },
+    {
+        "property": "htmlwidgets.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the htmlwidgets module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 180
+    },
+    {
+        "property": "idgen.database_version",
+        "property_value": "2.5.1",
+        "description": "DO NOT MODIFY.  Current database version number for the idgen module.",
+        "index": 181
+    },
+    {
+        "property": "idgen.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the idgen module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 182
+    },
+    {
+        "property": "idgen.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the idgen module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 183
+    },
+    {
+        "property": "isNmrsDistribution",
+        "property_value": "true",
+        "description": "Tell its an NMRS Distribution",
+        "index": 184
+    },
+    {
+        "property": "jasperreport.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the jasperreport module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 185
+    },
+    {
+        "property": "jasperreport.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the jasperreport module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 186
+    },
+    {
+        "property": "last_local_data_sync_date",
+        "property_value": "2020-01-01 14:26:28",
+        "description": "Last Time Data was synced to central server with version 1.0",
+        "index": 187
+    },
+    {
+        "property": "layout.address.format",
+        "property_value": "<org.openmrs.layout.address.AddressTemplate>\n<nameMappings class=\"properties\">\n<property name=\"postalCode\" value=\"Location.postalCode\"/>\n<property name=\"address2\" value=\"Location.address2\"/>\n<property name=\"address1\" value=\"Location.address1\"/>\n<property name=\"country\" value=\"Location.country\"/>\n<property name=\"stateProvince\" value=\"State\"/>\n<property name=\"cityVillage\" value=\"Local Govt.\"/>\n</nameMappings>\n<sizeMappings class=\"properties\">\n<property name=\"postalCode\" value=\"10\"/>\n<property name=\"address2\" value=\"40\"/>\n<property name=\"address1\" value=\"40\"/>\n<property name=\"country\" value=\"10\"/>\n<property name=\"stateProvince\" value=\"10\"/>\n<property name=\"cityVillage\" value=\"10\"/>\n</sizeMappings>\n<lineByLineFormat>\n<string>address1</string>\n<string>address2</string>\n<string>cityVillage stateProvince country postalCode</string>\n</lineByLineFormat>\n</org.openmrs.layout.address.AddressTemplate>",
+        "description": null,
+        "index": 188
+    },
+    {
+        "property": "layout.name.format",
+        "property_value": "short",
+        "description": "Format in which to display the person names.  Valid values are short, long",
+        "index": 189
+    },
+    {
+        "property": "legacyui.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the legacyui module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 190
+    },
+    {
+        "property": "legacyui.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the legacyui module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 191
+    },
+    {
+        "property": "limsemrops.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the limsemrops module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 192
+    },
+    {
+        "property": "limsemrops.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the limsemrops module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 193
+    },
+    {
+        "property": "locale.allowed.list",
+        "property_value": "en, es, fr, it, pt",
+        "description": "Comma delimited list of locales allowed for use on system",
+        "index": 194
+    },
+    {
+        "property": "local_biometric_sync",
+        "property_value": "Yes",
+        "description": "Checks if biometrics have ever been synced to central server",
+        "index": 195
+    },
+    {
+        "property": "location.field.style",
+        "property_value": "default",
+        "description": "Type of widget to use for location fields",
+        "index": 196
+    },
+    {
+        "property": "log.layout",
+        "property_value": "%p - %C{1}.%M(%L) |%d{ISO8601}| %m%n",
+        "description": "A log layout pattern which is used by the OpenMRS file appender.",
+        "index": 197
+    },
+    {
+        "property": "log.level",
+        "property_value": "org.openmrs.api:info",
+        "description": "Logging levels for log4j.xml. Valid format is class:level,class:level. If class not specified, 'org.openmrs.api' presumed. Valid levels are trace, debug, info, warn, error or fatal",
+        "index": 198
+    },
+    {
+        "property": "log.location",
+        "property_value": null,
+        "description": "A directory where the OpenMRS log file appender is stored. The log file name is 'openmrs.log'.",
+        "index": 199
+    },
+    {
+        "property": "logic.default.ruleClassDirectory",
+        "property_value": "logic/class",
+        "description": "Default folder where compiled rule will be stored",
+        "index": 200
+    },
+    {
+        "property": "logic.default.ruleJavaDirectory",
+        "property_value": "logic/sources",
+        "description": "Default folder where rule's java file will be stored",
+        "index": 201
+    },
+    {
+        "property": "logic.defaultTokens.conceptClasses",
+        "property_value": null,
+        "description": "When registering default tokens for logic, if you specify a comma-separated list of concept class names here, only concepts of those classes will have tokens registered. If you leave this blank, all classes will have tokens registered for their concepts.",
+        "index": 202
+    },
+    {
+        "property": "logic.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the logic module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 203
+    },
+    {
+        "property": "logic.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the logic module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 204
+    },
+    {
+        "property": "login.url",
+        "property_value": "login.htm",
+        "description": "Responsible for defining the Authentication URL",
+        "index": 205
+    },
+    {
+        "property": "mail.debug",
+        "property_value": "false",
+        "description": "true/false whether to print debugging information during mailing",
+        "index": 206
+    },
+    {
+        "property": "mail.default_content_type",
+        "property_value": "text/plain",
+        "description": "Content type to append to the mail messages",
+        "index": 207
+    },
+    {
+        "property": "mail.from",
+        "property_value": "info@openmrs.org",
+        "description": "Email address to use as the default from address",
+        "index": 208
+    },
+    {
+        "property": "mail.password",
+        "property_value": "test",
+        "description": "Password for the SMTP user (if smtp_auth is enabled)",
+        "index": 209
+    },
+    {
+        "property": "mail.smtp.starttls.enable",
+        "property_value": "false",
+        "description": "Set to true to enable TLS encryption, else set to false",
+        "index": 210
+    },
+    {
+        "property": "mail.smtp_auth",
+        "property_value": "false",
+        "description": "true/false whether the smtp host requires authentication",
+        "index": 211
+    },
+    {
+        "property": "mail.smtp_host",
+        "property_value": "localhost",
+        "description": "SMTP host name",
+        "index": 212
+    },
+    {
+        "property": "mail.smtp_port",
+        "property_value": "25",
+        "description": "SMTP port",
+        "index": 213
+    },
+    {
+        "property": "mail.transport_protocol",
+        "property_value": "smtp",
+        "description": "Transport protocol for the messaging engine. Valid values: smtp",
+        "index": 214
+    },
+    {
+        "property": "mail.user",
+        "property_value": "test",
+        "description": "Username of the SMTP user (if smtp_auth is enabled)",
+        "index": 215
+    },
+    {
+        "property": "metadatadeploy.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the metadatadeploy module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 216
+    },
+    {
+        "property": "metadatadeploy.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the metadatadeploy module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 217
+    },
+    {
+        "property": "metadatamapping.addLocalMappings",
+        "property_value": null,
+        "description": "Specifies whether the concept mappings to the local dictionary should be created when exporting concepts",
+        "index": 218
+    },
+    {
+        "property": "metadatamapping.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the metadatamapping module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 219
+    },
+    {
+        "property": "metadatamapping.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the metadatamapping module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 220
+    },
+    {
+        "property": "metadatasharing.enableOnTheFlyPackages",
+        "property_value": "false",
+        "description": "Specifies whether metadata packages can be exported on the fly",
+        "index": 221
+    },
+    {
+        "property": "metadatasharing.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the metadatasharing module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 222
+    },
+    {
+        "property": "metadatasharing.persistIdsForClasses",
+        "property_value": null,
+        "description": "A comma separated list of class package/names that denotes classes to try and persist ids for. Common options: org.openmrs.Concept,org.openmrs.Form,org.openmrs.ConceptDatatype,org.openmrs.ConceptClass,org.openmrs.EncounterType,org.openmrs.IdentifierType,org.openmrs.RelationshipType,org.openmrs.Location",
+        "index": 223
+    },
+    {
+        "property": "metadatasharing.preferredConceptSourceIds",
+        "property_value": null,
+        "description": "Comma-separated list of concept source Ids for preferred sources, in case an incoming concept \r\nhas duplicate mappings to any of these sources, no confirmation will be required unless its \r\ndatatype or concept class differs from that of the existing concept",
+        "index": 224
+    },
+    {
+        "property": "metadatasharing.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the metadatasharing module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 225
+    },
+    {
+        "property": "metadatasharing.webservicesKey",
+        "property_value": null,
+        "description": "Key to grant access to remote systems to consume module webservices RESTfully",
+        "index": 226
+    },
+    {
+        "property": "minSearchCharacters",
+        "property_value": "3",
+        "description": "Number of characters user must input before searching is started.",
+        "index": 227
+    },
+    {
+        "property": "module_repository_folder",
+        "property_value": "modules",
+        "description": "Name of the folder in which to store the modules",
+        "index": 228
+    },
+    {
+        "property": "namephonetics.familyName2StringEncoder",
+        "property_value": "Soundex",
+        "description": null,
+        "index": 229
+    },
+    {
+        "property": "namephonetics.familyNameStringEncoder",
+        "property_value": "Soundex",
+        "description": null,
+        "index": 230
+    },
+    {
+        "property": "namephonetics.givenNameStringEncoder",
+        "property_value": "Soundex",
+        "description": null,
+        "index": 231
+    },
+    {
+        "property": "namephonetics.middleNameStringEncoder",
+        "property_value": "Soundex",
+        "description": null,
+        "index": 232
+    },
+    {
+        "property": "ndr_export_batch_size",
+        "property_value": "1",
+        "description": "the number of patient data in a batch for NDR export",
+        "index": 233
+    },
+    {
+        "property": "ndr_last_run_date",
+        "property_value": "2023-02-03 14:15:05",
+        "description": "NDR last run date",
+        "index": 234
+    },
+    {
+        "property": "newPatientForm.relationships",
+        "property_value": null,
+        "description": "Comma separated list of the RelationshipTypes to show on the new/short patient form.  The list is defined like '3a, 4b, 7a'.  The number is the RelationshipTypeId and the 'a' vs 'b' part is which side of the relationship is filled in by the user.",
+        "index": 235
+    },
+    {
+        "property": "new_patient_form.showRelationships",
+        "property_value": "false",
+        "description": "true/false whether or not to show the relationship editor on the addPatient.htm screen",
+        "index": 236
+    },
+    {
+        "property": "nigeriaemr.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the nigeriaemr module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 237
+    },
+    {
+        "property": "nigeriaemr.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the nigeriaemr module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 238
+    },
+    {
+        "property": "nigeriamrs.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the nigeriamrs module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 239
+    },
+    {
+        "property": "nigeriamrs.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the nigeriamrs module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 240
+    },
+    {
+        "property": "nigeria_qual_id",
+        "property_value": "E2u2QfC5cNQ",
+        "description": "Nigeria qual facility Id",
+        "index": 241
+    },
+    {
+        "property": "nmrsclinicals.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the nmrsclinicals module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 242
+    },
+    {
+        "property": "nmrsclinicals.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the nmrsclinicals module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 243
+    },
+    {
+        "property": "nmrsmetadata-poc.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the nmrsmetadata-poc module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 244
+    },
+    {
+        "property": "nmrsmetadata-poc.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the nmrsmetadata-poc module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 245
+    },
+    {
+        "property": "nmrsmetadata.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the nmrsmetadata module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 246
+    },
+    {
+        "property": "nmrsmetadata.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the nmrsmetadata module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 247
+    },
+    {
+        "property": "nmrsreports.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the nmrsreports module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 248
+    },
+    {
+        "property": "nmrsreports.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the nmrsreports module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 249
+    },
+    {
+        "property": "nmrs_logger",
+        "property_value": "debug",
+        "description": "This property is used for control the nigeria emr logger level, the value can be debug or live",
+        "index": 250
+    },
+    {
+        "property": "obs.complex_obs_dir",
+        "property_value": "complex_obs",
+        "description": "Default directory for storing complex obs.",
+        "index": 251
+    },
+    {
+        "property": "openhmis.backboneforms.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the openhmis.backboneforms module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 252
+    },
+    {
+        "property": "openhmis.backboneforms.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the openhmis.backboneforms module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 253
+    },
+    {
+        "property": "openhmis.commons.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the openhmis.commons module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 254
+    },
+    {
+        "property": "openhmis.commons.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the openhmis.commons module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 255
+    },
+    {
+        "property": "openhmis.inventory.autoCompleteOperations",
+        "property_value": "true",
+        "description": "Whether or not to automatically complete operations once submitted (true/false).",
+        "index": 256
+    },
+    {
+        "property": "openhmis.inventory.autoGenerateOperationNumber",
+        "property_value": "true",
+        "description": "true/false whether or not the operation number should be generated automatically.",
+        "index": 257
+    },
+    {
+        "property": "openhmis.inventory.autoSelectItemStockWithFurthestExpiration",
+        "property_value": "false",
+        "description": "Whether to select an item stock with the furthest expiration date, when AUTO expiration date field is selected while doing an adjustment.\nSelecting true will AUTO select an item stock with the furthest expiration date.",
+        "index": 258
+    },
+    {
+        "property": "openhmis.inventory.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the openhmis.inventory module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 259
+    },
+    {
+        "property": "openhmis.inventory.operationNumberIdentifierSourceId",
+        "property_value": "1",
+        "description": "ID of the Idgen Module identifier source.",
+        "index": 260
+    },
+    {
+        "property": "openhmis.inventory.reports.expiringStock",
+        "property_value": null,
+        "description": "The ID of the Expiring Stock report.",
+        "index": 261
+    },
+    {
+        "property": "openhmis.inventory.reports.stockCard",
+        "property_value": null,
+        "description": "The ID of the Stock Card report.",
+        "index": 262
+    },
+    {
+        "property": "openhmis.inventory.reports.stockOperationsByStockroom",
+        "property_value": null,
+        "description": "The ID of the Stock Operations by Stockroom report.",
+        "index": 263
+    },
+    {
+        "property": "openhmis.inventory.reports.stockroom",
+        "property_value": null,
+        "description": "The ID of the Stockroom report.",
+        "index": 264
+    },
+    {
+        "property": "openhmis.inventory.reports.stockTake",
+        "property_value": null,
+        "description": "The ID of the Stock Take report.",
+        "index": 265
+    },
+    {
+        "property": "openhmis.inventory.restrictNegativeInventoryStockCreation",
+        "property_value": "false",
+        "description": "true/false whether or not the system should restrict creation of stock with negative amounts",
+        "index": 266
+    },
+    {
+        "property": "openhmis.inventory.showOperationCancelReason",
+        "property_value": null,
+        "description": "true/false whether or not the cancel reason field should be used.",
+        "index": 267
+    },
+    {
+        "property": "openhmis.inventory.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the openhmis.inventory module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 268
+    },
+    {
+        "property": "openhmis.inventory.useWildcardItemSearch",
+        "property_value": "false",
+        "description": "Whether or not a search string matches only the start of an item (false) or anywhere in the item (true).",
+        "index": 269
+    },
+    {
+        "property": "order.drugDispensingUnitsConceptUuid",
+        "property_value": null,
+        "description": "Specifies the uuid of the concept set where its members represent the possible drug dispensing units",
+        "index": 270
+    },
+    {
+        "property": "order.drugDosingUnitsConceptUuid",
+        "property_value": null,
+        "description": "Specifies the uuid of the concept set where its members represent the possible drug dosing units",
+        "index": 271
+    },
+    {
+        "property": "order.drugRoutesConceptUuid",
+        "property_value": null,
+        "description": "Specifies the uuid of the concept set where its members represent the possible drug routes",
+        "index": 272
+    },
+    {
+        "property": "order.durationUnitsConceptUuid",
+        "property_value": null,
+        "description": "Specifies the uuid of the concept set where its members represent the possible duration units",
+        "index": 273
+    },
+    {
+        "property": "order.nextOrderNumberSeed",
+        "property_value": "1",
+        "description": "The next order number available for assignment",
+        "index": 274
+    },
+    {
+        "property": "order.orderNumberGeneratorBeanId",
+        "property_value": null,
+        "description": "Specifies spring bean id of the order generator to use when assigning order numbers",
+        "index": 275
+    },
+    {
+        "property": "order.testSpecimenSourcesConceptUuid",
+        "property_value": null,
+        "description": "Specifies the uuid of the concept set where its members represent the possible test specimen sources",
+        "index": 276
+    },
+    {
+        "property": "owa.appBaseUrl",
+        "property_value": "/owa",
+        "description": "The base URL from where the Open Web Apps are hosted",
+        "index": 277
+    },
+    {
+        "property": "owa.appFolderPath",
+        "property_value": "/home/nmrs/.OpenMRS/owa",
+        "description": "The default location where the apps are stored on disk",
+        "index": 278
+    },
+    {
+        "property": "owa.appStoreUrl",
+        "property_value": "http://modules.openmrs.org",
+        "description": "The default URL for the OpenMRS appstore",
+        "index": 279
+    },
+    {
+        "property": "owa.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the owa module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 280
+    },
+    {
+        "property": "owa.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the owa module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 281
+    },
+    {
+        "property": "partner_full_name",
+        "property_value": "Catholic Caritas Foundation of Nigeria",
+        "description": "Partners full name",
+        "index": 282
+    },
+    {
+        "property": "partner_reporting_lga_code",
+        "property_value": "729",
+        "description": "Facility Lga Code",
+        "index": 283
+    },
+    {
+        "property": "partner_reporting_state",
+        "property_value": "Abia",
+        "description": "Facility State Name",
+        "index": 284
+    },
+    {
+        "property": "partner_short_name",
+        "property_value": "CCFN",
+        "description": "Partners standard short name",
+        "index": 285
+    },
+    {
+        "property": "patient.defaultPatientIdentifierValidator",
+        "property_value": "org.openmrs.patient.impl.LuhnIdentifierValidator",
+        "description": "This property sets the default patient identifier validator.  The default validator is only used in a handful of (mostly legacy) instances.  For example, it's used to generate the isValidCheckDigit calculated column and to append the string \"(default)\" to the name of the default validator on the editPatientIdentifierType form.",
+        "index": 286
+    },
+    {
+        "property": "patient.headerAttributeTypes",
+        "property_value": null,
+        "description": "A comma delimited list of PersonAttributeType names that will be shown on the patient dashboard",
+        "index": 287
+    },
+    {
+        "property": "patient.identifierPrefix",
+        "property_value": null,
+        "description": "This property is only used if patient.identifierRegex is empty.  The string here is prepended to the sql indentifier search string.  The sql becomes \"... where identifier like '<PREFIX><QUERY STRING><SUFFIX>';\".  Typically this value is either a percent sign (%) or empty.",
+        "index": 288
+    },
+    {
+        "property": "patient.identifierRegex",
+        "property_value": null,
+        "description": "WARNING: Using this search property can cause a drop in mysql performance with large patient sets.  A MySQL regular expression for the patient identifier search strings.  The @SEARCH@ string is replaced at runtime with the user's search string.  An empty regex will cause a simply 'like' sql search to be used. Example: ^0*@SEARCH@([A-Z]+-[0-9])?$",
+        "index": 289
+    },
+    {
+        "property": "patient.identifierSearchPattern",
+        "property_value": null,
+        "description": "If this is empty, the regex or suffix/prefix search is used.  Comma separated list of identifiers to check.  Allows for faster searching of multiple options rather than the slow regex. e.g. @SEARCH@,0@SEARCH@,@SEARCH-1@-@CHECKDIGIT@,0@SEARCH-1@-@CHECKDIGIT@ would turn a request for \"4127\" into a search for \"in ('4127','04127','412-7','0412-7')\"",
+        "index": 290
+    },
+    {
+        "property": "patient.identifierSuffix",
+        "property_value": null,
+        "description": "This property is only used if patient.identifierRegex is empty.  The string here is prepended to the sql indentifier search string.  The sql becomes \"... where identifier like '<PREFIX><QUERY STRING><SUFFIX>';\".  Typically this value is either a percent sign (%) or empty.",
+        "index": 291
+    },
+    {
+        "property": "patient.listingAttributeTypes",
+        "property_value": null,
+        "description": "A comma delimited list of PersonAttributeType names that should be displayed for patients in _lists_",
+        "index": 292
+    },
+    {
+        "property": "patient.nameValidationRegex",
+        "property_value": null,
+        "description": "Names of the patients must pass this regex. Eg : ^[a-zA-Z \\-]+$ contains only english alphabet letters, spaces, and hyphens. A value of .* or the empty string means no validation is done.",
+        "index": 293
+    },
+    {
+        "property": "patient.viewingAttributeTypes",
+        "property_value": null,
+        "description": "A comma delimited list of PersonAttributeType names that should be displayed for patients when _viewing individually_",
+        "index": 294
+    },
+    {
+        "property": "patientflags.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the patientflags module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 295
+    },
+    {
+        "property": "patientflags.patientHeaderDisplay",
+        "property_value": "true",
+        "description": "DO NOT MODIFY HERE: use \"manage flag global properties\" to modify; true/false whether or not to display flags in the Patient Dashboard overview",
+        "index": 296
+    },
+    {
+        "property": "patientflags.patientOverviewDisplay",
+        "property_value": "true",
+        "description": "DO NOT MODIFY HERE: use \"manage flag global properties\" to modify; true/false whether or not to display flags in the Patient Dashboard header",
+        "index": 297
+    },
+    {
+        "property": "patientflags.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the patientflags module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 298
+    },
+    {
+        "property": "patientflags.username",
+        "property_value": "scheduler",
+        "description": "DO NOT MODIFY HERE: user \"manage flag global properties\" to modify; Username for the OpenMRS user that will evaluate Groovy flags",
+        "index": 299
+    },
+    {
+        "property": "patientIdentifierSearch.matchMode",
+        "property_value": "EXACT",
+        "description": "Specifies how patient identifiers are matched while searching for a patient. Valid values are 'EXACT, 'ANYWHERE' or 'START'. Defaults to 'EXACT' if missing or invalid value is present.",
+        "index": 300
+    },
+    {
+        "property": "patientIdentifierTypes.locked",
+        "property_value": "false",
+        "description": "Set to a value of true if you do not want allow editing patient identifier types, else set to false.",
+        "index": 301
+    },
+    {
+        "property": "patientqueueing.clinicianLocationUUIDS",
+        "property_value": "b1a8b05e-3542-4037-bbd3-998ee9c40574,2131aff8-2e2a-480a-b7ab-4ac53250262b,58c57d25-8d39-41ab-8422-108a0c277d98,7f65d926-57d6-4402-ae10-a5b3bcbf7986,7fdfa2cb-bc95-405a-88c6-32b7673c0453,aff27d58-a15c-49a6-9beb-d30dcfc0c66e,8ae6ceea-1891-44f4-8f45-55ba7c12a2d0,be7e1e5c-9bb1-4a0d-9683-4662b31b18dc,22294cb2-739a-43d2-8689-82bc42ca09da,fb1fc5b5-d2e6-4d2b-a8df-28c059d86991,8114f65f-53ca-444d-8e46-abc67b614692,270c34e0-814c-442b-8a1b-55fe4bd76afc,362055dc-9557-4db3-9f69-02f0f50d9a31",
+        "description": "A comma separated list of location uuids for locations that clinicians operate from",
+        "index": 302
+    },
+    {
+        "property": "patientqueueing.defaultDateFormat",
+        "property_value": "dd/MM/yyyy",
+        "description": "The date format without time",
+        "index": 303
+    },
+    {
+        "property": "patientqueueing.displayDateTimeFormat",
+        "property_value": "dd/MM/yyyy HH:mm:ss",
+        "description": "Date format for patientqueueing display and date pickers",
+        "index": 304
+    },
+    {
+        "property": "patientqueueing.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the patientqueueing module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 305
+    },
+    {
+        "property": "patientqueueing.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the patientqueueing module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 306
+    },
+    {
+        "property": "patientSearch.matchMode",
+        "property_value": "START",
+        "description": "Specifies how patient names are matched while searching patient. Valid values are 'ANYWHERE' or 'START'. Defaults to start if missing or invalid value is present.",
+        "index": 307
+    },
+    {
+        "property": "patient_identifier.importantTypes",
+        "property_value": null,
+        "description": "A comma delimited list of PatientIdentifier names : PatientIdentifier locations that will be displayed on the patient dashboard.  E.g.: TRACnet ID:Rwanda,ELDID:Kenya",
+        "index": 308
+    },
+    {
+        "property": "patient_id_limit",
+        "property_value": "1,10",
+        "description": "This property is used to control the number of patient to be export by the nmrs-ndr extraction tool",
+        "index": 309
+    },
+    {
+        "property": "person.attributeSearchMatchMode",
+        "property_value": "EXACT",
+        "description": "Specifies how person attributes are matched while searching person. Valid values are 'ANYWHERE' or 'EXACT'. Defaults to exact if missing or invalid value is present.",
+        "index": 310
+    },
+    {
+        "property": "person.searchMaxResults",
+        "property_value": "1000",
+        "description": "The maximum number of results returned by patient searches",
+        "index": 311
+    },
+    {
+        "property": "personAttributeTypes.locked",
+        "property_value": "false",
+        "description": "Set to a value of true if you do not want allow editing person attribute types, else set to false.",
+        "index": 312
+    },
+    {
+        "property": "provider.unknownProviderUuid",
+        "property_value": null,
+        "description": "Specifies the uuid of the Unknown Provider account",
+        "index": 313
+    },
+    {
+        "property": "providermanagement.addressWidget",
+        "property_value": "personAddress",
+        "description": "Address widget to use throughout the module",
+        "index": 314
+    },
+    {
+        "property": "providermanagement.advancedSearchPersonAttributeType",
+        "property_value": null,
+        "description": "Person attribute type, specified by uuid, to use as a search field on the advanced search page",
+        "index": 315
+    },
+    {
+        "property": "providermanagement.historicalPatientListDisplayFields",
+        "property_value": "Identifier:patient.patientIdentifier.identifier|Given Name:patient.personName.givenName|Family Name:patient.personName.familyName|Age:patient.age|Gender:patient.gender|Start Date:relationship.startDate|End Date:relationship.endDate",
+        "description": "Fields to display in the historical patient lists; specified as a pipe-delimited list of label/field pairs",
+        "index": 316
+    },
+    {
+        "property": "providermanagement.historicalProviderListDisplayFields",
+        "property_value": "Identifier:provider.identifier|Given Name:provider.person.personName.givenName|Family Name:provider.person.personName.familyName|Role:provider.providerRole|Gender:provider.person.gender|Start Date:relationship.startDate|End Date:relationship.endDate",
+        "description": "Fields to display in the historical provider lists; specified as a pipe-delimited list of label/field pairs",
+        "index": 317
+    },
+    {
+        "property": "providermanagement.locationTag",
+        "property_value": null,
+        "description": "Indicates the Health Facility location to which a provider could be assigned to.",
+        "index": 318
+    },
+    {
+        "property": "providermanagement.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the providermanagement module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 319
+    },
+    {
+        "property": "providermanagement.patientListDisplayFields",
+        "property_value": "Identifier:patient.patientIdentifier.identifier|Given Name:patient.personName.givenName|Family Name:patient.personName.familyName|Age:patient.age|Gender:patient.gender|Start Date:relationship.startDate",
+        "description": "Fields to display in the patient lists; specified as a pipe-delimited list of label/field pairs",
+        "index": 320
+    },
+    {
+        "property": "providermanagement.patientSearchDisplayFields",
+        "property_value": "Identifier:patient.patientIdentifier.identifier|Given Name:patient.personName.givenName|Family Name:patient.personName.familyName|Age:patient.age|Gender:patient.gender",
+        "description": "Fields to display in the patient search results; specified as a pipe-delimited list of label/field pairs",
+        "index": 321
+    },
+    {
+        "property": "providermanagement.personAttributeTypes",
+        "property_value": null,
+        "description": "Person attributes to display on the provider dashboard; specified as a pipe-delimited list of person attribute type uuids",
+        "index": 322
+    },
+    {
+        "property": "providermanagement.personSearchDisplayFields",
+        "property_value": "Given Name:person.personName.givenName|Family Name:person.personName.familyName|Age:person.age|Gender:person.gender",
+        "description": "Fields to display in the person search results; specified as a pipe-delimited list of label/field pairs",
+        "index": 323
+    },
+    {
+        "property": "providermanagement.providerListDisplayFields",
+        "property_value": "Identifier:provider.identifier|Given Name:provider.person.personName.givenName|Family Name:provider.person.personName.familyName|Role:provider.providerRole|Gender:provider.person.gender|Start Date:relationship.startDate",
+        "description": "Fields to display in the provider lists; specified as a pipe-delimited list of label/field pairs",
+        "index": 324
+    },
+    {
+        "property": "providermanagement.providerSearchDisplayFields",
+        "property_value": "Identifier:provider.identifier|Given Name:provider.person.personName.givenName|Family Name:provider.person.personName.familyName|Role:provider.providerRole|Gender:provider.person.gender",
+        "description": "Fields to display in the provider search results; specified as a pipe-delimited list of label/field pairs",
+        "index": 325
+    },
+    {
+        "property": "providermanagement.restrictedRoles",
+        "property_value": null,
+        "description": "Comma delimited list of UUIDs indicating the only Provider Roles to be available via the UI.",
+        "index": 326
+    },
+    {
+        "property": "providermanagement.restrictSearchToProvidersWithProviderRoles",
+        "property_value": "false",
+        "description": "True/false whether to restrict providers to those with roles",
+        "index": 327
+    },
+    {
+        "property": "providermanagement.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the providermanagement module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 328
+    },
+    {
+        "property": "providerSearch.matchMode",
+        "property_value": "EXACT",
+        "description": "Specifies how provider identifiers are matched while searching for providers. Valid values are START,EXACT, END or ANYWHERE",
+        "index": 329
+    },
+    {
+        "property": "referenceapplication.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the referenceapplication module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 330
+    },
+    {
+        "property": "referenceapplication.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the referenceapplication module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 331
+    },
+    {
+        "property": "referencedemodata.createDemoPatientsOnNextStartup",
+        "property_value": "0",
+        "description": null,
+        "index": 332
+    },
+    {
+        "property": "referencedemodata.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the referencedemodata module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 333
+    },
+    {
+        "property": "referencedemodata.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the referencedemodata module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 334
+    },
+    {
+        "property": "referencemetadata.installedVersion",
+        "property_value": "19",
+        "description": null,
+        "index": 335
+    },
+    {
+        "property": "referencemetadata.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the referencemetadata module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 336
+    },
+    {
+        "property": "referencemetadata.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the referencemetadata module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 337
+    },
+    {
+        "property": "registrationapp.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the registrationapp module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 338
+    },
+    {
+        "property": "registrationapp.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the registrationapp module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 339
+    },
+    {
+        "property": "registrationcore.biometrics.implementation",
+        "property_value": null,
+        "description": "Which Biometrics engine implementation to should we connect to? Specify a Spring bean name, or leave blank to disable",
+        "index": 340
+    },
+    {
+        "property": "registrationcore.birthdateEstimationStartMonth",
+        "property_value": "0",
+        "description": "The month from which the birth date is estimated, with January having a value of 0",
+        "index": 341
+    },
+    {
+        "property": "registrationcore.familyNameAutoSuggestList",
+        "property_value": null,
+        "description": "A comma separated list of common names to auto suggest for the family name field, when registering patients.",
+        "index": 342
+    },
+    {
+        "property": "registrationcore.fastSimilarPatientSearchAlgorithm",
+        "property_value": "registrationcore.BasicSimilarPatientSearchAlgorithm",
+        "description": "Specifies a bean used for the fast similar patient search algorithm.",
+        "index": 343
+    },
+    {
+        "property": "registrationcore.givenNameAutoSuggestList",
+        "property_value": null,
+        "description": "A comma separated list of common names to auto suggest for the given name field, when registering patients.",
+        "index": 344
+    },
+    {
+        "property": "registrationcore.identifierSourceId",
+        "property_value": "1",
+        "description": "Specifies the identifier source to use when generating patient identifiers",
+        "index": 345
+    },
+    {
+        "property": "registrationcore.local_mpi_identifierTypeMap.OpenEMPI ID",
+        "property_value": "a5d38e09-efcb-4d91-a526-50ce1ba5011a:2.16.840.1.113883.4.357:hl7",
+        "description": "Specifies the mapping from OpenEMPI Object ID (OID) to the local OpenMRS Application's identifier for OpenEMPI ID UUID.\nOpenEMPI ID is the default Global Identifier Domain (GID) for OpenEMPI but this can be changed.",
+        "index": 346
+    },
+    {
+        "property": "registrationcore.local_mpi_identifierTypeMap.OpenMRS ID",
+        "property_value": "05a29f94-c0ed-11e2-94be-8c13b969e334:2.25.71280592878078638113873461180761116318:PI",
+        "description": "Specifies the mapping from OpenEMPI Object ID (OID) to the local OpenMRS Application's identifier for OpenMRS ID UUID.\nOpenMRS ID is the default generated identifier for OpenMRS but this can be changed.",
+        "index": 347
+    },
+    {
+        "property": "registrationcore.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the registrationcore module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 348
+    },
+    {
+        "property": "registrationcore.mpi.Hl7implementation",
+        "property_value": "registrationcore.mpiHl7v2HttpSender",
+        "description": "Specifies which bean should be used to send the Hl7 Message. Current options are:\n\"registrationcore.mpiHl7v2HttpSender\", \"registrationcore.mpiHl7v2MllpSender\".",
+        "index": 349
+    },
+    {
+        "property": "registrationcore.mpi.implementation",
+        "property_value": null,
+        "description": "Which MPI to should we connect to? Specify a Spring bean name, or leave blank to disable MPI integration",
+        "index": 350
+    },
+    {
+        "property": "registrationcore.mpi.pdq.errorHandler.implementation",
+        "property_value": null,
+        "description": "Specify a Spring bean name of PDQ error handler service. It requires the xds-sender module and outgoing message\nexception module developed by SolDevelo. Set value to \"outgoingmessageexceptions.PdqErrorHandlingService\" and\ninstall those two modules to enable pix error handling functionality.",
+        "index": 351
+    },
+    {
+        "property": "registrationcore.mpi.pdqEndpoint",
+        "property_value": "http://localhost:5001/pdq",
+        "description": "Specifies endpoint for Hl7 PDQ Message",
+        "index": 352
+    },
+    {
+        "property": "registrationcore.mpi.pdqIdentifierTypeUuidList",
+        "property_value": "05a29f94-c0ed-11e2-94be-8c13b969e334,a5d38e09-efcb-4d91-a526-50ce1ba5011a",
+        "description": "Specifies the list of identifiers to send in a PDQ query to get patient data from the MPI. Takes a list of UUID of patient identifier types - separate them with commas.\nUUIDs can be found in the patient_identifier_type database table.",
+        "index": 353
+    },
+    {
+        "property": "registrationcore.mpi.pdqPort",
+        "property_value": "3600",
+        "description": "Specifies port for Hl7 PDQ Message",
+        "index": 354
+    },
+    {
+        "property": "registrationcore.mpi.personIdentifierId",
+        "property_value": null,
+        "description": "Specifies id of identifier type which will be used for Mpi Person Id",
+        "index": 355
+    },
+    {
+        "property": "registrationcore.mpi.personIdentifierTypeUuid",
+        "property_value": "a5d38e09-efcb-4d91-a526-50ce1ba5011a",
+        "description": "Specifies UUID of the identifier type that is used as the Global Identifier Domain (GID) in the MPI.\nIt is generated by the MPI and is persisted in OpenMRS.",
+        "index": 356
+    },
+    {
+        "property": "registrationcore.mpi.pix.errorHandler.implementation",
+        "property_value": null,
+        "description": "Specify a Spring bean name of PIX error handler service. It requires the xds-sender module and outgoing message\nexception module developed by SolDevelo. Set value to \"outgoingmessageexceptions.PixErrorHandlingService\" and\ninstall those two modules to enable pix error handling functionality.",
+        "index": 357
+    },
+    {
+        "property": "registrationcore.mpi.pixEndpoint",
+        "property_value": "http://localhost:5001/pix",
+        "description": "Specifies the endpoint for the Hl7 PIX Message",
+        "index": 358
+    },
+    {
+        "property": "registrationcore.mpi.pixIdentifierTypeUuidList",
+        "property_value": "05a29f94-c0ed-11e2-94be-8c13b969e334,a5d38e09-efcb-4d91-a526-50ce1ba5011a",
+        "description": "Specifies the list of identifiers to send in a PIX query to save the patient in the MPI. Takes a list of UUID of patient identifier types - separate them with commas.\nUUIDs can be found in the patient_identifier_type database table.",
+        "index": 359
+    },
+    {
+        "property": "registrationcore.mpi.pixPort",
+        "property_value": "3700",
+        "description": "Specifies port for Hl7 PIX Message",
+        "index": 360
+    },
+    {
+        "property": "registrationcore.mpi.receivingApplication",
+        "property_value": null,
+        "description": "Specifies the receiving application in the MSH header section of the HL7 message",
+        "index": 361
+    },
+    {
+        "property": "registrationcore.mpi.receivingFacility",
+        "property_value": null,
+        "description": "Specifies sending Facility in the MSH header section of the HL7 message",
+        "index": 362
+    },
+    {
+        "property": "registrationcore.mpi.sendingApplication",
+        "property_value": "OpenMRS",
+        "description": "Specifies the sending application in the MSH header section of the HL7 message",
+        "index": 363
+    },
+    {
+        "property": "registrationcore.mpi.sendingFacility",
+        "property_value": null,
+        "description": "Specifies sending Facility in the MSH header section of the HL7 message",
+        "index": 364
+    },
+    {
+        "property": "registrationcore.mpi.url",
+        "property_value": null,
+        "description": "Specifies url to MPI server",
+        "index": 365
+    },
+    {
+        "property": "registrationcore.mpi.username",
+        "property_value": null,
+        "description": "Specifies username for authentication to MPI server",
+        "index": 366
+    },
+    {
+        "property": "registrationcore.openempi.enableProbabilisticMatching",
+        "property_value": "false",
+        "description": "Specifies if probably matching should be used",
+        "index": 367
+    },
+    {
+        "property": "registrationcore.openempi.globalIdentifierDomainId",
+        "property_value": null,
+        "description": "Specifies main identifier on MPI server (e.g. \"xyz\" for OpenEMPI)",
+        "index": 368
+    },
+    {
+        "property": "registrationcore.openmrsIdentifier.uuid",
+        "property_value": "05a29f94-c0ed-11e2-94be-8c13b969e334",
+        "description": "UUID of the OpenMRS identifier that will be generated during MPI import unless it is present. By default set to the UUID of OpenMRS ID.\nNote: You have to have a Patient Identifier Source correctly configured and stored in the global property identifierSourceId",
+        "index": 369
+    },
+    {
+        "property": "registrationcore.patientNameSearch",
+        "property_value": "registrationcore.BasicPatientNameSearch",
+        "description": null,
+        "index": 370
+    },
+    {
+        "property": "registrationcore.preciseSimilarPatientSearchAlgorithm",
+        "property_value": "registrationcore.BasicExactPatientSearchAlgorithm",
+        "description": "Specifies a bean used for the precise similar patient search algorithm.",
+        "index": 371
+    },
+    {
+        "property": "registrationcore.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the registrationcore module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 372
+    },
+    {
+        "property": "report.deleteReportsAgeInHours",
+        "property_value": "72",
+        "description": "Reports that are not explicitly saved are deleted automatically when they are this many hours old. (Values less than or equal to zero means do not delete automatically)",
+        "index": 373
+    },
+    {
+        "property": "report.xmlMacros",
+        "property_value": null,
+        "description": "Macros that will be applied to Report Schema XMLs when they are interpreted. This should be java.util.properties format.",
+        "index": 374
+    },
+    {
+        "property": "reporting.dataEvaluationBatchSize",
+        "property_value": "-1",
+        "description": "This determines whether to run evaluators for Data in batches and what the size of those batches should be.\r\nA value of less than or equal to 0 indicates that no batching is desired.",
+        "index": 375
+    },
+    {
+        "property": "reporting.defaultDateFormat",
+        "property_value": "dd/MMM/yyyy",
+        "description": "Default date format to use when formatting report data",
+        "index": 376
+    },
+    {
+        "property": "reporting.defaultLocale",
+        "property_value": "en",
+        "description": "Default locale to use when formatting report data",
+        "index": 377
+    },
+    {
+        "property": "reporting.evaluationLoggerEnabled",
+        "property_value": "false",
+        "description": "If false, will disable the built in use of the evaluation logger to log evaluation information for performance diagnostics",
+        "index": 378
+    },
+    {
+        "property": "reporting.includeDataExportsAsDataSetDefinitions",
+        "property_value": "false",
+        "description": "If reportingcompatibility is installed, this indicates whether data exports should be exposed as Dataset Definitions",
+        "index": 379
+    },
+    {
+        "property": "reporting.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the reporting module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 380
+    },
+    {
+        "property": "reporting.maxCachedReports",
+        "property_value": "10",
+        "description": "The maximum number of reports whose underlying data and output should be kept in the cache at any one time",
+        "index": 381
+    },
+    {
+        "property": "reporting.maxReportsToRun",
+        "property_value": "1",
+        "description": "The maximum number of reports that should be processed at any one time",
+        "index": 382
+    },
+    {
+        "property": "reporting.preferredIdentifierTypes",
+        "property_value": null,
+        "description": "Pipe-separated list of patient identifier type names, which should be displayed on default patient datasets",
+        "index": 383
+    },
+    {
+        "property": "reporting.reportManager.923b9664-84c3-4988-a888-458c42405605.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 384
+    },
+    {
+        "property": "reporting.reportManager.9667a78e-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 385
+    },
+    {
+        "property": "reporting.reportManager.9667ac52-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 386
+    },
+    {
+        "property": "reporting.reportManager.ad418753-8a1c-4f5f-8c61-5599369bd5d2.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 387
+    },
+    {
+        "property": "reporting.reportManager.b39c4c4c-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 388
+    },
+    {
+        "property": "reporting.reportManager.b39c5070-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 389
+    },
+    {
+        "property": "reporting.reportManager.d1a00e10-cecb-4775-8c4f-2ed0b059d7b9.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 390
+    },
+    {
+        "property": "reporting.reportManager.d39509bc-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 391
+    },
+    {
+        "property": "reporting.reportManager.d3950d7c-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 392
+    },
+    {
+        "property": "reporting.reportManager.d3950ea8-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 393
+    },
+    {
+        "property": "reporting.reportManager.d71b5170-5283-11e7-b114-b2f933d5fe66.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 394
+    },
+    {
+        "property": "reporting.reportManager.e451a9d6-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 395
+    },
+    {
+        "property": "reporting.reportManager.e451ae04-4881-11e7-a919-92ebcb67fe24.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 396
+    },
+    {
+        "property": "reporting.reportManager.e451ae04-4881-11e7-a919-92ebcb67fe33.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 397
+    },
+    {
+        "property": "reporting.reportManager.e451ae04-4881-11e7-a919-92ebcb67fe45.version",
+        "property_value": "1.0",
+        "description": null,
+        "index": 398
+    },
+    {
+        "property": "reporting.runReportCohortFilterMode",
+        "property_value": "showIfNull",
+        "description": "Supports the values hide,showIfNull,show which determine whether the cohort selector should be available in the run report page",
+        "index": 399
+    },
+    {
+        "property": "reporting.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the reporting module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 400
+    },
+    {
+        "property": "reporting.testPatientsCohortDefinition",
+        "property_value": null,
+        "description": "Points to a cohort definition representing all test/fake patients that you want to exclude from all queries and reports. You may set this to the UUID of a saved cohort definition, or to \"library:keyInADefinitionLibrary\"",
+        "index": 401
+    },
+    {
+        "property": "reportingcompatibility.data_export_batch_size",
+        "property_value": "7500",
+        "description": "The number of patients to export at a time in a data export.  The larger this number the faster and more memory that is used.  The smaller this number the slower and less memory is used.",
+        "index": 402
+    },
+    {
+        "property": "reportingcompatibility.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the reportingcompatibility module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 403
+    },
+    {
+        "property": "reportingcompatibility.patientLinkUrl",
+        "property_value": "patientDashboard.form",
+        "description": "The link url for a particular patient to view from the cohort builder",
+        "index": 404
+    },
+    {
+        "property": "reportingcompatibility.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the reportingcompatibility module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 405
+    },
+    {
+        "property": "reportingrest.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the reportingrest module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 406
+    },
+    {
+        "property": "reportingrest.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the reportingrest module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 407
+    },
+    {
+        "property": "reportingui.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the reportingui module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 408
+    },
+    {
+        "property": "reportingui.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the reportingui module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 409
+    },
+    {
+        "property": "reportProblem.url",
+        "property_value": "http://errors.openmrs.org/scrap",
+        "description": "The openmrs url where to submit bug reports",
+        "index": 410
+    },
+    {
+        "property": "scheduler.password",
+        "property_value": "Scheduler123",
+        "description": "Password for the OpenMRS user that will perform the scheduler activities",
+        "index": 411
+    },
+    {
+        "property": "scheduler.username",
+        "property_value": "scheduler",
+        "description": "Username for the OpenMRS user that will perform the scheduler activities",
+        "index": 412
+    },
+    {
+        "property": "search.caseSensitiveDatabaseStringComparison",
+        "property_value": "false",
+        "description": "Indicates whether database string comparison is case sensitive or not. Setting this to false for MySQL with a case insensitive collation improves search performance.",
+        "index": 413
+    },
+    {
+        "property": "search.indexVersion",
+        "property_value": "7",
+        "description": "Indicates the index version. If it is blank, the index needs to be rebuilt.",
+        "index": 414
+    },
+    {
+        "property": "searchWidget.batchSize",
+        "property_value": "200",
+        "description": "The maximum number of search results that are returned by an ajax call",
+        "index": 415
+    },
+    {
+        "property": "searchWidget.dateDisplayFormat",
+        "property_value": null,
+        "description": "Date display format to be used to display the date somewhere in the UI i.e the search widgets and autocompletes",
+        "index": 416
+    },
+    {
+        "property": "searchWidget.maximumResults",
+        "property_value": "2000",
+        "description": "Specifies the maximum number of results to return from a single search in the search widgets",
+        "index": 417
+    },
+    {
+        "property": "searchWidget.runInSerialMode",
+        "property_value": "false",
+        "description": "Specifies whether the search widgets should make ajax requests in serial or parallel order, a value of true is appropriate for implementations running on a slow network connection and vice versa",
+        "index": 418
+    },
+    {
+        "property": "searchWidget.searchDelayInterval",
+        "property_value": "400",
+        "description": "Specifies time interval in milliseconds when searching, between keyboard keyup event and triggering the search off, should be higher if most users are slow when typing so as to minimise the load on the server",
+        "index": 419
+    },
+    {
+        "property": "security.allowedFailedLoginsBeforeLockout",
+        "property_value": "7",
+        "description": "Maximum number of failed logins allowed after which username is locked out",
+        "index": 420
+    },
+    {
+        "property": "security.passwordCannotMatchUsername",
+        "property_value": "true",
+        "description": "Configure whether passwords must not match user's username or system id",
+        "index": 421
+    },
+    {
+        "property": "security.passwordCustomRegex",
+        "property_value": null,
+        "description": "Configure a custom regular expression that a password must match",
+        "index": 422
+    },
+    {
+        "property": "security.passwordMinimumLength",
+        "property_value": "8",
+        "description": "Configure the minimum length required of all passwords",
+        "index": 423
+    },
+    {
+        "property": "security.passwordRequiresDigit",
+        "property_value": "true",
+        "description": "Configure whether passwords must contain at least one digit",
+        "index": 424
+    },
+    {
+        "property": "security.passwordRequiresNonDigit",
+        "property_value": "true",
+        "description": "Configure whether passwords must contain at least one non-digit",
+        "index": 425
+    },
+    {
+        "property": "security.passwordRequiresUpperAndLowerCase",
+        "property_value": "true",
+        "description": "Configure whether passwords must contain both upper and lower case characters",
+        "index": 426
+    },
+    {
+        "property": "security.validTime",
+        "property_value": "600000",
+        "description": "Specifies the duration of time in seconds for which a password reset token is valid, the default value is 10 minutes and the allowed values range from 1 minute to 12hrs",
+        "index": 427
+    },
+    {
+        "property": "serialization.xstream.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the serialization.xstream module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 428
+    },
+    {
+        "property": "serialization.xstream.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the serialization.xstream module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 429
+    },
+    {
+        "property": "Server_Facility_Name",
+        "property_value": "Federal Medical Centre Umuahia",
+        "description": "Server Facility State",
+        "index": 430
+    },
+    {
+        "property": "State",
+        "property_value": "Abia",
+        "description": "Facility State",
+        "index": 431
+    },
+    {
+        "property": "uicommons.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the uicommons module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 432
+    },
+    {
+        "property": "uicommons.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the uicommons module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 433
+    },
+    {
+        "property": "uiframework.formatter.dateAndTimeFormat",
+        "property_value": "dd.MMM.yyyy, HH:mm:ss",
+        "description": "Format used by UiUtils.format for dates that have a time component",
+        "index": 434
+    },
+    {
+        "property": "uiframework.formatter.dateFormat",
+        "property_value": "dd.MMM.yyyy",
+        "description": "Format used by UiUtils.format for dates that do not have a time component",
+        "index": 435
+    },
+    {
+        "property": "uiframework.formatter.JSdateAndTimeFormat",
+        "property_value": "DD.MMM.YYYY, HH:mm:ss",
+        "description": "Format used by Javascript functions for dates that have a time component",
+        "index": 436
+    },
+    {
+        "property": "uiframework.formatter.JSdateFormat",
+        "property_value": "DD.MMM.YYYY",
+        "description": "Format used by Javascript for dates that do not have a time component",
+        "index": 437
+    },
+    {
+        "property": "uiframework.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the uiframework module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 438
+    },
+    {
+        "property": "uiframework.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the uiframework module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 439
+    },
+    {
+        "property": "uilibrary.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the uilibrary module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 440
+    },
+    {
+        "property": "uilibrary.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the uilibrary module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 441
+    },
+    {
+        "property": "user.headerAttributeTypes",
+        "property_value": null,
+        "description": "A comma delimited list of PersonAttributeType names that will be shown on the user dashboard. (not used in v1.5)",
+        "index": 442
+    },
+    {
+        "property": "user.listingAttributeTypes",
+        "property_value": null,
+        "description": "A comma delimited list of PersonAttributeType names that should be displayed for users in _lists_",
+        "index": 443
+    },
+    {
+        "property": "user.requireEmailAsUsername",
+        "property_value": "false",
+        "description": "Indicates whether a username must be a valid e-mail or not.",
+        "index": 444
+    },
+    {
+        "property": "user.viewingAttributeTypes",
+        "property_value": null,
+        "description": "A comma delimited list of PersonAttributeType names that should be displayed for users when _viewing individually_",
+        "index": 445
+    },
+    {
+        "property": "use_patient_attribute.healthCenter",
+        "property_value": "false",
+        "description": "Indicates whether or not the 'health center' attribute is shown when viewing/searching for patients",
+        "index": 446
+    },
+    {
+        "property": "use_patient_attribute.mothersName",
+        "property_value": "false",
+        "description": "Indicates whether or not mother's name is able to be added/viewed for a patient",
+        "index": 447
+    },
+    {
+        "property": "validation.disable",
+        "property_value": "false",
+        "description": "Disables validation of OpenMRS Objects. Only takes affect on next restart. Warning: only do this is you know what you are doing!",
+        "index": 448
+    },
+    {
+        "property": "visits.allowOverlappingVisits",
+        "property_value": "true",
+        "description": "true/false whether or not to allow visits of a given patient to overlap",
+        "index": 449
+    },
+    {
+        "property": "visits.assignmentHandler",
+        "property_value": "org.openmrs.api.handler.ExistingOrNewVisitAssignmentHandler",
+        "description": "Set to the name of the class responsible for assigning encounters to visits.",
+        "index": 450
+    },
+    {
+        "property": "visits.autoCloseVisitType",
+        "property_value": "Facility Visit",
+        "description": "comma-separated list of the visit type(s) to automatically close",
+        "index": 451
+    },
+    {
+        "property": "visits.enabled",
+        "property_value": "true",
+        "description": "Set to true to enable the Visits feature. This will replace the 'Encounters' tab with a 'Visits' tab on the dashboard.",
+        "index": 452
+    },
+    {
+        "property": "visits.encounterTypeToVisitTypeMapping",
+        "property_value": null,
+        "description": "Specifies how encounter types are mapped to visit types when automatically assigning encounters to visits. e.g 1:1, 2:1, 3:2 in the format encounterTypeId:visitTypeId or encounterTypeUuid:visitTypeUuid or a combination of encounter/visit type uuids and ids e.g 1:759799ab-c9a5-435e-b671-77773ada74e4",
+        "index": 453
+    },
+    {
+        "property": "visualization.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the visualization module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 454
+    },
+    {
+        "property": "visualization.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the visualization module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 455
+    },
+    {
+        "property": "webservices.rest.allowedips",
+        "property_value": null,
+        "description": "A comma-separate list of IP addresses that are allowed to access the web services. An empty string allows everyone to access all ws. \r\n        IPs can be declared with bit masks e.g. 10.0.0.0/30 matches 10.0.0.0 - 10.0.0.3 and 10.0.0.0/24 matches 10.0.0.0 - 10.0.0.255.",
+        "index": 456
+    },
+    {
+        "property": "webservices.rest.mandatory",
+        "property_value": "false",
+        "description": "true/false whether or not the webservices.rest module MUST start when openmrs starts.  This is used to make sure that mission critical modules are always running if openmrs is running.",
+        "index": 457
+    },
+    {
+        "property": "webservices.rest.maxResultsAbsolute",
+        "property_value": "100",
+        "description": "The absolute max results limit. If the client requests a larger number of results, then will get an error",
+        "index": 458
+    },
+    {
+        "property": "webservices.rest.maxResultsDefault",
+        "property_value": "50",
+        "description": "The default max results limit if the user does not provide a maximum when making the web service call.",
+        "index": 459
+    },
+    {
+        "property": "webservices.rest.quietDocs",
+        "property_value": "true",
+        "description": "If the value of this setting is \"true\", then nothing is logged while the Swagger specification is being generated.",
+        "index": 460
+    },
+    {
+        "property": "webservices.rest.started",
+        "property_value": "true",
+        "description": "DO NOT MODIFY. true/false whether or not the webservices.rest module has been started.  This is used to make sure modules that were running  prior to a restart are started again",
+        "index": 461
+    },
+    {
+        "property": "webservices.rest.uriPrefix",
+        "property_value": null,
+        "description": "The URI prefix through which clients consuming web services will connect to the web application, should be of the form http://{ipAddress}:{port}/{contextPath}",
+        "index": 462
+    }
+]

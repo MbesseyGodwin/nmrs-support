@@ -5,9 +5,10 @@ import HtsHistory from "./HtsHistory";
 import HtsCategory from "./HtsCategory";
 import HtsAnalysis from "./HtsAnalysis";
 import HtsData from "./HtsData";
+import HtsDrillDownChart from "./HtsDrillDownChart";
 
 export class Hts extends Component {
-    
+
 
   sliderSettings = {
     infinite: true,
@@ -27,7 +28,7 @@ export class Hts extends Component {
         <div className="row">
           <div id="carouselExampleSlidesOnly" className="col-xl-3 col-sm-6 grid-margin stretch-card carousel slide" data-ride="carousel">
             <div className="card carousel-inner d-block">
-              
+
               <div className="card-body carousel-item active">
                 <div className="row">
                   <div className="col-9">
@@ -42,7 +43,7 @@ export class Hts extends Component {
                   </div>
                 </div>
                 <h6 className="font-weight-normal small">
-                Total Tested
+                  Total Tested
                 </h6>
               </div>
 
@@ -60,7 +61,7 @@ export class Hts extends Component {
                   </div>
                 </div>
                 <h6 className="font-weight-normal small">
-                Total Female Tested
+                  Total Female Tested
                 </h6>
               </div>
 
@@ -78,7 +79,7 @@ export class Hts extends Component {
                   </div>
                 </div>
                 <h6 className="font-weight-normal small">
-                Total Male Tested
+                  Total Male Tested
                 </h6>
               </div>
             </div>
@@ -100,7 +101,7 @@ export class Hts extends Component {
                   </div>
                 </div>
                 <h6 className="font-weight-normal small">
-                Tested Negative
+                  Tested Negative
                 </h6>
               </div>
             </div>
@@ -149,18 +150,18 @@ export class Hts extends Component {
 
 
         <div className="row">
-        {/* hts gender category */}
-        <HtsCategory />
+          {/* hts gender category */}
+          <HtsCategory />
 
 
-        {/* hts history */}
-        <HtsHistory />
+          {/* hts history */}
+          <HtsHistory />
         </div>
 
 
 
         <div className="row">
-        {/* Category 3 */}
+          {/* Category 3 */}
           <div className="col-md-6 grid-margin stretch-card">
             <div className="card">
               <div className="card-body">
@@ -170,12 +171,23 @@ export class Hts extends Component {
             </div>
           </div>
 
-       {/* Category 4 */}
+          {/* Category 4 */}
           <div className="col-md-6 grid-margin stretch-card">
             <div className="card">
               <div className="card-body">
                 <h4 className="card-title">Category 4</h4>
                 <HtsData />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-12 grid-margin stretch-card">
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">HTS Drill Down</h4>
+                <HtsDrillDownChart />
               </div>
             </div>
           </div>

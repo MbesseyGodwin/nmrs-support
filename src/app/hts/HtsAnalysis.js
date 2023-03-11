@@ -10,7 +10,7 @@ const [chart, setChart] = useState(null);
 
 useEffect(() => {
 let chart = am4core.create("donutChart", am4charts.PieChart);
-chart.fontSize = "10px";
+// chart.fontSize = "10px";
 chart.fontWeight = "bold";
 chart.fontFamily = "Open Sans";
 chart.color = "white";

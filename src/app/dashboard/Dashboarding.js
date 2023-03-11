@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { TodoListComponent } from "../apps/TodoList";
 import { VectorMap } from "react-jvectormap";
 import Globalproperties from "./Globalproperties";
+import DashboardSlides from "./DashboardSlides";
 
 // map data
 const mapData = {
@@ -40,42 +41,6 @@ export class Dashboarding extends Component {
       .catch((error) => this.setState({ error, isLoading: false }));
   }
 
-  transactionHistoryData = {
-    labels: ["male", "female"],
-    datasets: [
-      {
-        data: [1200, 1500],
-        backgroundColor: ["#00d25b", "#ffab00"],
-      },
-    ],
-  };
-
-  transactionHistoryOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    segmentShowStroke: false,
-    cutoutPercentage: 70,
-    elements: {
-      arc: {
-        borderWidth: 0,
-      },
-    },
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      enabled: true,
-    },
-  };
-
-  sliderSettings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  };
 
   toggleProBanner() {
     document.querySelector(".proBanner").classList.toggle("hide");
@@ -117,188 +82,104 @@ export class Dashboarding extends Component {
     console.log(family_name);
     return (
       <div>
-        <div className="row">
-          <div className="col-xl-2 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">
-                        2771
-                      </h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">
-                        +3.5%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success ">
-                      <span className="mdi mdi-arrow-top-right icon-item"></span>
-                    </div>
+      <div className="row">
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">
+                      2771
+                    </h3>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +3.5%
+                    </p>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">Ever Enrolled</h6>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-2 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">2705</h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">
-                        +11%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success">
-                      <span className="mdi mdi-arrow-top-right icon-item"></span>
-                    </div>
+                <div className="col-3">
+                  <div className="icon icon-box-success ">
+                    <span className="mdi mdi-arrow-top-right icon-item"></span>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">
-                  Treatment Current
-                </h6>
               </div>
-            </div>
-          </div>
-          <div className="col-xl-2 col-sm-6 grid-margin stretch-card">
-            <div className="card" style={{"color":`${bgSelect}` }}>
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">{data.length}</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">
-                        -2.4%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger">
-                      <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Valid PBS</h6>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-2 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">45</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">
-                        -3.5%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger ">
-                      <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Retention/IIT</h6>
-              </div>
-            </div>
-          </div>
-          {/* indicator 5 */}
-          <div className="col-xl-2 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">0</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">
-                        0%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger ">
-                      <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal small">Add Indicator</h6>
-              </div>
-            </div>
-          </div>
-          {/* indicator 6 */}
-          <div className="col-xl-2 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">0</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">
-                        0%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger ">
-                      <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal small">Add Indicator</h6>
-              </div>
+              <h6 className="text-muted font-weight-normal">Ever Enrolled</h6>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">ART Gender Category</h4>
-                <div className="aligner-wrapper">
-                  <Doughnut
-                    data={this.transactionHistoryData}
-                    options={this.transactionHistoryOptions}
-                  />
-                  <div className="absolute center-content">
-                    <h5 className="font-weight-normal text-whiite text-center mb-2 text-white">
-                      2700
-                    </h5>
-                    <p className="text-small text-muted text-center mb-0">
-                      Total
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">2705</h3>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +11%
                     </p>
                   </div>
                 </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Female on ART</h6>
-                    <p className="text-muted mb-0">
-                      Total females ever enrolled
-                    </p>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0 text-warning">1500</h6>
-                  </div>
-                </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Male on ART</h6>
-                    <p className="text-muted mb-0">Total Male ever enrolled</p>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0 text-success">1200</h6>
+                <div className="col-3">
+                  <div className="icon icon-box-success">
+                    <span className="mdi mdi-arrow-top-right icon-item"></span>
                   </div>
                 </div>
               </div>
+              <h6 className="text-muted font-weight-normal">
+                Treatment Current
+              </h6>
             </div>
           </div>
+        </div>
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card" style={{"color":`${bgSelect}` }}>
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">{data.length}</h3>
+                    <p className="text-danger ml-2 mb-0 font-weight-medium">
+                      -2.4%
+                    </p>
+                  </div>
+                </div>
+                <div className="col-3">
+                  <div className="icon icon-box-danger">
+                    <span className="mdi mdi-arrow-bottom-left icon-item"></span>
+                  </div>
+                </div>
+              </div>
+              <h6 className="text-muted font-weight-normal">Valid PBS</h6>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">45</h3>
+                    <p className="text-danger ml-2 mb-0 font-weight-medium">
+                      -3.5%
+                    </p>
+                  </div>
+                </div>
+                <div className="col-3">
+                  <div className="icon icon-box-danger ">
+                    <span className="mdi mdi-arrow-bottom-left icon-item"></span>
+                  </div>
+                </div>
+              </div>
+              <h6 className="text-muted font-weight-normal">Retention/IIT</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+        <div className="row">
+          {/* dashboard slides */}
+          <DashboardSlides />
           {/* Globalproperties data */}
             <Globalproperties />  
         </div>

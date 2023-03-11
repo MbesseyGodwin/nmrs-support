@@ -1,5 +1,7 @@
 import React, { Component,Suspense, lazy } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.min.js';
 // import 'spectre.css/dist/spectre.min.css';
 // import 'tailwindcss/dist/tailwind.min.css';
 

@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import { TodoListComponent } from "../apps/TodoList";
 import { VectorMap } from "react-jvectormap";
 import Globalproperties from "./Globalproperties";
+import DashboardSlides from "./DashboardSlides";
 
 // map data
 const mapData = {
@@ -40,42 +41,6 @@ export class Dashboarding extends Component {
       .catch((error) => this.setState({ error, isLoading: false }));
   }
 
-  transactionHistoryData = {
-    labels: ["male", "female"],
-    datasets: [
-      {
-        data: [1200, 1500],
-        backgroundColor: ["#00d25b", "#ffab00"],
-      },
-    ],
-  };
-
-  transactionHistoryOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    segmentShowStroke: false,
-    cutoutPercentage: 70,
-    elements: {
-      arc: {
-        borderWidth: 0,
-      },
-    },
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      enabled: true,
-    },
-  };
-
-  sliderSettings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  };
 
   toggleProBanner() {
     document.querySelector(".proBanner").classList.toggle("hide");
@@ -117,142 +82,104 @@ export class Dashboarding extends Component {
     console.log(family_name);
     return (
       <div>
-        <div className="row">
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">
-                        2771
-                      </h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">
-                        +3.5%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success ">
-                      <span className="mdi mdi-arrow-top-right icon-item"></span>
-                    </div>
+      <div className="row">
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">
+                      2771
+                    </h3>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +3.5%
+                    </p>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">Ever Enrolled</h6>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">2705</h3>
-                      <p className="text-success ml-2 mb-0 font-weight-medium">
-                        +11%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-success">
-                      <span className="mdi mdi-arrow-top-right icon-item"></span>
-                    </div>
+                <div className="col-3">
+                  <div className="icon icon-box-success ">
+                    <span className="mdi mdi-arrow-top-right icon-item"></span>
                   </div>
                 </div>
-                <h6 className="text-muted font-weight-normal">
-                  Treatment Current
-                </h6>
               </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card" style={{"color":`${bgSelect}` }}>
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">{data.length}</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">
-                        -2.4%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger">
-                      <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Valid PBS</h6>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-9">
-                    <div className="d-flex align-items-center align-self-start">
-                      <h3 className="mb-0">45</h3>
-                      <p className="text-danger ml-2 mb-0 font-weight-medium">
-                        -3.5%
-                      </p>
-                    </div>
-                  </div>
-                  <div className="col-3">
-                    <div className="icon icon-box-danger ">
-                      <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                    </div>
-                  </div>
-                </div>
-                <h6 className="text-muted font-weight-normal">Retention/IIT</h6>
-              </div>
+              <h6 className="text-muted font-weight-normal">Ever Enrolled</h6>
             </div>
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">ART Gender Category</h4>
-                <div className="aligner-wrapper">
-                  <Doughnut
-                    data={this.transactionHistoryData}
-                    options={this.transactionHistoryOptions}
-                  />
-                  <div className="absolute center-content">
-                    <h5 className="font-weight-normal text-whiite text-center mb-2 text-white">
-                      2700
-                    </h5>
-                    <p className="text-small text-muted text-center mb-0">
-                      Total
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">2705</h3>
+                    <p className="text-success ml-2 mb-0 font-weight-medium">
+                      +11%
                     </p>
                   </div>
                 </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Female on ART</h6>
-                    <p className="text-muted mb-0">
-                      Total females ever enrolled
-                    </p>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0 text-warning">1500</h6>
-                  </div>
-                </div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Male on ART</h6>
-                    <p className="text-muted mb-0">Total Male ever enrolled</p>
-                  </div>
-                  <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-                    <h6 className="font-weight-bold mb-0 text-success">1200</h6>
+                <div className="col-3">
+                  <div className="icon icon-box-success">
+                    <span className="mdi mdi-arrow-top-right icon-item"></span>
                   </div>
                 </div>
               </div>
+              <h6 className="text-muted font-weight-normal">
+                Treatment Current
+              </h6>
             </div>
           </div>
+        </div>
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card" style={{"color":`${bgSelect}` }}>
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">{data.length}</h3>
+                    <p className="text-danger ml-2 mb-0 font-weight-medium">
+                      -2.4%
+                    </p>
+                  </div>
+                </div>
+                <div className="col-3">
+                  <div className="icon icon-box-danger">
+                    <span className="mdi mdi-arrow-bottom-left icon-item"></span>
+                  </div>
+                </div>
+              </div>
+              <h6 className="text-muted font-weight-normal">Valid PBS</h6>
+            </div>
+          </div>
+        </div>
+        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div className="row">
+                <div className="col-9">
+                  <div className="d-flex align-items-center align-self-start">
+                    <h3 className="mb-0">45</h3>
+                    <p className="text-danger ml-2 mb-0 font-weight-medium">
+                      -3.5%
+                    </p>
+                  </div>
+                </div>
+                <div className="col-3">
+                  <div className="icon icon-box-danger ">
+                    <span className="mdi mdi-arrow-bottom-left icon-item"></span>
+                  </div>
+                </div>
+              </div>
+              <h6 className="text-muted font-weight-normal">Retention/IIT</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+        <div className="row">
+          {/* dashboard slides */}
+          <DashboardSlides />
           {/* Globalproperties data */}
             <Globalproperties />  
         </div>
@@ -329,6 +256,7 @@ export class Dashboarding extends Component {
             </div>
           </div>
         </div>
+        
         <div className="row ">
           <div className="col-12 grid-margin">
             <div className="card">
@@ -530,282 +458,6 @@ export class Dashboarding extends Component {
                       </tr>
                     </tbody>
                   </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-md-6 col-xl-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="d-flex flex-row justify-content-between">
-                  <h4 className="card-title">Messages</h4>
-                  <p className="text-muted mb-1 small">View all</p>
-                </div>
-                <div className="preview-list">
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <img
-                        src={require("../../assets/images/faces/face6.jpg")}
-                        alt="face"
-                        className="rounded-circle"
-                      />
-                    </div>
-                    <div className="preview-item-content d-flex flex-grow">
-                      <div className="flex-grow">
-                        <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                          <h6 className="preview-subject">Leonard</h6>
-                          <p className="text-muted text-small">5 minutes ago</p>
-                        </div>
-                        <p className="text-muted">
-                          Well, it seems to be working now.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <img
-                        src={require("../../assets/images/faces/face8.jpg")}
-                        alt="face"
-                        className="rounded-circle"
-                      />
-                    </div>
-                    <div className="preview-item-content d-flex flex-grow">
-                      <div className="flex-grow">
-                        <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                          <h6 className="preview-subject">Luella Mills</h6>
-                          <p className="text-muted text-small">
-                            10 Minutes Ago
-                          </p>
-                        </div>
-                        <p className="text-muted">
-                          Well, it seems to be working now.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <img
-                        src={require("../../assets/images/faces/face9.jpg")}
-                        alt="face"
-                        className="rounded-circle"
-                      />
-                    </div>
-                    <div className="preview-item-content d-flex flex-grow">
-                      <div className="flex-grow">
-                        <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                          <h6 className="preview-subject">Ethel Kelly</h6>
-                          <p className="text-muted text-small">2 Hours Ago</p>
-                        </div>
-                        <p className="text-muted">Please review the tickets</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <img
-                        src={require("../../assets/images/faces/face11.jpg")}
-                        alt="face"
-                        className="rounded-circle"
-                      />
-                    </div>
-                    <div className="preview-item-content d-flex flex-grow">
-                      <div className="flex-grow">
-                        <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                          <h6 className="preview-subject">Herman May</h6>
-                          <p className="text-muted text-small">4 Hours Ago</p>
-                        </div>
-                        <p className="text-muted">
-                          Thanks a lot. It was easy to fix it .
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-6 col-xl-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Portfolio Slide</h4>
-                <Slider
-                  className="portfolio-slider autoplay"
-                  {...this.sliderSettings}
-                >
-                  <div className="item">
-                    <img
-                      src={require("../../assets/images/dashboard/Rectangle.jpg")}
-                      alt="carousel-item"
-                    />
-                  </div>
-                  <div className="item">
-                    <img
-                      src={require("../../assets/images/dashboard/Img_5.jpg")}
-                      alt="carousel-item"
-                    />
-                  </div>
-                  <div className="item">
-                    <img
-                      src={require("../../assets/images/dashboard/img_6.jpg")}
-                      alt="carousel-item"
-                    />
-                  </div>
-                </Slider>
-                <div className="d-flex py-4">
-                  <div className="preview-list w-100">
-                    <div className="preview-item p-0">
-                      <div className="preview-thumbnail">
-                        <img
-                          src={require("../../assets/images/faces/face12.jpg")}
-                          className="rounded-circle"
-                          alt="face"
-                        />
-                      </div>
-                      <div className="preview-item-content d-flex flex-grow">
-                        <div className="flex-grow">
-                          <div className="d-flex d-md-block d-xl-flex justify-content-between">
-                            <h6 className="preview-subject">CeeCee Bass</h6>
-                            <p className="text-muted text-small">4 Hours Ago</p>
-                          </div>
-                          <p className="text-muted">
-                            Well, it seems to be working now.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p className="text-muted">Well, it seems to be working now. </p>
-                <div className="progress progress-md portfolio-progress">
-                  <div
-                    className="progress-bar bg-success"
-                    role="progressbar"
-                    style={{ width: "50%" }}
-                    aria-valuenow="25"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                  ></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-12 col-xl-4 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">To do list</h4>
-                <TodoListComponent />
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-12">
-            <div className="card">
-              <div className="card-body">
-                <h4 className="card-title">Visitors by Countries</h4>
-                <div className="row">
-                  <div className="col-md-5">
-                    <div className="table-responsive">
-                      <table className="table">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <i className="flag-icon flag-icon-us"></i>
-                            </td>
-                            <td>USA</td>
-                            <td className="text-right"> 1500 </td>
-                            <td className="text-right font-weight-medium">
-                              {" "}
-                              56.35%{" "}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <i className="flag-icon flag-icon-de"></i>
-                            </td>
-                            <td>Germany</td>
-                            <td className="text-right"> 800 </td>
-                            <td className="text-right font-weight-medium">
-                              {" "}
-                              33.25%{" "}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <i className="flag-icon flag-icon-au"></i>
-                            </td>
-                            <td>Australia</td>
-                            <td className="text-right"> 760 </td>
-                            <td className="text-right font-weight-medium">
-                              {" "}
-                              15.45%{" "}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <i className="flag-icon flag-icon-gb"></i>
-                            </td>
-                            <td>United Kingdom</td>
-                            <td className="text-right"> 450 </td>
-                            <td className="text-right font-weight-medium">
-                              {" "}
-                              25.00%{" "}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <i className="flag-icon flag-icon-ro"></i>
-                            </td>
-                            <td>Romania</td>
-                            <td className="text-right"> 620 </td>
-                            <td className="text-right font-weight-medium">
-                              {" "}
-                              10.25%{" "}
-                            </td>
-                          </tr>
-                          <tr>
-                            <td>
-                              <i className="flag-icon flag-icon-br"></i>
-                            </td>
-                            <td>Brasil</td>
-                            <td className="text-right"> 230 </td>
-                            <td className="text-right font-weight-medium">
-                              {" "}
-                              75.00%{" "}
-                            </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                  <div className="col-md-7">
-                    <div id="audience-map" className="vector-map"></div>
-                    <VectorMap
-                      map={"world_mill"}
-                      backgroundColor="transparent" //change it to ocean blue: #0077be
-                      panOnDrag={true}
-                      containerClassName="dashboard-vector-map"
-                      focusOn={{
-                        x: 0.5,
-                        y: 0.5,
-                        scale: 1,
-                        animate: true,
-                      }}
-                      series={{
-                        regions: [
-                          {
-                            scale: ["#3d3c3c", "#f2f2f2"],
-                            normalizeFunction: "polynomial",
-                            values: mapData,
-                          },
-                        ],
-                      }}
-                    />
-                  </div>
                 </div>
               </div>
             </div>

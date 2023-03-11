@@ -7,73 +7,104 @@ import "animate.css/animate.min.css";
 const Globalproperties = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [globalpropertiesData, setGlobalpropertiesData] = useState([]);
+  const [drugRefill, setDrugRefill] = useState([]);
 
   useEffect(() => {
-    setIsLoading(true);
-    getPbs();
+    const getGlobalproperties = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get("http://localhost:5000/globalproperties");
+        setGlobalpropertiesData(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getGlobalproperties();
   }, []);
 
-  const getPbs = async () => {
-    const response = await axios.get("http://localhost:5000/globalproperties");
-    setGlobalpropertiesData(response.data);
-    setIsLoading(false);
-  };
+  useEffect(() => {
+    const getDrugRefill = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.get("http://localhost:5000/drugrefill");
+        setDrugRefill(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getDrugRefill();
+  }, []);
+
+  console.log(drugRefill.length);
+
+  const PharmacyDrugRefill = drugRefill.length;
+
+
+  // variable definations
+  const ndrLastRunDate = globalpropertiesData.find(
+    (prop) => prop.property === "ndr_last_run_date"
+  )?.property_value;
+
+  const lastLocalDataSyncDate = globalpropertiesData.find(
+    (prop) => prop.property === "last_local_data_sync_date"
+  )?.property_value;
+
+  const facilityName = globalpropertiesData.find(
+    (prop) => prop.property === "Facility_Name"
+  )?.property_value;
+
+  const facilityDatimCode = globalpropertiesData.find(
+    (prop) => prop.property === "facility_datim_code"
+  )?.property_value;
+
 
   const currentDate = dayjs();
   const pastDate = dayjs().subtract(10, "day");
   const differenceInDays = currentDate.diff(pastDate, "day");
 
   return (
-    <div className="col-md-8 grid-margin stretch-card">
-      {globalpropertiesData.length > 0 && (
-        <div className="card">
-          <div className="card-body">
-            <div className="d-flex flex-row justify-content-between  border-light border-bottom">
-              <h4 className="card-title mb-1">Global Properties</h4>
-              <p className="text-muted mb-1">Your data status</p>
-            </div>
-            <div className="row">
-              <div className="col-12">
-                <div className="preview-list">
+    <div className="col-md-5 grid-margin stretch-card">
+      <div className="card">
+        <div className="card-body">
+          <div className="d-flex flex-row justify-content-between border-light border-bottom mb-3">
+            <h4 className="card-title mb-1">{facilityName}</h4>
+            <p className="text-muted mb-1">Global Properties</p>
+          </div>
+          <div className="row">
+            <div className="col-12">
+              <div className="preview-list">
+                <div className="row">
                   {/* for NDR last run date */}
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-primary">
-                        <i className="mdi mdi-file-document"></i>
+                  <div className="col-4">
+                    <div class="card bg-light border-success mb-3 text-center">
+                      <div class="card-header bg-transparent border-success text-dark">ndr upload</div>
+                      <div class="card-body text-success">
+                        <h5 class="card-title mb-0 text-dark">{ndrLastRunDate}</h5>
                       </div>
-                    </div>
-                    <div className="preview-item-content d-sm-flex flex-grow">
-                      <div className="flex-grow">
-                        <h6 className="preview-subject">
-                          {globalpropertiesData[234].property}
-                        </h6>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[234].description}
-                        </p>
-                      </div>
-                      <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                        <p className="font-weight-bold font-italic">
-                          {globalpropertiesData[234].property_value}
-                        </p>
-                        <p className="text-muted mb-0 animate__animated animate__shakeX">
+                      <div class="card-footer bg-transparent border-success">
+                        <div className="text-muted mb-0 animate__animated animate__shakeX">
                           {currentDate.diff(
-                            globalpropertiesData[234].property_value,
+                            ndrLastRunDate,
                             "day"
                           ) === 0 ? (
                             <span className="text-success">Today</span>
                           ) : currentDate.diff(
-                              globalpropertiesData[234].property_value,
-                              "day"
-                            ) === 1 ? (
+                            ndrLastRunDate,
+                            "day"
+                          ) === 1 ? (
                             <span className="text-warning">Yesterday</span>
                           ) : currentDate.diff(
-                              globalpropertiesData[234].property_value,
-                              "day"
-                            ) >= 1 ? (
+                            ndrLastRunDate,
+                            "day"
+                          ) >= 1 ? (
                             <span>
                               <span className="text-danger">
                                 {currentDate.diff(
-                                  globalpropertiesData[234].property_value,
+                                  ndrLastRunDate,
                                   "day"
                                 )}{" "}
                                 days ago
@@ -82,50 +113,38 @@ const Globalproperties = () => {
                           ) : (
                             "error"
                           )}
-                        </p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   {/* for datasync last run date */}
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-primary">
-                        <i className="mdi mdi-file-document"></i>
+                  <div className="col-4">
+                    <div class="card bg-light border-success mb-3 text-center">
+                      <div class="card-header bg-transparent border-success text-dark">Data sync</div>
+                      <div class="card-body text-success">
+                        <h5 class="card-title mb-0 text-dark">{lastLocalDataSyncDate}</h5>
                       </div>
-                    </div>
-                    <div className="preview-item-content d-sm-flex flex-grow">
-                      <div className="flex-grow">
-                        <h6 className="preview-subject">
-                          {globalpropertiesData[187].property}
-                        </h6>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[187].description}
-                        </p>
-                      </div>
-                      <div className="mr-auto text-sm-right pt-2 pt-sm-0"> 
-                        <p className="font-weight-bold font-italic">
-                          {globalpropertiesData[187].property_value}
-                        </p>
-                        <p className="text-muted mb-0 animate__animated animate__shakeX">
+                      <div class="card-footer bg-transparent border-success">
+                        <div className="text-muted mb-0 animate__animated animate__shakeX">
                           {currentDate.diff(
-                            globalpropertiesData[187].property_value,
+                            lastLocalDataSyncDate,
                             "day"
                           ) === 0 ? (
                             <span className="text-success">Today</span>
                           ) : currentDate.diff(
-                              globalpropertiesData[187].property_value,
-                              "day"
-                            ) === 1 ? (
+                            lastLocalDataSyncDate,
+                            "day"
+                          ) === 1 ? (
                             <span className="text-warning">Yesterday</span>
                           ) : currentDate.diff(
-                              globalpropertiesData[187].property_value,
-                              "day"
-                            ) >= 1 ? (
+                            lastLocalDataSyncDate,
+                            "day"
+                          ) >= 1 ? (
                             <span>
                               <span className="text-danger">
                                 {currentDate.diff(
-                                  globalpropertiesData[187].property_value,
+                                  lastLocalDataSyncDate,
                                   "day"
                                 )}{" "}
                                 days ago
@@ -134,115 +153,20 @@ const Globalproperties = () => {
                           ) : (
                             "error"
                           )}
-                        </p>
+                        </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* displaying facilty name */}
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-success">
-                        <i className="mdi mdi-cloud-download"></i>
+                  {/* drug pickup for today */}
+                  <div className="col-4">
+                    <div class="card bg-light border-success mb-3 text-center">
+                      <div class="card-header bg-transparent border-success text-dark">Drug pickup</div>
+                      <div class="card-body text-success">
+                        <h5 class="card-title mb-0 text-dark">{PharmacyDrugRefill} pending pharm refills</h5>
                       </div>
-                    </div>
-                    <div className="preview-item-content d-sm-flex flex-grow">
-                      <div className="flex-grow">
-                        <h6 className="preview-subject">
-                          {globalpropertiesData[152].property}
-                        </h6>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[431].property}
-                        </p>
-                      </div>
-                      <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                        <p className="font-weight-bold font-italic">
-                          {globalpropertiesData[152].property_value}
-                        </p>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[431].property_value}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* displaying datim code */}
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-info">
-                        <i className="mdi mdi-clock"></i>
-                      </div>
-                    </div>
-                    <div className="preview-item-content d-sm-flex flex-grow">
-                      <div className="flex-grow">
-                        <h6 className="preview-subject">
-                          {globalpropertiesData[150].property}
-                        </h6>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[150].property}
-                        </p>
-                      </div>
-                      <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                        <p className="font-weight-bold font-italic text-default">
-                          {globalpropertiesData[150].property_value}
-                        </p>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[150].description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* displaying Implementing Partner */}
-                  <div className="preview-item border-bottom">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-danger">
-                        <i className="mdi mdi-email-open"></i>
-                      </div>
-                    </div>
-                    <div className="preview-item-content d-sm-flex flex-grow">
-                      <div className="flex-grow">
-                        <h6 className="preview-subject">
-                          {globalpropertiesData[282].property}
-                        </h6>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[285].property}
-                        </p>
-                      </div>
-                      <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                        <p className="font-weight-bold font-italic">
-                          {globalpropertiesData[282].property_value}
-                        </p>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[285].property_value}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Application Name */}
-                  <div className="preview-item">
-                    <div className="preview-thumbnail">
-                      <div className="preview-icon bg-warning">
-                        <i className="mdi mdi-chart-pie"></i>
-                      </div>
-                    </div>
-                    <div className="preview-item-content d-sm-flex flex-grow">
-                      <div className="flex-grow">
-                        <h6 className="preview-subject">
-                          {globalpropertiesData[25].property}
-                        </h6>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[25].description}
-                        </p>
-                      </div>
-                      <div className="mr-auto text-sm-right pt-2 pt-sm-0">
-                        <p className="font-weight-bold font-italic">
-                          {globalpropertiesData[25].property_value}
-                        </p>
-                        <p className="text-muted mb-0">
-                          {globalpropertiesData[25].property}{" "}
-                        </p>
+                      <div class="card-footer bg-transparent border-success text-dark">
+                        refilled today: <span className="text-success">38</span>
                       </div>
                     </div>
                   </div>
@@ -251,7 +175,7 @@ const Globalproperties = () => {
             </div>
           </div>
         </div>
-      )}
+      </div>
     </div>
   );
 };

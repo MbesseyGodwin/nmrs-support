@@ -1,37 +1,67 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const PbsData = () => {
+
+const PbsData = React.memo(() => {
   const [pbsData, setPbsData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`http://localhost:5000/fingerprints`);
-      const data = await response.json();
-      setPbsData(data);
-    };
+  // useEffect(() => {
+  //   const cachedData = localStorage.getItem('pbsDataCache');
+  //   const fetchData = async () => {
+  //     const response = await fetch(`http://localhost:5000/fingerprints`);
+  //     const data = await response.json();
+  //     setPbsData(data);
+  //     localStorage.setItem('pbsDataCache', JSON.stringify(data));
+  //   };
 
-    fetchData();
-  }, []);
+  //   if (cachedData) {
+  //     setPbsData(JSON.parse(cachedData));
+  //   } 
 
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
+  //   fetchData(); // always fetch new data to check for updates
 
-  // const filteredPbsData = pbsData.filter((pbs) => {
-  //   return (
-  //     pbs.identifier.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     pbs.family_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     pbs.given_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     pbs.gender.toLowerCase().includes(searchTerm.toLowerCase()) ||
-  //     pbs.date_created.toLowerCase().includes(searchTerm.toLowerCase())
-  //   );
-  // });
+  //   const intervalId = setInterval(() => {
+  //     fetchData(); // fetch new data at intervals to check for updates
+  //   }, 60000); // interval of 1 minute (adjust as needed)
 
-  const filteredPbsData = pbsData;
-  const maleCount = filteredPbsData.filter(
-    (report) => report.gender === "M"
-  ).length;
+  //   return () => clearInterval(intervalId); // clear interval on unmount
+  // }, []);
+
+  
+    useEffect(() => {
+      const socket = new WebSocket('ws://localhost:5000/fingerprints'); // create WebSocket connection
+  
+      socket.onopen = () => {
+        console.log('WebSocket connected'); // log connection status
+      };
+  
+      socket.onmessage = (event) => {
+        console.log('WebSocket data received', event.data); // log data received
+        setPbsData(JSON.parse(event.data)); // update state with new data
+        localStorage.setItem('pbsDataCache', event.data); // update cached data
+      };
+  
+      const cachedData = localStorage.getItem('pbsDataCache');
+  
+      if (cachedData) {
+        setPbsData(JSON.parse(cachedData)); // use cached data if it exists
+      } else {
+        axios.get(`http://localhost:5000/fingerprints`)
+          .then(response => {
+            setPbsData(response.data);
+            localStorage.setItem('pbsDataCache', JSON.stringify(response.data)); // cache fetched data
+          })
+          .catch(error => {console.log(error)}) 
+      }
+  
+      return () => socket.close(); // close WebSocket on unmount
+    }, []);
+  
+    const maleCount = pbsData.filter((report) => report.gender === "M").length;
+ 
+  
+
   return (
     <div>
       <div className="row">
@@ -40,16 +70,9 @@ const PbsData = () => {
             <div className="card-body">
               <h4 className="card-title">
                 All valid PBS:
-                <span className="text-success">{filteredPbsData.length}</span>
+                <span className="text-success">{pbsData.length}</span>
               </h4>
-              <p>{maleCount}</p>
               <div>
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  value={searchTerm}
-                  onChange={handleSearch}
-                />
                 <table className="table table-hover text-light table-bordered">
                   <thead className="thead mt-3">
                     <tr className="bg-success text-uppercase">
@@ -61,7 +84,7 @@ const PbsData = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredPbsData.map((pbs) => (
+                    {pbsData.map((pbs) => (
                       <tr key={pbs.id}>
                         <td>{pbs.identifier}</td>
                         <td>{pbs.family_name}</td>
@@ -79,5 +102,6 @@ const PbsData = () => {
       </div>
     </div>
   );
-};
+});
+
 export default PbsData;

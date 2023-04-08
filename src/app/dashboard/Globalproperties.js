@@ -4,7 +4,9 @@ import moment from "moment";
 import dayjs from "dayjs";
 import "animate.css/animate.min.css";
 
+
 const Globalproperties = () => {
+
   const [isLoading, setIsLoading] = useState(false);
   const [globalpropertiesData, setGlobalpropertiesData] = useState([]);
   const [drugRefill, setDrugRefill] = useState([]);
@@ -40,8 +42,8 @@ const Globalproperties = () => {
   }, []);
 
   console.log(drugRefill.length);
-
   const PharmacyDrugRefill = drugRefill.length;
+
 
 
   // variable definations
@@ -163,10 +165,10 @@ const Globalproperties = () => {
                     <div class="card bg-light border-success mb-3 text-center">
                       <div class="card-header bg-transparent border-success text-dark">Drug pickup</div>
                       <div class="card-body text-success">
-                        <h5 class="card-title mb-0 text-dark">{PharmacyDrugRefill} pending pharm refills</h5>
+                        <h5 class="card-title mb-0 text-dark" title="Due For Refill Today">Due ({PharmacyDrugRefill})</h5>
                       </div>
                       <div class="card-footer bg-transparent border-success text-dark">
-                        refilled today: <span className="text-success">38</span>
+                        Number Refilled: <span className="text-success">0</span>
                       </div>
                     </div>
                   </div>

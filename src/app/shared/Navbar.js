@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Dropdown } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Trans } from 'react-i18next';
+import BackToTop from './BackToTop';
 
 class Navbar extends Component {
   toggleOffcanvas() {
@@ -28,6 +29,7 @@ class Navbar extends Component {
             </li>
           </ul>
           <ul className="navbar-nav navbar-nav-right">
+          <BackToTop />
             <Dropdown alignRight as="li" className="nav-item d-none d-lg-block">
                 <Dropdown.Toggle className="nav-link btn btn-success create-new-button no-caret">
                 + <Trans>Create New Project</Trans>

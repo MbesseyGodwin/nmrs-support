@@ -14,7 +14,7 @@ class App extends Component {
   componentDidMount() {
     this.onRouteChanged();
   }
-  
+
   render() {
     let navbarComponent = !this.state.isFullPageLayout ? <Navbar /> : "";
     let sidebarComponent = !this.state.isFullPageLayout ? <Sidebar /> : "";

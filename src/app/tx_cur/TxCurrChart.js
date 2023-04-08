@@ -14,7 +14,7 @@ function TxCurrChart() {
 
   // function to fetch the data
   const getTxCurrData = async () => {
-    const response = await axios.get("http://localhost:5000/fingerprints");
+    const response = await axios.get("http://localhost:5000/");
     setTxCurrData(response.data);
     setIsLoading(false);
   };

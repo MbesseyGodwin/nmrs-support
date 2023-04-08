@@ -5,185 +5,27 @@ import { TodoListComponent } from "../apps/TodoList";
 import { VectorMap } from "react-jvectormap";
 import Globalproperties from "./Globalproperties";
 import DashboardSlides from "./DashboardSlides";
+import DashboardCards from "./DashboardCards";
 
-// map data
-const mapData = {
-  BZ: 75.0,
-  US: 56.25,
-  AU: 15.45,
-  GB: 25.0,
-  RO: 10.25,
-  GE: 33.25,
-};
 
 export class Dashboarding extends Component {
-  state = {
-    data: [],
-    filteredData: [],
-    category: "",
-    isLoading: false,
-    error: null,
-  };
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    fetch("http://localhost:5000/fingerprints")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) =>
-        this.setState({ data, filteredData: data, isLoading: false })
-      )
-      .catch((error) => this.setState({ error, isLoading: false }));
-  }
-
 
   toggleProBanner() {
     document.querySelector(".proBanner").classList.toggle("hide");
   }
 
-  handleCategoryFilter = (event) => {
-    const category = event.target.value;
-    const { data } = this.state;
-
-    this.setState({
-      category,
-      filteredData: data.filter((item) => item.gender === category),
-    });
-  };
-
   render() {
-    const { data, isLoading, error, } = this.state;
-
-    if (error) {
-      return (
-        <h2 className="bg-dark p-2 text-center text-uppercase">
-          {error.message}
-        </h2>
-      );
-    }
-
-    if (isLoading) {
-      return <p>Loading ...</p>;
-    }
-    
-    const cardColors = {
-        pbsLow: "#D10C26", //red "#D10C26"
-        pbsHigh: "#0DDF4C", //green "#0DDF4C"
-      };
-      const  bgSelect = data.length < 1000 ? cardColors.pbsLow : cardColors.pbsHigh;
-      
-      
-    const { family_name, given_name } = data;
-    console.log(family_name);
     return (
       <div>
-      <div className="row">
-        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-          <div className="card">
-            <div className="card-body">
-              <div className="row">
-                <div className="col-9">
-                  <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">
-                      2771
-                    </h3>
-                    <p className="text-success ml-2 mb-0 font-weight-medium">
-                      +3.5%
-                    </p>
-                  </div>
-                </div>
-                <div className="col-3">
-                  <div className="icon icon-box-success ">
-                    <span className="mdi mdi-arrow-top-right icon-item"></span>
-                  </div>
-                </div>
-              </div>
-              <h6 className="text-muted font-weight-normal">Ever Enrolled</h6>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-          <div className="card">
-            <div className="card-body">
-              <div className="row">
-                <div className="col-9">
-                  <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">2705</h3>
-                    <p className="text-success ml-2 mb-0 font-weight-medium">
-                      +11%
-                    </p>
-                  </div>
-                </div>
-                <div className="col-3">
-                  <div className="icon icon-box-success">
-                    <span className="mdi mdi-arrow-top-right icon-item"></span>
-                  </div>
-                </div>
-              </div>
-              <h6 className="text-muted font-weight-normal">
-                Treatment Current
-              </h6>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-          <div className="card" style={{"color":`${bgSelect}` }}>
-            <div className="card-body">
-              <div className="row">
-                <div className="col-9">
-                  <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">{data.length}</h3>
-                    <p className="text-danger ml-2 mb-0 font-weight-medium">
-                      -2.4%
-                    </p>
-                  </div>
-                </div>
-                <div className="col-3">
-                  <div className="icon icon-box-danger">
-                    <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                  </div>
-                </div>
-              </div>
-              <h6 className="text-muted font-weight-normal">Valid PBS</h6>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-          <div className="card">
-            <div className="card-body">
-              <div className="row">
-                <div className="col-9">
-                  <div className="d-flex align-items-center align-self-start">
-                    <h3 className="mb-0">45</h3>
-                    <p className="text-danger ml-2 mb-0 font-weight-medium">
-                      -3.5%
-                    </p>
-                  </div>
-                </div>
-                <div className="col-3">
-                  <div className="icon icon-box-danger ">
-                    <span className="mdi mdi-arrow-bottom-left icon-item"></span>
-                  </div>
-                </div>
-              </div>
-              <h6 className="text-muted font-weight-normal">Retention/IIT</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-        
+        <DashboardCards />
+
         <div className="row">
           {/* dashboard slides */}
           <DashboardSlides />
           {/* Globalproperties data */}
-            <Globalproperties />  
+          <Globalproperties />
         </div>
-        
+
         <div className="row">
           <div className="col-sm-4 grid-margin">
             <div className="card">
@@ -256,7 +98,7 @@ export class Dashboarding extends Component {
             </div>
           </div>
         </div>
-        
+
         <div className="row ">
           <div className="col-12 grid-margin">
             <div className="card">

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Doughnut, Bar } from "react-chartjs-2";
 import Slider from "react-slick";
+import TxCurCards from "./TxCurCards";
 import TxCurrChart from "./TxCurrChart";
 import TxCurrByMonth from "./TxCurrByMonth";
 import TxCurrGender from "./TxCurrGender";
@@ -13,7 +14,11 @@ export class Tx_cur extends Component {
   render() {
     return (
       <div>
+       {/* TxCurCards */}
+       <TxCurCards />
+
         <div className="row">
+
           {/* TxCurrChart */}
           <TxCurrChart />
 

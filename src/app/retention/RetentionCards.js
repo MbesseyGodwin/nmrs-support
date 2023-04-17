@@ -10,7 +10,7 @@ export default function RetentionCards() {
         const getRetentionResults = async () => {
             setIsLoading(true);
             try {
-                const response = await axios.get("http://localhost:5000/htsresults");
+                const response = await axios.get("http://localhost:5000/");
                 setRetentionResults(response.data);
             } catch (error) {
                 console.error(error);

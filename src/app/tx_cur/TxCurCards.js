@@ -10,7 +10,7 @@ export default function TxCurCards() {
         const getTxCurResults = async () => {
             setIsLoading(true);
             try {
-                const response = await axios.get("http://localhost:5000/htsresults");
+                const response = await axios.get("http://localhost:5000/");
                 setTxCurResults(response.data);
             } catch (error) {
                 console.error(error);

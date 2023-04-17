@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import "./App.scss";
 import "./App.css";
@@ -7,81 +7,54 @@ import Navbar from "./shared/Navbar";
 import Sidebar from "./shared/Sidebar";
 import Footer from "./shared/Footer";
 import { withTranslation } from "react-i18next";
+import DexieInsert from "./shared/indexedDB/DexieInsert";
 
+const App = ({ location, i18n }) => {
+  const [isFullPageLayout, setIsFullPageLayout] = useState(false);
 
-class App extends Component {
-  state = {};
-  componentDidMount() {
-    this.onRouteChanged();
-  }
+  const onRouteChanged = () => {
 
-  render() {
-    let navbarComponent = !this.state.isFullPageLayout ? <Navbar /> : "";
-    let sidebarComponent = !this.state.isFullPageLayout ? <Sidebar /> : "";
-    let footerComponent = !this.state.isFullPageLayout ? <Footer /> : "";
-    return (
-      <div className="container-scroller">
-        {sidebarComponent}
-        <div className="container-fluid page-body-wrapper">
-          {navbarComponent}
-          <div className="main-panel">
-            <div className="content-wrapper bg-light">
-              <AppRoutes />
-            </div>
-            <div className="bg-light py-3 fixed-bottom"> {footerComponent}</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.onRouteChanged();
-    }
-  }
-
-  onRouteChanged() {
-    console.log("ROUTE CHANGED");
-    const { i18n } = this.props;
-    const body = document.querySelector("body");
-    if (this.props.location.pathname === "/layout/RtlLayout") {
-      body.classList.add("rtl");
-      i18n.changeLanguage("ar");
-    } else {
-      body.classList.remove("rtl");
-      i18n.changeLanguage("en");
-    }
     window.scrollTo(0, 0);
-    const fullPageLayoutRoutes = [
-      "/user-pages/login-1",
-      "/user-pages/login-2",
-      "/user-pages/register-1",
-      "/user-pages/register-2",
-      "/user-pages/lockscreen",
-      "/error-pages/error-404",
-      "/error-pages/error-500",
-      "/general-pages/landing-page",
-    ];
+    const fullPageLayoutRoutes = [];
     for (let i = 0; i < fullPageLayoutRoutes.length; i++) {
-      if (this.props.location.pathname === fullPageLayoutRoutes[i]) {
-        this.setState({
-          isFullPageLayout: true,
-        });
+      if (location.pathname === fullPageLayoutRoutes[i]) {
+        setIsFullPageLayout(true);
         document
           .querySelector(".page-body-wrapper")
           .classList.add("full-page-wrapper");
         break;
       } else {
-        this.setState({
-          isFullPageLayout: false,
-        });
+        setIsFullPageLayout(false);
         document
           .querySelector(".page-body-wrapper")
           .classList.remove("full-page-wrapper");
       }
     }
-  }
-}
+  };
+
+  useEffect(() => {
+    onRouteChanged();
+  }, [location]);
+
+  let navbarComponent = !isFullPageLayout ? <Navbar /> : "";
+  let sidebarComponent = !isFullPageLayout ? <Sidebar /> : "";
+  let footerComponent = !isFullPageLayout ? <Footer /> : "";
+
+  return (
+    <div className="container-scroller">
+      {sidebarComponent}
+      <div className="container-fluid page-body-wrapper">
+        {navbarComponent}
+        <div className="main-panel">
+          <div className="content-wrapper bg-light">
+            <DexieInsert />
+            <AppRoutes />
+          </div>
+          <div className="bg-light py-3 fixed-bottom">{footerComponent}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default withTranslation()(withRouter(App));

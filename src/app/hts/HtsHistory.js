@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Bar } from "react-chartjs-2";
-import moment from 'moment';
+import moment from "moment";
 
 import axios from "axios";
 
@@ -29,17 +29,29 @@ const HtsHistory = () => {
       fetchData();
     }
   }, []);
+  console.log(htsData);
 
   useEffect(() => {
     const monthlyData = [];
     for (let i = 1; i <= 12; i++) {
       const monthData = htsData.filter((item) => {
-        return moment(item.HIVTestDate, "DD-MM-YYYY").format("M-YYYY") === `${i}-${selectedYear}`;
+        return (
+          moment(item.HIVTestDate, "DD-MM-YYYY").format("M-YYYY") ===
+          `${i}-${selectedYear}`
+        );
       });
       monthlyData.push(monthData.length);
     }
     setMonthlyCounts(monthlyData);
   }, [htsData, selectedYear]);
+
+  const nullValues = htsData.filter((item) => {
+    return item.HIVTestDate === null;
+  });
+
+  const notNullValues = htsData.filter((item) => {
+    return item.HIVTestDate !== null;
+  });
 
   const handleYearChange = (event) => {
     setSelectedYear(parseInt(event.target.value));
@@ -111,17 +123,24 @@ const HtsHistory = () => {
     return () => clearInterval(interval);
   }, [INTERVAL_TIME]);
 
-
   return (
     <div className="col-md-6 grid-margin stretch-card">
       <div className="card">
         <div className="card-body">
           <h4 className="card-title small">HTS History</h4>
           <div className="d-flex justify-content-end mb-3">
-            <select className="form-control w-auto" value={selectedYear} onChange={handleYearChange}>
-              {Array.from({ length: 10 }, (_, i) => moment().year() - i).map((year) => (
-                <option key={year} value={year}>{year}</option>
-              ))}
+            <select
+              className="form-control w-auto"
+              value={selectedYear}
+              onChange={handleYearChange}
+            >
+              {Array.from({ length: 10 }, (_, i) => moment().year() - i).map(
+                (year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                )
+              )}
             </select>
           </div>
           <div className="aligner-wrapper">
@@ -129,12 +148,13 @@ const HtsHistory = () => {
           </div>
           <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
             <div className="text-md-center text-xl-left">
-              <h6 className="mb-1">Record Set</h6>
-              <p className="text-muted mb-0">Total tested: {htsData.length}</p>
+              <h6 className="mb-1">Total Tested</h6>
+              <p className="text-muted mb-0">{htsData.length}</p>
             </div>
 
             <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
-              <h6 className="font-weight-bold mb-0 text-success">{ }</h6>
+              <p className="text-muted mb-0">With Date Value: {nullValues.length}</p>
+              <p className="text-muted mb-0">With Null Value: {notNullValues.length}</p>
             </div>
           </div>
         </div>

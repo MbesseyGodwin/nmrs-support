@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Doughnut, Bar } from "react-chartjs-2";
 import Slider from "react-slick";
+
 import TxCurCards from "./TxCurCards";
-import TxCurrChart from "./TxCurrChart";
-import TxCurrByMonth from "./TxCurrByMonth";
+import TxCurrAge from "./TxCurrAge";
+import TxCurrCategory from "./TxCurrCategory";
 import TxCurrGender from "./TxCurrGender";
-import TxCurrByAge from "./TxCurrByAge";
+import TxCurrSummary from "./TxCurrSummary";
+
 
 export class Tx_cur extends Component {
   toggleProBanner() {
@@ -14,24 +16,25 @@ export class Tx_cur extends Component {
   render() {
     return (
       <div>
-       {/* TxCurCards */}
-       <TxCurCards />
+        {/* TxCurCards */}
+        <TxCurCards />
 
         <div className="row">
 
-          {/* TxCurrChart */}
-          <TxCurrChart />
+          {/* TxCurrAge */}
+          <TxCurrAge />
 
           {/* TxCurrByGender */}
           <TxCurrGender />
 
-          {/* TxCurrByMonth */}
-          <TxCurrByMonth />
+          {/* TxCurrCategory */}
+          <TxCurrCategory />
         </div>
 
-        <div className="row">
-          {/* TxCurrByAge */}
-          <TxCurrByAge />
+        <div className="row">\
+
+          {/* TxCurrSummary */}
+          <TxCurrSummary />
         </div>
       </div>
     );

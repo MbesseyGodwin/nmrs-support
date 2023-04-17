@@ -5,7 +5,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 am4core.useTheme(am4themes_animated);
 
-class TxCurrByAge extends Component {
+class TxCurrSummary extends Component {
   componentDidMount() {
     let chart = am4core.create("chartdiv", am4charts.XYChart);
 
@@ -61,17 +61,17 @@ class TxCurrByAge extends Component {
         visits: 1811,
       },
     ];
-    
+
     // Create axes
     let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = "month";
-    categoryAxis.title.text = "Fiscal Year 2022";
+    categoryAxis.title.text = "Fiscal Year 2023";
     categoryAxis.title.fill = am4core.color("#fff");
     categoryAxis.renderer.labels.template.adapter.add("fill", function (fill, target) {
       return am4core.color("#fff");
     });
     categoryAxis.renderer.labels.template.fontSize = 10;
-    
+
     let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
     valueAxis.title.text = "Visits";
     valueAxis.title.fill = am4core.color("#fff");
@@ -94,21 +94,21 @@ class TxCurrByAge extends Component {
       am4core.color("#AFAFAF"),
       am4core.color("#CFCFCF")
     ];
-    
+
     // Create series
     let series = chart.series.push(new am4charts.ColumnSeries());
     series.dataFields.valueY = "visits";
     series.dataFields.categoryX = "month";
     series.name = "Visits";
     series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
-    
+
     // Modify the fill color of each column based on the month
     series.columns.template.adapter.add("fill", (fill, target) => {
       let index = chart.data.indexOf(target.dataItem.dataContext);
       return colors[index % colors.length];
     });
-    
-    
+
+
     // Add cursor
     chart.cursor = new am4charts.XYCursor();
 
@@ -124,9 +124,9 @@ class TxCurrByAge extends Component {
   render() {
     return (
       <div className="col-md-12 grid-margin stretch-card">
-        <div className="card">
+        <div className="card mb-5">
           <div className="card-body">
-            <h4 className="card-title">Summary Of Active Visits By Months (By Quater)</h4>
+            <h4 className="card-title">Active Visits By Months</h4>
             <div id="chartdiv" style={{ width: "100%", height: "500px" }}></div>
           </div>
         </div>
@@ -135,4 +135,4 @@ class TxCurrByAge extends Component {
   }
 }
 
-export default TxCurrByAge;
+export default TxCurrSummary;

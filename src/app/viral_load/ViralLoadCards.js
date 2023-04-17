@@ -3,25 +3,25 @@ import axios from "axios";
 
 export default function ViralLoadCards() {
 
-    const [vlResults, setVlResults] = useState([]);
+    const [vlData, setVlData] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const getVlResults = async () => {
+        const getVlData = async () => {
             setIsLoading(true);
             try {
-                const response = await axios.get("http://localhost:5000/htsresults");
-                setVlResults(response.data);
+                const response = await axios.get("http://localhost:5000/");
+                setVlData(response.data);
             } catch (error) {
                 console.error(error);
             } finally {
                 setIsLoading(false);
             }
         };
-        getVlResults();
+        getVlData();
     }, []);
 
-
+    // console.log(vlData);
 
     return (
         <div>
@@ -33,6 +33,7 @@ export default function ViralLoadCards() {
                     <li style={{ marginLeft: 'auto' }}><a href="#" className='text-danger'>Reload</a></li>
                 </ol>
             </nav>
+
             <div className="row">
                 <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
                     <div className="card d-block">

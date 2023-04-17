@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Bar } from "react-chartjs-2";
 
-function TxCurrByMonth() {
+function TxCurrAge() {
   const [isLoading, setIsLoading] = useState(false);
   const [txCurrData, setTxCurrData] = useState([]);
-  const [male, setMale] = useState(1111);
-  const [female, setFemale] = useState(2100);
+  const [adult, setAdult] = useState(2219);
+  const [pediatric, setPediatric] = useState(399);
 
 
   useEffect(() => {
@@ -22,11 +22,11 @@ function TxCurrByMonth() {
   };
 
   const data = {
-    labels: ["Male", "Female"],
+    labels: ["Adult", "pediatric"],
     datasets: [
       {
         label: "Category",
-        data: [male, female],
+        data: [adult, pediatric],
         backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(54, 0, 235, 0.2)", "rgba(111, 111, 111, 0.2)"],
         borderColor: "rgba(54, 162, 235, 1)",
         borderWidth: 1,
@@ -50,20 +50,20 @@ function TxCurrByMonth() {
     <div className="col-md-4 grid-margin stretch-card">
       <div className="card">
         <div className="card-body">
-          <h4 className="card-title small">TxCurr Gender</h4>
+          <h4 className="card-title small">TxCurr Age</h4>
           <div className="aligner-wrapper">
             <Bar data={data} options={options} />
           </div>
           <div className="bg-gray-dark d-flex justify-content-between d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
 
             <div className="text-md-center text-xl-left">
-              <h6 className="mb-1">Male</h6>
-              <p className="text-muted mb-0">{male}</p>
+              <h6 className="mb-1">Adult</h6>
+              <p className="text-muted mb-0">{adult}</p>
             </div>
 
             <div className="text-md-center text-xl-left">
-              <h6 className="mb-1">Female</h6>
-              <p className="text-muted mb-0">{female}</p>
+              <h6 className="mb-1">Pediatric</h6>
+              <p className="text-muted mb-0">{pediatric}</p>
             </div>
 
           </div>
@@ -73,4 +73,4 @@ function TxCurrByMonth() {
   );
 }
 
-export default TxCurrByMonth;
+export default TxCurrAge;

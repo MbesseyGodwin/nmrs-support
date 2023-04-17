@@ -6,61 +6,38 @@ const PbsData = React.memo(() => {
   const [pbsData, setPbsData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // useEffect(() => {
-  //   const cachedData = localStorage.getItem('pbsDataCache');
-  //   const fetchData = async () => {
-  //     const response = await fetch(`http://localhost:5000/fingerprints`);
-  //     const data = await response.json();
-  //     setPbsData(data);
-  //     localStorage.setItem('pbsDataCache', JSON.stringify(data));
-  //   };
+  useEffect(() => {
+    const socket = new WebSocket('ws://localhost:5000/fingerprints'); // create WebSocket connection
 
-  //   if (cachedData) {
-  //     setPbsData(JSON.parse(cachedData));
-  //   } 
+    socket.onopen = () => {
+      console.log('WebSocket connected'); // log connection status
+    };
 
-  //   fetchData(); // always fetch new data to check for updates
+    socket.onmessage = (event) => {
+      console.log('WebSocket data received', event.data); // log data received
+      setPbsData(JSON.parse(event.data)); // update state with new data
+      localStorage.setItem('pbsDataCache', event.data); // update cached data
+    };
 
-  //   const intervalId = setInterval(() => {
-  //     fetchData(); // fetch new data at intervals to check for updates
-  //   }, 60000); // interval of 1 minute (adjust as needed)
+    const cachedData = localStorage.getItem('pbsDataCache');
 
-  //   return () => clearInterval(intervalId); // clear interval on unmount
-  // }, []);
+    if (cachedData) {
+      setPbsData(JSON.parse(cachedData)); // use cached data if it exists
+    } else {
+      axios.get(`http://localhost:5000/fingerprints`)
+        .then(response => {
+          setPbsData(response.data);
+          localStorage.setItem('pbsDataCache', JSON.stringify(response.data)); // cache fetched data
+        })
+        .catch(error => { console.log(error) })
+    }
 
-  
-    useEffect(() => {
-      const socket = new WebSocket('ws://localhost:5000/fingerprints'); // create WebSocket connection
-  
-      socket.onopen = () => {
-        console.log('WebSocket connected'); // log connection status
-      };
-  
-      socket.onmessage = (event) => {
-        console.log('WebSocket data received', event.data); // log data received
-        setPbsData(JSON.parse(event.data)); // update state with new data
-        localStorage.setItem('pbsDataCache', event.data); // update cached data
-      };
-  
-      const cachedData = localStorage.getItem('pbsDataCache');
-  
-      if (cachedData) {
-        setPbsData(JSON.parse(cachedData)); // use cached data if it exists
-      } else {
-        axios.get(`http://localhost:5000/fingerprints`)
-          .then(response => {
-            setPbsData(response.data);
-            localStorage.setItem('pbsDataCache', JSON.stringify(response.data)); // cache fetched data
-          })
-          .catch(error => {console.log(error)}) 
-      }
-  
-      return () => socket.close(); // close WebSocket on unmount
-    }, []);
-  
-    const maleCount = pbsData.filter((report) => report.gender === "M").length;
- 
-  
+    return () => socket.close(); // close WebSocket on unmount
+  }, []);
+
+  const maleCount = pbsData.filter((report) => report.gender === "M").length;
+
+
 
   return (
     <div>

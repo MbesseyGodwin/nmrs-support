@@ -82,12 +82,12 @@ const Globalproperties = () => {
                 <div className="row">
                   {/* for NDR last run date */}
                   <div className="col-4">
-                    <div class="card bg-light border-success mb-3 text-center">
-                      <div class="card-header bg-transparent border-success text-dark">ndr upload</div>
-                      <div class="card-body text-success">
-                        <h5 class="card-title mb-0 text-dark">{ndrLastRunDate}</h5>
+                    <div className="card bg-light border-success mb-3 text-center">
+                      <div className="card-header bg-transparent border-success text-dark">ndr upload</div>
+                      <div className="card-body text-success p-2 m-2">
+                        <span className="card-title mb-0 text-dark">{ndrLastRunDate}</span>
                       </div>
-                      <div class="card-footer bg-transparent border-success">
+                      <div className="card-footer bg-transparent border-success">
                         <div className="text-muted mb-0 animate__animated animate__shakeX">
                           {currentDate.diff(
                             ndrLastRunDate,
@@ -122,12 +122,12 @@ const Globalproperties = () => {
 
                   {/* for datasync last run date */}
                   <div className="col-4">
-                    <div class="card bg-light border-success mb-3 text-center">
-                      <div class="card-header bg-transparent border-success text-dark">Data sync</div>
-                      <div class="card-body text-success">
-                        <h5 class="card-title mb-0 text-dark">{lastLocalDataSyncDate}</h5>
+                    <div className="card bg-light border-success mb-3 text-center">
+                      <div className="card-header bg-transparent border-success text-dark">Data sync</div>
+                      <div className="card-body text-success  p-2 m-2">
+                        <span className="card-title mb-0 text-dark">{lastLocalDataSyncDate}</span>
                       </div>
-                      <div class="card-footer bg-transparent border-success">
+                      <div className="card-footer bg-transparent border-success">
                         <div className="text-muted mb-0 animate__animated animate__shakeX">
                           {currentDate.diff(
                             lastLocalDataSyncDate,
@@ -162,13 +162,13 @@ const Globalproperties = () => {
 
                   {/* drug pickup for today */}
                   <div className="col-4">
-                    <div class="card bg-light border-success mb-3 text-center">
-                      <div class="card-header bg-transparent border-success text-dark">Drug pickup</div>
-                      <div class="card-body text-success">
-                        <h5 class="card-title mb-0 text-dark" title="Due For Refill Today">Due ({PharmacyDrugRefill})</h5>
+                    <div className="card bg-light border-success mb-3 text-center">
+                      <div className="card-header bg-transparent border-success text-dark">Drug pickup</div>
+                      <div className="card-body text-success  p-2 m-2">
+                        <span className="card-title mb-0 text-dark" title="Due For Refill Today">Due for Refill ({PharmacyDrugRefill})</span>
                       </div>
-                      <div class="card-footer bg-transparent border-success text-dark">
-                        Number Refilled: <span className="text-success">0</span>
+                      <div className="card-footer bg-transparent border-success text-dark">
+                        Refilled: <span className="text-success">0</span>
                       </div>
                     </div>
                   </div>

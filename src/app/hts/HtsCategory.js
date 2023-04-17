@@ -1,109 +1,128 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import db from "../shared/indexedDB/DB";
 import { Bar } from "react-chartjs-2";
-import notificationSound from "./notification.mp3";
+import { useLiveQuery } from "dexie-react-hooks";
+import moment from "moment";
 
 function HtsCategory() {
   const [isLoading, setIsLoading] = useState(false);
   const [htsData, setHtsData] = useState([]);
+  const [categoryData, setCategoryData] = useState({
+    adultTotal: 0,
+    adultMale: 0,
+    adultFemale: 0,
+    childrenTotal: 0,
+    childrenMale: 0,
+    childrenFemale: 0,
+  });
+  const [monthlyCounts, setMonthlyCounts] = useState([]);
+  const [selectedYear, setSelectedYear] = useState(moment().year());
 
-  const [adultTotal, setAdultTotal] = useState(0);
-  const [adultMale, setAdultMale] = useState(0);
-  const [adultFemale, setAdultFemale] = useState(0);
-  const [childrenTotal, setChildrenTotal] = useState(0);
-  const [childrenMale, setChildrenMale] = useState(0);
-  const [childrenFemale, setChildrenFemale] = useState(0);
-
-  // Add a state to track whether the notification has been played
-  const [notificationPlayed, setNotificationPlayed] = useState(false);
-
-  // Load the notification sound file
-  const notificationAudio = new Audio(notificationSound);
-
-  useEffect(() => {
-    setIsLoading(true);
-    const storedData = localStorage.getItem("htsData");
-    if (storedData) {
-      setHtsData(JSON.parse(storedData));
-    } else {
-      getTxCurrData();
-    }
+  const liveData = useLiveQuery(() => {
+    return db.htsData.get(1);
   }, []);
 
-  const getTxCurrData = async () => {
-    const response = await axios.get("http://localhost:5000/htsdata");
-    setHtsData(response.data);
-    localStorage.setItem("htsData", JSON.stringify(response.data));
-    setIsLoading(false);
-  };
+  useEffect(() => {
+    if (liveData !== undefined) {
+      setHtsData(liveData);
+      console.log("dexie data =:", liveData);
+    }
+  }, [liveData]);
+
 
   useEffect(() => {
-    const initialData = { adultTotal: 0, adultMale: 0, adultFemale: 0, childrenTotal: 0, childrenMale: 0, childrenFemale: 0 };
-    const result = htsData.reduce((acc, data) => {
-      if (data.Age >= 18) {
-        acc.adultTotal++;
-        if (data.Gender === "Male" || data.Gender === "M") {
-          acc.adultMale++;
-        } else if (data.Gender === "Female" || data.Gender === "F") {
-          acc.adultFemale++;
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const response = await axios.get("http://localhost:5000/htsdata");
+        const newData = response.data;
+
+        console.log(newData);
+        newData.id = 1;
+        const count = await db.htsData.count();
+
+        console.log(count);
+        if (count > 0) {
+          const data = await db.htsData.get(1);
+          if (count !== newData.length) {
+            // Data has changed, so update the database
+            console.log("new data id = " + newData.id);
+            await db.htsData.put(newData, 1);
+            setHtsData(newData);
+          } else {
+            // Data has not changed, so update state variable with data from Dexie database
+            setHtsData(data);
+          }
+        } else {
+          // Database is empty, so insert new data
+          await db.htsData.put(newData, 1);
+          setHtsData(newData);
         }
-      } else {
-        acc.childrenTotal++;
-        if (data.Gender === "Male" || data.Gender === "M") {
-          acc.childrenMale++;
-        } else if (data.Gender === "Female" || data.Gender === "F") {
-          acc.childrenFemale++;
-        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
       }
-      return acc;
-    }, initialData);
-
-
-    if (result.adultTotal !== adultTotal && !notificationPlayed) {
-      // Play the notification sound if the adultTotal has changed and the notification has not been played yet
-      notificationAudio.play();
-      setNotificationPlayed(true);
-    } else {
-      setNotificationPlayed(false);
     }
 
-    setAdultTotal(result.adultTotal);
-    setAdultMale(result.adultMale);
-    setAdultFemale(result.adultFemale);
-    setChildrenTotal(result.childrenTotal);
-    setChildrenMale(result.childrenMale);
-    setChildrenFemale(result.childrenFemale);
-  }, [adultTotal, htsData, notificationAudio, notificationPlayed]);
+    fetchData();
+  }, []);
 
+  useEffect(() => {
+    const countCategories = () => {
+      const initialData = {
+        adultTotal: 0,
+        adultMale: 0,
+        adultFemale: 0,
+        childrenTotal: 0,
+        childrenMale: 0,
+        childrenFemale: 0,
+      };
+      htsData.forEach((data) => {
+        if (data.Age >= 18) {
+          initialData.adultTotal++;
+          if (data.Gender === "Male" || data.Gender === "M") {
+            initialData.adultMale++;
+          } else if (data.Gender === "Female" || data.Gender === "F") {
+            initialData.adultFemale++;
+          }
+        } else {
+          initialData.childrenTotal++;
+          if (data.Gender === "Male" || data.Gender === "M") {
+            initialData.childrenMale++;
+          } else if (data.Gender === "Female" || data.Gender === "F") {
+            initialData.childrenFemale++;
+          }
+        }
+      });
+      setCategoryData(initialData);
+    };
 
-  console.log("adultTotal: " + adultTotal);
-  console.log("adultMale: " + adultMale);
-  console.log("adultFemale: " + adultFemale);
-  console.log("childrenTotal: " + childrenTotal);
-  console.log("childrenMale: " + childrenMale);
-  console.log("childrenFemale: " + childrenFemale);
+    countCategories();
+  }, [htsData]);
+
 
   const data = {
     labels: ["Adult", "Children"],
     datasets: [
       {
         label: "Total",
-        data: [`${adultTotal}`, `${childrenTotal}`],
+        data: [`${categoryData.adultTotal}`, `${categoryData.childrenTotal}`],
         backgroundColor: ["rgba(12, 205, 149, 0.5)", "rgba(12, 205, 149, 0.5)",],
         borderColor: ["#0CD"],
         borderWidth: 1,
       },
       {
         label: "Male",
-        data: [`${adultMale}`, `${childrenMale}`],
+        data: [`${categoryData.adultMale}`, `${categoryData.childrenMale}`],
         backgroundColor: ["rgba(0, 123, 255, 0.5)", "rgba(0, 123, 255, 0.5)"],
         borderColor: ["#00F"],
         borderWidth: 1,
       },
       {
         label: "Female",
-        data: [`${adultFemale}`, `${childrenFemale}`],
+        data: [`${categoryData.adultFemale}`, `${categoryData.childrenFemale}`],
         backgroundColor: ["rgba(255, 255, 255, 0.5)", "rgba(255, 255, 255, 0.5)"],
         borderColor: ["#FFF"],
         borderWidth: 1,
@@ -124,70 +143,138 @@ function HtsCategory() {
     },
   };
 
-  const INTERVAL_TIME = 1 * 60 * 60 * 1000; // 1 hour in milliseconds
-  const updateData = async () => {
-    try {
-      setIsLoading(true);
-      const response = await axios.get("http://localhost:5000/htsdata");
-      setHtsData(response.data);
-      localStorage.setItem("htsData", JSON.stringify(response.data));
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-      setIsLoading(false);
+
+  useEffect(() => {
+    const monthlyData = [];
+    for (let i = 1; i <= 12; i++) {
+      const monthData = htsData.filter((item) => {
+        return (
+          moment(item.HIVTestDate, "DD-MM-YYYY").format("M-YYYY") ===
+          `${i}-${selectedYear}`
+        );
+      });
+      monthlyData.push(monthData.length);
     }
+    setMonthlyCounts(monthlyData);
+  }, [htsData, selectedYear]);
+
+  const nullValues = htsData.filter((item) => { return item.HIVTestDate === null });
+  const notNullValues = htsData.filter((item) => { return item.HIVTestDate !== null });
+
+  const handleYearChange = (event) => {
+    setSelectedYear(parseInt(event.target.value));
   };
 
-  // Call updateData() immediately to load data when the component mounts
-  useEffect(() => {
-    updateData();
-  }, []);
-
-  // Call updateData() every 5 seconds using setInterval()
-  useEffect(() => {
-    const interval = setInterval(() => {
-      updateData();
-    }, INTERVAL_TIME);
-
-    // Return a function to clean up the interval when the component unmounts
-    return () => clearInterval(interval);
-  }, [INTERVAL_TIME]);
-
+  const chartData = {
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ],
+    datasets: [
+      {
+        label: `${selectedYear} HTS`,
+        data: monthlyCounts,
+        backgroundColor: [
+          "#b71c1c",
+          "#880e4f",
+          "#4a148c",
+          "#311b92",
+          "#1a237e",
+          "#0d47a1",
+          "#01579b",
+          "#006064",
+          "#004d40",
+          "#1b5e20",
+          "#33691e",
+          "#827717",
+        ],
+      },
+    ],
+  };
 
   return (
-    <div className="col-md- grid-margin stretch-card">
-      <div className="card">
-        <div className="card-body">
-          <h4 className="card-title small">
-            HTS Category
-          </h4>
-          <div className="aligner-wrapper">
-            <div>
-              <Bar data={data} options={options} />
+    <>
+      <div className="col-md-6 grid-margin stretch-card">
+        <div className="card">
+          <div className="card-body">
+            <h4 className="card-title small">
+              HTS Category
+            </h4>
+            <div className="aligner-wrapper">
               <div>
-                <div className="bg-gray-dark d-flex d-md-block d-xl-flex justify-content-between flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Total Adult</h6>
-                    <p className="text-muted mb-0">
-                      {/* {isLoading ? "Loading....." : `${adultTotal}`} */}
-                      {adultTotal}
-                    </p>
+                <Bar data={data} options={options} />
+                <div>
+                  <div className="bg-gray-dark d-flex d-md-block d-xl-flex justify-content-between flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+                    <div className="text-md-center text-xl-left">
+                      <h6 className="mb-1">Total Adult</h6>
+                      <p className="text-muted mb-0">
+                        {/* {isLoading ? "Loading....." : `${categoryData.adultTotal}`} */}
+                        {`${categoryData.adultTotal}`}
+                      </p>
+                    </div>
+                    <div className="text-md-center text-xl-left">
+                      <h6 className="mb-1">Total Children</h6>
+                      <p className="text-muted mb-0">
+                        {/* {isLoading ? "Loading....." : `${categoryData.childrenTotal}`} */}
+                        {`${categoryData.childrenTotal}`}
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-md-center text-xl-left">
-                    <h6 className="mb-1">Total Children</h6>
-                    <p className="text-muted mb-0">
-                      {/* {isLoading ? "Loading....." : `${childrenTotal}`} */}
-                      {childrenTotal}
-                    </p>
-                  </div>
-                </div>
 
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <div className="col-md-6 grid-margin stretch-card">
+        <div className="card">
+          <div className="card-body">
+            <h4 className="card-title small">HTS History</h4>
+            <div className="d-flex justify-content-end mb-3">
+              <select
+                className="form-control w-auto"
+                value={selectedYear}
+                onChange={handleYearChange}
+              >
+                {Array.from({ length: 10 }, (_, i) => moment().year() - i).map(
+                  (year) => (
+                    <option key={year} value={year}>
+                      {year}
+                    </option>
+                  )
+                )}
+              </select>
+            </div>
+            <div className="aligner-wrapper">
+              <Bar data={chartData} />
+            </div>
+            <div className="bg-gray-dark d-flex d-md-block d-xl-flex flex-row py-3 px-4 px-md-3 px-xl-4 rounded mt-3">
+              <div className="text-md-center text-xl-left">
+                <h6 className="mb-1">Total Tested</h6>
+                <p className="text-muted mb-0">{htsData.length}</p>
+              </div>
+
+              <div className="align-self-center flex-grow text-right text-md-center text-xl-right py-md-2 py-xl-0">
+                <p className="text-muted mb-0">With Date Value: {nullValues.length}</p>
+                <p className="text-muted mb-0">With Null Value: {notNullValues.length}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 

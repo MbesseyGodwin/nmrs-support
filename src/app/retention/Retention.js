@@ -5,8 +5,8 @@ import ComingSoon from '../shared/ComingSoon';
 function Retention() {
   return (
     <div>
-    <RetentionCards />
-    <ComingSoon />
+      <RetentionCards />
+      <ComingSoon />
 
     </div>
   )

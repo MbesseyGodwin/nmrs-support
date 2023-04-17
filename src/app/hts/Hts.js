@@ -1,45 +1,35 @@
-import React, { Component } from "react";
+import React, { useRef } from "react";
 import { Doughnut, Bar } from "react-chartjs-2";
 import Slider from "react-slick";
 import HtsHistory from "./HtsHistory";
 import HtsCategory from "./HtsCategory";
+import HtsCategoryClone from "./HtsCategoryClone";
 import HtsAnalysis from "./HtsAnalysis";
 import HtsData from "./HtsData";
 import HtsDrillDownChart from "./HtsDrillDownChart";
 import HtsCards from "./HtsCards";
 import HtsTest from "./HtsTest";
+import SaveAsImage from "../shared/SaveAsImage";
 
-export class Hts extends Component {
+function Hts() {
+  const componentRef = useRef(null);
 
+  return (
+    <>
+      <SaveAsImage componentRef={componentRef} />
+      <div ref={componentRef}>
 
-  sliderSettings = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: false,
-    autoplaySpeed: 2000,
-  };
-
-  toggleProBanner() {
-    document.querySelector(".proBanner").classList.toggle("hide");
-  }
-  render() {
-    return (
-      <div>
-      <HtsCards />
-      {/* <HtsTest /> */}
+        <HtsCards />
+        {/* <HtsTest /> */}
 
         <div className="row">
           {/* hts gender category */}
-          <HtsCategory />
-
+          {/* <HtsCategory /> */}
+          <HtsCategoryClone />
 
           {/* hts history */}
-          <HtsHistory />
+          {/* <HtsHistory /> */}
         </div>
-
-
 
         <div className="row">
           {/* Category 3 */}
@@ -62,12 +52,10 @@ export class Hts extends Component {
             </div>
           </div>
         </div>
-
-
-
       </div>
-    );
-  }
+    </>
+
+  );
 }
 
 export default Hts;

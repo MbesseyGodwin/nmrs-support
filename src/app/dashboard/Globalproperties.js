@@ -3,9 +3,16 @@ import axios from "axios";
 import moment from "moment";
 import dayjs from "dayjs";
 import "animate.css/animate.min.css";
+import { Link } from "react-router-dom";
+
 
 
 const Globalproperties = () => {
+
+  const currentDate = dayjs();
+  const pastDate = dayjs().subtract(10, "day");
+  const differenceInDays = currentDate.diff(pastDate, "day");
+  const currDate = moment().format('YYYY-MM-DD');
 
   const [isLoading, setIsLoading] = useState(false);
   const [globalpropertiesData, setGlobalpropertiesData] = useState([]);
@@ -41,8 +48,12 @@ const Globalproperties = () => {
     getDrugRefill();
   }, []);
 
-  console.log(drugRefill.length);
-  const PharmacyDrugRefill = drugRefill.length;
+
+
+  // console.table(drugRefill);
+  const PharmacyDrugRefill = drugRefill.filter((item) => {
+    return item.AppointmentDate === currDate;
+  }).length;
 
 
 
@@ -64,12 +75,12 @@ const Globalproperties = () => {
   )?.property_value;
 
 
-  const currentDate = dayjs();
-  const pastDate = dayjs().subtract(10, "day");
-  const differenceInDays = currentDate.diff(pastDate, "day");
+
 
   return (
     <div className="col-md-5 grid-margin stretch-card">
+
+
       <div className="card">
         <div className="card-body">
           <div className="d-flex flex-row justify-content-between border-light border-bottom mb-3">
@@ -83,9 +94,11 @@ const Globalproperties = () => {
                   {/* for NDR last run date */}
                   <div className="col-4">
                     <div className="card bg-light border-success mb-3 text-center">
-                      <div className="card-header bg-transparent border-success text-dark">ndr upload</div>
-                      <div className="card-body text-success p-2 m-2">
-                        <span className="card-title mb-0 text-dark">{ndrLastRunDate}</span>
+                      <div className="card-header bg-transparent border-success text-dark font-weight-bold">ndr upload</div>
+                      <div className="card-body p-2 m-2">
+                        <a target="blank" href="http://localhost:8080/openmrs/nigeriaemr/customNdr.page" className="nav-link p-0 small">
+                          <span className="card-title mb-0 text-dark small">{lastLocalDataSyncDate}</span>
+                        </a>
                       </div>
                       <div className="card-footer bg-transparent border-success">
                         <div className="text-muted mb-0 animate__animated animate__shakeX">
@@ -120,12 +133,14 @@ const Globalproperties = () => {
                     </div>
                   </div>
 
-                  {/* for datasync last run date */}
+                  {/* for datasync last run date*/}
                   <div className="col-4">
                     <div className="card bg-light border-success mb-3 text-center">
-                      <div className="card-header bg-transparent border-success text-dark">Data sync</div>
-                      <div className="card-body text-success  p-2 m-2">
-                        <span className="card-title mb-0 text-dark">{lastLocalDataSyncDate}</span>
+                      <div className="card-header bg-transparent border-success text-dark font-weight-bold">Data sync</div>
+                      <div className="card-body p-2 m-2">
+                        <a target="blank" href="http://localhost:8008" className="nav-link p-0 small">
+                          <span className="card-title mb-0 text-dark small">{lastLocalDataSyncDate}</span>
+                        </a>
                       </div>
                       <div className="card-footer bg-transparent border-success">
                         <div className="text-muted mb-0 animate__animated animate__shakeX">
@@ -163,12 +178,14 @@ const Globalproperties = () => {
                   {/* drug pickup for today */}
                   <div className="col-4">
                     <div className="card bg-light border-success mb-3 text-center">
-                      <div className="card-header bg-transparent border-success text-dark">Drug pickup</div>
-                      <div className="card-body text-success  p-2 m-2">
-                        <span className="card-title mb-0 text-dark" title="Due For Refill Today">Due for Refill ({PharmacyDrugRefill})</span>
+                      <div className="card-header bg-transparent border-success text-dark font-weight-bold">Drug pickup</div>
+                      <div className="card-body text-success p-2 m-2">
+                        <Link to="./retention" className="nav-link p-0 small">
+                          <span className="card-title mb-0 text-dark" title="View all Refills">Due for Refill ({PharmacyDrugRefill})</span>
+                        </Link>
                       </div>
                       <div className="card-footer bg-transparent border-success text-dark">
-                        Refilled: <span className="text-success">0</span>
+                        Refilled Today: <span className="text-success">0</span>
                       </div>
                     </div>
                   </div>

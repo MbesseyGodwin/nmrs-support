@@ -11,12 +11,14 @@ const ViralLoad = lazy(() => import('./viral_load/ViralLoad'));
 const Retention = lazy(() => import('./retention/Retention'));
 const Pbs = lazy(() => import('./pbs/Pbs'));
 const Reports = lazy(() => import('./reports/Reports'));
+const Landing = lazy(() => import('./landing-page/Landing'))
 
 class AppRoutes extends Component {
   render() {
     return (
       <Suspense fallback={<Spinner />}>
         <Switch>
+          <Route path="/landing" component={Landing} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/dashboarding" component={Dashboarding} />
           <Route path="/hts" component={Hts} />
@@ -25,7 +27,7 @@ class AppRoutes extends Component {
           <Route path="/retention" component={Retention} />
           <Route path="/pbs" component={Pbs} />
           <Route path="/reports" component={Reports} />
-          <Redirect to="/dashboard" />
+          <Redirect to="/landing" />
         </Switch>
       </Suspense>
     );

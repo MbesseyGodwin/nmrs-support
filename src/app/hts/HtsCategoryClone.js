@@ -237,24 +237,18 @@ function HtsCategoryClone() {
                             <div>
                                 <Bar data={data} options={options} />
                                 <div className="border border-light mt-2">
-                                    <table className="table table-dark table-bordered table-striped table-hover">
-                                        <thead>
-                                            <tr className="text-light text-center bg-dark">
-                                                <th>Total</th>
-                                                <th>Male</th>
-                                                <th>Female</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="text-light text-center">
+                                    <table className="table table-default table-bordered">
+
+                                        <tbody className="text-center">
                                             <tr>
-                                                <td>{`Adults ${categoryData.adultTotal}`}</td>
-                                                <td>{`Adults ${categoryData.adultMale}`}</td>
-                                                <td>{`Adults ${categoryData.adultFemale}`}</td>
+                                                <td className="btn-outline-light">{`Adults Total ${categoryData.adultTotal}`}</td>
+                                                <td className="btn-outline-light">{`Adults Male ${categoryData.adultMale}`}</td>
+                                                <td className="btn-outline-light">{`Adults Female ${categoryData.adultFemale}`}</td>
                                             </tr>
                                             <tr>
-                                                <td>{`Pediatrics ${categoryData.childrenTotal}`}</td>
-                                                <td>{`Pediatrics ${categoryData.childrenMale}`}</td>
-                                                <td>{`Pediatrics ${categoryData.childrenFemale}`}</td>
+                                                <td className="btn-outline-light">{`Pediatrics Total ${categoryData.childrenTotal}`}</td>
+                                                <td className="btn-outline-light">{`Pediatrics Male ${categoryData.childrenMale}`}</td>
+                                                <td className="btn-outline-light">{`Pediatrics Female ${categoryData.childrenFemale}`}</td>
                                             </tr>
                                         </tbody>
                                     </table>

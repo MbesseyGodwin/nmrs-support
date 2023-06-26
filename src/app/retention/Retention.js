@@ -12,4 +12,4 @@ function Retention() {
   )
 }
 
-export default Retention
+export default Retention;

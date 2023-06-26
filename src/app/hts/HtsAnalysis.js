@@ -16,19 +16,16 @@ const HtsAnalysis = () => {
     chart.color = "white";
 
     chart.data = [{
-      country: "Lithuania",
-      liters: 232.9
+      category: "Adults",
+      ageTotal: 232.9
     }, {
-      country: "Czech Republic",
-      liters: 301.9
-    }, {
-      country: "Ireland",
-      liters: 201.1
+      category: "Pediatrics",
+      ageTotal: 301.9
     }];
 
     let pieSeries = chart.series.push(new am4charts.PieSeries());
-    pieSeries.dataFields.value = "liters";
-    pieSeries.dataFields.category = "country";
+    pieSeries.dataFields.value = "ageTotal";
+    pieSeries.dataFields.category = "category";
     pieSeries.labels.template.fill = am4core.color("white");
     pieSeries.ticks.template.disabled = true;
 

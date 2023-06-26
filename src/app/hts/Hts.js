@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { Doughnut, Bar } from "react-chartjs-2";
 import Slider from "react-slick";
 import HtsHistory from "./HtsHistory";

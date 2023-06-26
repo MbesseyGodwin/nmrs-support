@@ -28,7 +28,7 @@ const customStyles = {
     },
     cells: {
         style: {
-            fontSize: '14px',
+            fontSize: '15px',
             borderRight: '1px solid #000',
             margin: 0, // remove all margins from cells
         },
@@ -64,10 +64,14 @@ const ViralLoadDataTable = () => {
     }, [liveData]);
 
     const columns = [
+        { name: 'VisitDate', selector: 'VisitDate', sortable: true },
         { name: 'PepfarID', selector: 'PepfarID', sortable: true },
         { name: 'SampleID', selector: 'SampleID', sortable: true },
         { name: 'Age', selector: 'Age', sortable: true },
         { name: 'Sex', selector: 'Sex', sortable: true },
+        { name: 'ViralLoadResult', selector: 'ViralLoadResult', sortable: true },
+        { name: 'OrderedDate', selector: 'OrderedDate', sortable: true },
+        { name: 'ResultDate', selector: 'ResultDate', sortable: true },
     ];
 
     const handleSort = useCallback(
@@ -137,7 +141,7 @@ const ViralLoadDataTable = () => {
                     id="itemsPerPage"
                     onChange={(e) => setItemsPerPage(parseInt(e.target.value))}
                 >
-                    <option className='form-select-option h5' value="10" selected>Rows Per Page (Default 10)</option>
+                    <option className='form-select-option h5' value="5" selected>Rows Per Page (Default 5)</option>
                     <option value="20">20</option>
                     <option value="50">50</option>
                     <option value="100">100</option>

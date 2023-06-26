@@ -23,11 +23,11 @@ export default function RetentionCards() {
 
     return (
         <div>
-            <nav aria-label="breadcrumb">
+            <nav aria-label="breadcrumb" className="bg-black">
                 <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="#">OpenMRS</a></li>
-                    <li className="breadcrumb-item"><a href="#">Home</a></li>
-                    <li className="breadcrumb-item text-info active" aria-current="page">Retention</li>
+                    <li className="breadcrumb-item text-orange-600"><a href="#">OpenMRS</a></li>
+                    <li className="breadcrumb-item text-orange-600"><a href="#">Home</a></li>
+                    <li className="breadcrumb-item text-orange-600 text-info active" aria-current="page">Retention</li>
                     <li style={{ marginLeft: 'auto' }}><a href="#" className='text-danger'>Reload</a></li>
                 </ol>
             </nav>
@@ -132,7 +132,7 @@ export default function RetentionCards() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
     )
 }

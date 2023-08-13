@@ -27,9 +27,7 @@ function TxCurrAge() {
       {
         label: "Category",
         data: [adult, pediatric],
-        backgroundColor: ["rgba(54, 162, 235, 0.2)", "rgba(54, 0, 235, 0.2)", "rgba(111, 111, 111, 0.2)"],
-        borderColor: "rgba(54, 162, 235, 1)",
-        borderWidth: 1,
+        backgroundColor:["rgba(0, 210, 91)", "rgba(0, 210, 91)"],
       },
     ],
   };

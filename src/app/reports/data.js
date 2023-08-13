@@ -1,0 +1,78 @@
+export const states = [
+  {
+    value: "1",
+    label: "Abia",
+  },
+  // {
+  //   value: "2",
+  //   label: "Enugu",
+  // },
+  // {
+  //   value: "3",
+  //   label: "Imo",
+  // },
+];
+
+export const lga = [
+  { value: "1", stateid: "1", label: "Aba North" },
+  { value: "2", stateid: "1", label: "Aba South" },
+  { value: "3", stateid: "1", label: "Arochukwu" },
+  { value: "4", stateid: "1", label: "Bende" },
+  { value: "5", stateid: "1", label: "Ikwuano" },
+  { value: "6", stateid: "1", label: "Isiala Ngwa North" },
+  { value: "7", stateid: "1", label: "Isiala Ngwa South" },
+  { value: "8", stateid: "1", label: "Isuikwuato" },
+  { value: "9", stateid: "1", label: "Obi Ngwa" },
+  { value: "10", stateid: "1", label: "Ohafia" },
+  { value: "11", stateid: "1", label: "Osisioma" },
+  { value: "12", stateid: "1", label: "Ugwunagbo" },
+  { value: "13", stateid: "1", label: "Ukwa East" },
+  { value: "14", stateid: "1", label: "Ukwa West" },
+  { value: "15", stateid: "1", label: "Umu Nneochi" },
+  { value: "16", stateid: "1", label: "Umuahia North" },
+  { value: "17", stateid: "1", label: "Umuahia South" },
+];
+
+export const facilities = [
+  { value: "1", datimCode: "fHFnqRjG4TI", lgaid: "1", label: "SEVENTH DAY ADVENTIST HOSPITAL" },
+  { value: "2", datimCode: "WbXARfYx9kz", lgaid: "2", label: "New Era Hospital" },
+  { value: "3", datimCode: "fzZt2WvhJtp", lgaid: "2", label: "St. Joseph Catholic Hospital- Ohabia" },
+  { value: "4", datimCode: "VdlPkoQ1IFw", lgaid: "2", label: "St. Anthony's hospital limited" },
+  { value: "5", datimCode: "GhE4KpcDirN", lgaid: "2", label: "Mendel Hospital And Diagnostic Centre" },
+  { value: "6", datimCode: "zvB6izLfV18", lgaid: "3", label: "Arochukwu General Hospital" },
+  { value: "7", datimCode: "fzZt2WvhJtp", lgaid: "3", label: "St AnthonyS Hospital (Arochukwu)" },
+  { value: "8", datimCode: "OpwgjB2ddq2", lgaid: "4", label: "Royal Cross Methodist Hospital" },
+  { value: "9", datimCode: "TcbFynQMySf", lgaid: "4", label: "Nkechi Colwill Methodist Hospital" },
+  { value: "10", datimCode: "MmOG2HOLx86", lgaid: "4", label: "Chijioke Osogho Methodist Memorial Hospital"},
+  { value: "11", datimCode: "wg1zSngSfJQ", lgaid: "5", label: "Michael Okpara University Of Agriculture Health Centre"},
+  { value: "12", datimCode: "O4rxs80kTpe", lgaid: "6", label: "Central Medical Centre" },
+  { value: "13", datimCode: "aojRW0meZjh", lgaid: "6", label: "Okpuala Ngwa General Hospital" },
+  { value: "14", datimCode: "UXHxMId3Ui8", lgaid: "7", label: "Teresa Orsini Clinic" },
+  { value: "15", datimCode: "UA2gFxAFIuQ", lgaid: "8", label: "Marist Cottage Hospital- Uturu" },
+  { value: "16", datimCode: "xvuUYgaPhVG", lgaid: "8", label: "General Hospital Isuikwuato" },
+  { value: "17", datimCode: "PqpYTVBAk57", lgaid: "8", label: "Swiss Foundation Hospital" },
+  { value: "18", datimCode: "UQziaNYq6s8", lgaid: "9",label: "Semcon Friends Mission Hospital And Motherless Babies Home"},
+  { value: "19", datimCode: "D4d8huAbcBW", lgaid: "9", label: "Bishop Afonya Memorial Hospital" },
+  { value: "20", datimCode: "Axox0WQySu4", lgaid: "9", label: "Nigeria Christian Hospital- Nlagu" },
+  { value: "21", datimCode: "HfpHrPvkakp", lgaid: "10", label: "King of Kings Specialist Hospital" },
+  { value: "22", datimCode: "sX0F4zlnnow", lgaid: "10", label: "Akahaba General Hospital" },
+  { value: "23", datimCode: "OaOgwmK9RSh", lgaid: "10", label: "Ohafia General Hospital" },
+  { value: "24", datimCode: "agkDZNyleEk", lgaid: "11", label: "Ihunanya Specialist Hospital" },
+  { value: "25", datimCode: "aYWkK1xhozp", lgaid: "11", label: "Abia State University Teaching Hospital" },
+  { value: "26", datimCode: "moBsKZaNADC", lgaid: "11", label: "Living Word Hospital (Osisiamo Ngwa)" },
+  { value: "27", datimCode: "kPDqNh6g1WL", lgaid: "11", label: "Government Cottage Hospital" },
+  { value: "28", datimCode: "YcdbxsZp9v1", lgaid: "12", label: "Nwodaku Memory Hospital And Maternity" },
+  { value: "29", datimCode: "UuFV36398rs", lgaid: "13", label: "Azumini Cottage Hospital" },
+  { value: "30", datimCode: "FgfQDeu2KWK", lgaid: "14", label: "Denokem Hospital" },
+  { value: "31", datimCode: "NQxqpoy28mt", lgaid: "14", label: "Owaza Cottage Hospital" },
+  { value: "32", datimCode: "ioX0HsmVY23", lgaid: "15", label: "St Anthonys Hospital (Amuda)" },
+  { value: "33", datimCode: "NQxqpoy28mt", lgaid: "15", label: "Umu Nneochi General Hospital" },
+  { value: "34", datimCode: "MstefgiDt46", lgaid: "16", label: "Daughters Of Mary Mother Of Mercy Hospital"},
+  { value: "35", datimCode: "E2u2QfC5cNQ", lgaid: "16", label: "Federal Medical Centre Umuahia" },
+  { value: "36", datimCode: "xh4lTrGre8D", lgaid: "16", label: "Madonna Catholic Hospital" },
+  { value: "37", datimCode: "ywF2kLomUsj", lgaid: "17", label: "Abia State Specialist Hospital Amachara" },
+  { value: "38", datimCode: "khND4kbOfOG", lgaid: "17", label: "St. Charles Hospital" },
+];
+
+
+

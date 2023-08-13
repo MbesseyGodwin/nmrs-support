@@ -23,14 +23,14 @@ export default function TxCurCards() {
 
     return (
         <div>
-            <nav aria-label="breadcrumb" className="bg-black">
+            {/* <nav aria-label="breadcrumb" className="bg-black">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item text-orange-600"><a href="#">OpenMRS</a></li>
                     <li className="breadcrumb-item text-orange-600"><a href="#">Home</a></li>
                     <li className="breadcrumb-item text-orange-600 text-info active" aria-current="page">TX-CUR</li>
                     <li style={{ marginLeft: 'auto' }}><a href="#" className='text-danger'>Reload</a></li>
                 </ol>
-            </nav>
+            </nav> */}
             <div className="row">
                 <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
                     <div className="card d-block">
@@ -47,7 +47,7 @@ export default function TxCurCards() {
                                     </div>
                                 </div>
                                 <div className="col-3">
-                                    <div className="icon icon-box-success ">
+                                    <div className="icon icon-box-success">
                                         <span className="mdi mdi mdi-human-male-female icon-item"></span>
                                     </div>
                                 </div>

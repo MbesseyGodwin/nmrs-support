@@ -85,7 +85,7 @@
         transition-property: color;
         -webkit-transition-property: color;
         height: 46px;
-        border-radius: 0px 100px 100px 0px;
+        // border-radius: 0px 100px 100px 0px;
         cursor: pointer;
         
         i {
@@ -135,13 +135,14 @@
 
       &.active {
         > .nav-link {
-          background: $sidebar-menu-active-bg;
+          // background: $sidebar-menu-active-bg;
+          background-color: theme-color(success);
           position: relative;
           &:before {
             content: "";
             width: 3px;
             height: 100%;
-            background: theme-color(primary);
+            background: theme-color(success);
             display: inline-block;
             position: absolute;
             left: 0;

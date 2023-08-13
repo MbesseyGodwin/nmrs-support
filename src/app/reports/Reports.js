@@ -1,164 +1,111 @@
-import React, { useState, useEffect } from "react";
-import moment from "moment";
-import axios from "axios";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useState } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import './Reports.css';
+import { states, lga, facilities } from './data';
 
-const Reports = () => {
-  const [pbsData, setPbsData] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [reportsPerPage, setReportsPerPage] = useState(200);
-  let formattedDate;
+function Reports() {
+  const [expandedStates, setExpandedStates] = useState([]);
+  const [expandedLGAs, setExpandedLGAs] = useState([]);
+  const [selectedLGA, setSelectedLGA] = useState(null);
+  const [selectedFacility, setSelectedFacility] = useState('');
+  const history = useHistory(); // Import useHistory hook
 
-  // let formattedDate
-
-  useEffect(() => {
-    getPbs();
-  }, []);
-
-  // function to fetch the data
-  const getPbs = async () => {
-    const response = await axios.get("http://localhost:5000/customers");
-    setPbsData(response.data);
-  };
-
-  const handleSearch = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleCategorySelect = (event) => {
-    setSelectedCategory(event.target.value);
-  };
-
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  let filteredReports = pbsData;
-
-  if (searchTerm) {
-    filteredReports = filteredReports.filter((report) =>
-      report.patient_Id.toLowerCase().includes(searchTerm.toLowerCase())
+  const toggleState = (stateValue) => {
+    setExpandedStates((prevStates) =>
+      prevStates.includes(stateValue)
+        ? prevStates.filter((state) => state !== stateValue)
+        : [...prevStates, stateValue]
     );
-  }
+    setExpandedLGAs([]); // Close all LGAs when a state is toggled
+    setSelectedLGA(null);
+  };
 
-  if (selectedCategory) {
-    filteredReports = filteredReports.filter(
-      (report) => report.gender === selectedCategory
-    );
-  }
+  const toggleLGA = (lgaValue) => {
+    if (selectedLGA === lgaValue) {
+      setSelectedLGA(null);
+      setExpandedLGAs([]);
+    } else {
+      setSelectedLGA(lgaValue);
+      setExpandedLGAs([lgaValue]);
+    }
+  };
 
-  const indexOfLastReport = currentPage * reportsPerPage;
-  const indexOfFirstReport = indexOfLastReport - reportsPerPage;
-  const currentReports = filteredReports.slice(
-    indexOfFirstReport,
-    indexOfLastReport
-  );
+  const handleFacilityChange = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedFacility(selectedValue);
 
-  const maleCount = filteredReports.filter(
-    (report) => report.gender === "M"
-  ).length;
-  const femaleCount = filteredReports.filter(
-    (report) => report.gender === "F"
-  ).length;
+    // Navigate to the facility page when an option is selected
+    if (selectedValue) {
+      history.push(`/facility/${selectedValue}`);
+    }
+  };
 
-  const pageNumbers = [];
-  for (
-    let i = 1;
-    i <= Math.ceil(filteredReports.length / reportsPerPage);
-    i++
-  ) {
-    pageNumbers.push(i);
-  }
-  
-
-
-// destructing
-const [firstObject] = filteredReports;
-console.log(firstObject);
+  const isStateExpanded = (stateValue) => expandedStates.includes(stateValue);
+  const isLGAExpanded = (lgaValue) => expandedLGAs.includes(lgaValue);
 
   return (
-    <div>
+    <div className="container-fluid">
+      <div className="form-group">
+        <label htmlFor="facilitySelect" className='text-dark'>Select a Facility:</label>
+        <select
+          className="custom-select shadow"
+          name="facility"
+          id="facilitySelect"
+          onChange={handleFacilityChange}
+          value={selectedFacility}
+        >
+          <option value="">Select a facility</option>
+          {facilities
+            .slice() // Create a copy of the array before sorting
+            .sort((a, b) => a.label.localeCompare(b.label)) // Sort facilities alphabetically by label
+            .map((facility) => (
+              <option key={facility.value} value={facility.datimCode}>
+                {facility.label}
+              </option>
+            ))}
+        </select>
+      </div>
+
       <div className="row">
-        <div className="col-md-12 grid-margin stretch-card">
-          <div className="card">
-            <div className="card-body">
-              <h4 className="card-title">
-                All valid PBS:
-                <span className="text-success">{pbsData.length}</span>
-              </h4>
-              <p>{maleCount}</p>
-              <div>
-                <div className="d-flex mb-4">
-                  <input
-                    type="text"
-                    placeholder="Search reports..."
-                    value={searchTerm}
-                    onChange=""
-                    className="form-control bg-light"
-                  />
-
-                  <select
-                    className="bg-success text-light form-select"
-                    value={reportsPerPage}
-                    onChange={(e) => setReportsPerPage(e.target.value)}
-                  >
-                    <option selected value="5">
-                      5
-                    </option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value={pbsData.length}>All</option>
-                  </select>
-
-                  <select
-                    className="bg-success form-select text-light"
-                    value={selectedCategory}
-                    onChange={handleCategorySelect}
-                  >
-                    <option value="">Select All Categories</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                  </select>
-                </div>
-                <table className="table table-hover text-light table-bordered">
-                  <thead className="thead mt-3">
-                    <tr className="bg-success text-uppercase">
-                      <th>PEPFAR ID</th>
-                      <th>Family Name</th>
-                      <th>Given</th>
-                      <th>Gender</th>
-                      <th>Date Captured</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {currentReports.map((report) => (
-                      <tr key={report.id}>
-                        <td>{report.identifier}</td>
-                        <td>{report.family_name}</td>
-                        <td>{report.given_name}</td>
-                        <td>{report.gender}</td>
-                        <td>
-                          {
-                            (report.date_created = formattedDate =
-                              moment(report.date_created).format(
-                                "MMMM Do YYYY, h:mm:ss a"
-                              ))
-                          }
-                        </td>
-                      </tr>
+        <div className="tree">
+          <ul>
+            {states.map((state) => (
+              <li key={state.value}>
+                <a href="#" onClick={() => toggleState(state.value)}>
+                  <span className={'text-dark'}>{state.label}</span>
+                </a>
+                <ul className={isStateExpanded(state.value) ? 'hidden' : ''}>
+                  {lga
+                    .filter((l) => l.stateid === state.value)
+                    .map((lgaItem) => (
+                      <li key={lgaItem.value}>
+                        <a href="#" onClick={() => toggleLGA(lgaItem.value)}>
+                          <span className={selectedLGA === lgaItem.value ? 'text-primary' : 'text-dark'}>
+                            {lgaItem.label}
+                          </span>
+                        </a>
+                        <ul className={isLGAExpanded(lgaItem.value) ? '' : 'hidden'}>
+                          {facilities
+                            .filter((facility) => facility.lgaid === lgaItem.value)
+                            .map((facility) => (
+                              <li key={facility.value}>
+                                <Link to={`/facility/${facility.datimCode}`} className="btn btn-primary">
+                                  {facility.label}
+                                </Link>
+                              </li>
+                            ))}
+                        </ul>
+                      </li>
                     ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
+                </ul>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default Reports;

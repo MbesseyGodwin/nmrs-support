@@ -59,7 +59,7 @@ const ViralLoadDataTable = () => {
     useEffect(() => {
         if (liveData !== undefined) {
             setViralLoadData(liveData);
-            console.log("dexie data =:", liveData);
+            // console.log("dexie data =:", liveData);
         }
     }, [liveData]);
 

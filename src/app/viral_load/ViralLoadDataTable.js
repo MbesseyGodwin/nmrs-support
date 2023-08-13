@@ -122,7 +122,7 @@ const ViralLoadDataTable = () => {
         );
     }, [viralLoadData, searchText, ageSearchText]);
 
-    console.log(filteredData.length);
+    // console.log(filteredData.length);
 
     const filteredAndSortedData = useMemo(() => {
         if (sortDirection === 'asc') {

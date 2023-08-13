@@ -6,7 +6,7 @@ function Retention() {
   return (
     <div>
       <RetentionCards />
-      <ComingSoon />
+      {/* <ComingSoon /> */}
 
     </div>
   )

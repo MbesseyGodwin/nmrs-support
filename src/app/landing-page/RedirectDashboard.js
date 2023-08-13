@@ -92,8 +92,7 @@ function RedirectDashboard({ delay = 30000, countdownStep = 1 }) {
                 <b className='h1' style={{ 'visibility': 'hidden' }}>1</b>
                 {currentNotes.map((note, index) => (
                     <div className='animate__animated animate__flipInX animated'>
-                        <span className='h1 text-capitalize' id={`note${index}`} key={index} style={{ fontFamily: 'cursive, sans-serif' }}>{note.text}</span>
-
+                        <span className='text-dark h1 text-lowercase' id={`note${index}`} key={index} style={{ fontFamily: 'cursive, sans-serif' }}>{note.text}</span>
                     </div>
 
                 ))}

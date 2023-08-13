@@ -20,22 +20,20 @@ function DexieInsert() {
                 const response = await axios.get("http://localhost:5000/htslist");
                 const newData = response.data;
 
-                console.log(newData);
+                // console.log(newData);
                 newData.id = 1;
                 const count = await db.htslist.count();
 
-                console.log(count);
                 if (count > 0) {
-                    const data = await db.htslist.get(1);
                     if (count !== newData.length) {
                         // Data has changed, so update the database
                         await db.htslist.put(newData, 1);
-                        console.log("new data htslist updated");
+                        console.log("Data has changed, so update htslist");
                     }
                 } else {
                     // Database is empty, so insert new data
                     await db.htslist.put(newData, 1);
-                    console.log("new data htslist added");
+                    console.log("new data added to htslist");
                 }
             } catch (error) {
                 console.error(error);
@@ -55,22 +53,20 @@ function DexieInsert() {
                 const response = await axios.get("http://localhost:5000/viralloadlist");
                 const newData = response.data;
 
-                console.log(newData);
+                // console.log(newData);
                 newData.id = 1;
                 const count = await db.viralloadlist.count();
 
-                console.log(count);
                 if (count > 0) {
-                    const data = await db.viralloadlist.get(1);
                     if (count !== newData.length) {
                         // Data has changed, so update the database
                         await db.viralloadlist.put(newData, 1);
-                        console.log("new data viralloadlist updated");
+                        console.log("Data has changed, so update viralloadlist");
                     }
                 } else {
                     // Database is empty, so insert new data
                     await db.viralloadlist.put(newData, 1);
-                    console.log("new data viralloadlist added");
+                    console.log("new data added to viralloadlist");
                 }
             } catch (error) {
                 console.error(error);

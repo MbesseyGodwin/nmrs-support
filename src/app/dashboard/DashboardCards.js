@@ -37,14 +37,14 @@ function DashboardCards() {
 
     return (
         <div>
-            <nav aria-label="breadcrumb">
+            {/* <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                     <li className="breadcrumb-item"><a href="#">OpenMRS</a></li>
                     <li className="breadcrumb-item"><a href="#">Home</a></li>
                     <li className="breadcrumb-item text-info active" aria-current="page">Dashboard</li>
                     <li style={{ marginLeft: 'auto' }}><a href="#" className='text-danger'>Reload</a></li>
                 </ol>
-            </nav>
+            </nav> */}
             <div className="row">
                 <div className="col-xl col-sm-6 grid-margin stretch-card">
                     <div className="card">
@@ -55,18 +55,17 @@ function DashboardCards() {
                                         <h5 className="mb-0">
                                             {htsList.length}
                                         </h5>
-                                        <p className="text-success ml-2 mb-0 font-weight-medium">
-                                            +0%
-                                        </p>
                                     </div>
                                 </div>
                                 <div className="col-3">
-                                    <div className="icon icon-box-success ">
-                                        <span className="mdi mdi-human-male-female icon-md"></span>
+                                    <div className="icon icon-box-success">
+                                        <p className="text-success mb-0 font-weight-medium">
+                                            0%
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <h6 className="text-muted font-weight-normal">HTS</h6>
+                            <h6 className="text-muted font-weight-normal">HTS TST</h6>
                         </div>
                     </div>
                 </div>
@@ -77,19 +76,18 @@ function DashboardCards() {
                                 <div className="col-9">
                                     <div className="d-flex align-items-center align-self-start">
                                         <h5 className="mb-0">{0}</h5>
-                                        <p className="text-success ml-2 mb-0 font-weight-medium">
-                                            +0%
-                                        </p>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="icon icon-box-success">
-                                        <span className="mdi mdi-hospital icon-md"></span>
+                                        <p className="text-success mb-0 font-weight-medium">
+                                            0%
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <h6 className="text-muted font-weight-normal">
-                                Treatment
+                                TX Curr
                             </h6>
                         </div>
                     </div>
@@ -101,18 +99,17 @@ function DashboardCards() {
                                 <div className="col-9">
                                     <div className="d-flex align-items-center align-self-start">
                                         <h5 className="mb-0">{viralloadList.length}</h5>
-                                        <p className="text-danger ml-2 mb-0 font-weight-medium">
-                                            -0%
-                                        </p>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="icon icon-box-success">
-                                        <span className="mdi mdi-test-tube icon-md"></span>
+                                        <p className="text-success mb-0 font-weight-medium">
+                                            0%
+                                        </p>
                                     </div>
                                 </div>
                             </div>
-                            <h6 className="text-muted font-weight-normal">Viral Load</h6>
+                            <h6 className="text-muted font-weight-normal">VL Coverage</h6>
                         </div>
                     </div>
                 </div>
@@ -123,14 +120,13 @@ function DashboardCards() {
                                 <div className="col-9">
                                     <div className="d-flex align-items-center align-self-start">
                                         <h5 className="mb-0">{0}</h5>
-                                        <p className="text-danger ml-2 mb-0 font-weight-medium">
-                                            -0%
-                                        </p>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="icon icon-box-success">
-                                        <span className="mdi mdi-comment-plus-outline icon-md"></span>
+                                        <p className="text-success mb-0 font-weight-medium">
+                                            0%
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -145,14 +141,13 @@ function DashboardCards() {
                                 <div className="col-9">
                                     <div className="d-flex align-items-center align-self-start">
                                         <h5 className="mb-0">{0}</h5>
-                                        <p className="text-danger ml-2 mb-0 font-weight-medium">
-                                            -0%
-                                        </p>
                                     </div>
                                 </div>
                                 <div className="col-3">
                                     <div className="icon icon-box-success">
-                                        <span className="mdi mdi-truck-delivery icon-md"></span>
+                                        <p className="text-success mb-0 font-weight-medium">
+                                            0%
+                                        </p>
                                     </div>
                                 </div>
                             </div>

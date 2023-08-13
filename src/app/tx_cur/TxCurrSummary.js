@@ -79,21 +79,7 @@ class TxCurrSummary extends Component {
       return am4core.color("#fff");
     });
     valueAxis.renderer.labels.template.fontSize = 10;
-
-    const colors = [
-      am4core.color("#FF9671"),
-      am4core.color("#56B9F9"),
-      am4core.color("#FFC636"),
-      am4core.color("#6C71C4"),
-      am4core.color("#0D9C6E"),
-      am4core.color("#DA727E"),
-      am4core.color("#FFB000"),
-      am4core.color("#E09900"),
-      am4core.color("#5E5E5E"),
-      am4core.color("#7F7F7F"),
-      am4core.color("#AFAFAF"),
-      am4core.color("#CFCFCF")
-    ];
+    const colors = [am4core.color("#00d25b")];
 
     // Create series
     let series = chart.series.push(new am4charts.ColumnSeries());

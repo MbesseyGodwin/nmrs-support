@@ -21,8 +21,8 @@ function Landing(props) {
     });
 
     return (
-        <div className='bg-dark p-5'>
-            <div className='text-center border border-bottom border-light'>
+        <div className='shadow p-5'>
+            {/* <div className='text-center border border-bottom border-light'>
                 <div id="caritas-container" className='animate__animated animate__zoomIn'>
                     <div className="caritas-letter" id="c">C</div>
                     <div className="caritas-letter" id="a1">A</div>
@@ -33,7 +33,7 @@ function Landing(props) {
                     <div className="caritas-letter" id="s">S</div>
                 </div>
             </div>
-            <hr className='bg-light' />
+            <hr className='bg-light' /> */}
             <div className='text-center animate__animated'>
                 <p className='display-1 text-uppercase'>
                     <span className='text-success font-weight-bold px-2'>NMRS</span>

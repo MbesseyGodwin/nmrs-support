@@ -1,5 +1,5 @@
 import React, { Component, Suspense, lazy } from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Spinner from '../app/shared/Spinner';
 
@@ -11,6 +11,7 @@ const ViralLoad = lazy(() => import('./viral_load/ViralLoad'));
 const Retention = lazy(() => import('./retention/Retention'));
 const Pbs = lazy(() => import('./pbs/Pbs'));
 const Reports = lazy(() => import('./reports/Reports'));
+const FacilityPage = lazy(() => import('./reports/FacilityPage'));
 const Landing = lazy(() => import('./landing-page/Landing'))
 
 class AppRoutes extends Component {
@@ -27,6 +28,7 @@ class AppRoutes extends Component {
           <Route path="/retention" component={Retention} />
           <Route path="/pbs" component={Pbs} />
           <Route path="/reports" component={Reports} />
+          <Route path="/facility/:datimCode" component={FacilityPage} />
           <Redirect to="/landing" />
         </Switch>
       </Suspense>

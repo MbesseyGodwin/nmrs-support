@@ -12,23 +12,29 @@ const HtsCards = React.memo(() => {
     }, []);
 
     useEffect(() => {
-        if (liveData !== undefined) {
+        if (Array.isArray(liveData)) { // Check if liveData is an array
             setHtsData(liveData);
+        } else {
+            console.error("Live data is not an array:", liveData);
         }
     }, [liveData]);
 
-    const totalHtsNegative = htsData.filter((item) => {
-        return item.FinalResult === 'Negative';
-    }).length;
-    const totalHtsPositive = htsData.filter((item) => {
-        return item.FinalResult === 'Positive';
-    }).length;
-    const linkage = htsData.filter((item) => {
-        return item.FinalResult === 'Positive' && item.PepfarID !== null;
-    }).length;
-    const linkagePercentage = (linkage / totalHtsPositive) * 100;
+    // Ensure that htsData is an array before filtering
+    const totalHtsNegative = Array.isArray(htsData)
+        ? htsData.filter((item) => item.FinalResult === 'Negative').length
+        : 0;
 
-    console.log("linkage percentage is = " + linkagePercentage.toFixed(1));
+    const totalHtsPositive = Array.isArray(htsData)
+        ? htsData.filter((item) => item.FinalResult === 'Positive').length
+        : 0;
+
+    const linkage = Array.isArray(htsData)
+        ? htsData.filter((item) => item.FinalResult === 'Positive' && item.PepfarID !== null).length
+        : 0;
+
+    const linkagePercentage = Array.isArray(htsData)
+        ? (linkage / totalHtsPositive) * 100
+        : 0;
 
     return (
         <div>

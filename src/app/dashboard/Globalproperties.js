@@ -10,11 +10,9 @@ import { Link } from "react-router-dom";
 const Globalproperties = () => {
 
   const currentDate = dayjs();
-  const pastDate = dayjs().subtract(10, "day");
-  const differenceInDays = currentDate.diff(pastDate, "day");
   const currDate = moment().format('YYYY-MM-DD');
 
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
   const [globalpropertiesData, setGlobalpropertiesData] = useState([]);
   const [drugRefill, setDrugRefill] = useState([]);
 
@@ -74,7 +72,9 @@ const Globalproperties = () => {
     (prop) => prop.property === "facility_datim_code"
   )?.property_value;
 
-
+  const partner_reporting_state = globalpropertiesData.find(
+    (prop) => prop.property === "partner_reporting_state"
+  )?.property_value;
 
 
   return (
@@ -93,15 +93,15 @@ const Globalproperties = () => {
                 <div className="row">
                   {/* for NDR last run date */}
                   <div className="col-4">
-                    <div className="card bg-light border-success mb-3 text-center">
-                      <div className="card-header bg-transparent border-success text-dark font-weight-bold">ndr upload</div>
+                    <div className="card bg-light mb-3 text-center">
+                      <div className="card-header text-dark font-weight-bold">ndr upload</div>
                       <div className="card-body p-2 m-2">
                         <a target="blank" href="http://localhost:8080/openmrs/nigeriaemr/customNdr.page" className="nav-link p-0 small">
                           <span className="card-title mb-0 text-dark small">{lastLocalDataSyncDate}</span>
                         </a>
                       </div>
-                      <div className="card-footer bg-transparent border-success">
-                        <div className="text-muted mb-0 animate__animated animate__shakeX">
+                      <div className="card-footer">
+                        <div className="text-muted mb-0">
                           {currentDate.diff(
                             ndrLastRunDate,
                             "day"
@@ -135,15 +135,15 @@ const Globalproperties = () => {
 
                   {/* for datasync last run date*/}
                   <div className="col-4">
-                    <div className="card bg-light border-success mb-3 text-center">
-                      <div className="card-header bg-transparent border-success text-dark font-weight-bold">Data sync</div>
+                    <div className="card bg-light mb-3 text-center">
+                      <div className="card-header text-dark font-weight-bold">Data sync</div>
                       <div className="card-body p-2 m-2">
                         <a target="blank" href="http://localhost:8008" className="nav-link p-0 small">
                           <span className="card-title mb-0 text-dark small">{lastLocalDataSyncDate}</span>
                         </a>
                       </div>
-                      <div className="card-footer bg-transparent border-success">
-                        <div className="text-muted mb-0 animate__animated animate__shakeX">
+                      <div className="card-footer">
+                        <div className="text-muted mb-0">
                           {currentDate.diff(
                             lastLocalDataSyncDate,
                             "day"
@@ -177,18 +177,19 @@ const Globalproperties = () => {
 
                   {/* drug pickup for today */}
                   <div className="col-4">
-                    <div className="card bg-light border-success mb-3 text-center">
-                      <div className="card-header bg-transparent border-success text-dark font-weight-bold">Drug pickup</div>
+                    <div className="card bg-light mb-3 text-center">
+                      <div className="card-header text-dark font-weight-bold">Drug pickup</div>
                       <div className="card-body text-success p-2 m-2">
                         <Link to="./retention" className="nav-link p-0 small">
                           <span className="card-title mb-0 text-dark" title="View all Refills">Due for Refill ({PharmacyDrugRefill})</span>
                         </Link>
                       </div>
-                      <div className="card-footer bg-transparent border-success text-dark">
+                      <div className="card-footer text-dark">
                         Refilled Today: <span className="text-success">0</span>
                       </div>
                     </div>
                   </div>
+                  
                 </div>
               </div>
             </div>

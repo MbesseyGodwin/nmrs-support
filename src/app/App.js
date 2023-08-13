@@ -12,6 +12,7 @@ import DexieInsert from "./shared/indexedDB/DexieInsert";
 const App = ({ location, i18n }) => {
   const [isFullPageLayout, setIsFullPageLayout] = useState(false);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onRouteChanged = () => {
 
     window.scrollTo(0, 0);
@@ -34,7 +35,7 @@ const App = ({ location, i18n }) => {
 
   useEffect(() => {
     onRouteChanged();
-  }, [location]);
+  }, [location, onRouteChanged]);
 
   let navbarComponent = !isFullPageLayout ? <Navbar /> : "";
   let sidebarComponent = !isFullPageLayout ? <Sidebar /> : "";

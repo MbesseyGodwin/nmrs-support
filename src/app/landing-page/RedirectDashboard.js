@@ -9,25 +9,27 @@ function RedirectDashboard({ delay = 30000, countdownStep = 1 }) {
     const [currentNote, setCurrentNote] = useState(0);
     const history = useHistory();
 
+    // useCallback to memoize handleTimer function
     const handleTimer = useCallback(() => {
+        // Timer to redirect to the dashboard after the specified delay
         const timer = setTimeout(() => {
             history.replace('/dashboard');
         }, delay);
 
+        // Interval to update countdown and progress every second
         const interval = setInterval(() => {
-            setState(prevState => {
-                const newCountdown = prevState.countdown - countdownStep;
-                return {
-                    countdown: newCountdown,
-                    progress: (delay - newCountdown * 1000) / delay * 100,
-                };
-            });
+            setState(prevState => ({
+                countdown: prevState.countdown - countdownStep,
+                progress: (delay - (prevState.countdown - countdownStep) * 1000) / delay * 100,
+            }));
         }, countdownStep * 1000);
 
+        // Timer to show the next note after 3 seconds
         const noteTimer = setTimeout(() => {
-            setCurrentNote(1);
+            setCurrentNote(prevNote => prevNote + 1);
         }, 3000);
 
+        // Cleanup function to clear timers and intervals
         return () => {
             clearTimeout(timer);
             clearInterval(interval);
@@ -35,73 +37,50 @@ function RedirectDashboard({ delay = 30000, countdownStep = 1 }) {
         };
     }, [countdownStep, delay, history]);
 
+    // Effect to run handleTimer on component mount
     useEffect(handleTimer, [handleTimer]);
 
-    function hideNote0() {
+    // Function to hide notes based on their respective timeouts
+    const hideNote = (index, timeout) => {
         setTimeout(() => {
-            const note0 = document.getElementById('note0');
-            if (note0) {
-                note0.style.display = 'none';
+            const note = document.getElementById(`note${index}`);
+            if (note) {
+                note.style.display = 'none';
             }
-        }, 7500);
-    }
-    hideNote0();
+        }, timeout);
+    };
 
-    function hideNote1() {
-        setTimeout(() => {
-            const note1 = document.getElementById('note1');
-            if (note1) {
-                note1.style.display = 'none';
-            }
-        }, 15000);
-    }
-    hideNote1();
+    // Hiding notes using hideNote function
+    hideNote(0, 7500);
+    hideNote(1, 15000);
+    hideNote(2, 22500);
+    hideNote(3, 30000);
 
-    function hideNote2() {
-        setTimeout(() => {
-            const note2 = document.getElementById('note2');
-            if (note2) {
-                note2.style.display = 'none';
-            }
-        }, 22500);
-    }
-    hideNote2();
-
-    function hideNote3() {
-        setTimeout(() => {
-            const note3 = document.getElementById('note3');
-            if (note3) {
-                note3.style.display = 'none';
-            }
-        }, 30000);
-    }
-    hideNote3();
-
+    // Array of notes with their text and threshold
     const notes = [
-        { text: 'the nmrs support is for analysis purpose', threshold: 30 },
-        { text: 'data used is gotten from the openmrs db', threshold: 22.5 },
-        { text: 'powered by caritas Health informatics', threshold: 15 },
-        { text: `Redirecting to Dashboard in  ${state.countdown}`, threshold: 7.5 },
-    ];
+        { text: 'if you can think it, you can do it', threshold: 30 },
+        { text: 'never give up, time heals everything', threshold: 22.5 },
+        { text: 'Success is not final, failure is not fatal', threshold: 15 },
+        { text: `The only way to do great work is to love what you do.`, threshold: 7.5 },
+    ];    
 
+    // Filter notes based on the current countdown time
     const currentNotes = notes.filter(note => state.countdown <= note.threshold);
 
     return (
         <div>
             <div className='d-flex justify-content-center m-1'>
-                <b className='h1' style={{ 'visibility': 'hidden' }}>1</b>
+                <b className='h1' style={{ visibility: 'hidden' }}>1</b>
                 {currentNotes.map((note, index) => (
-                    <div className='animate__animated animate__flipInX animated'>
-                        <span className='text-dark h1 text-lowercase' id={`note${index}`} key={index} style={{ fontFamily: 'cursive, sans-serif' }}>{note.text}</span>
+                    <div className='animate__animated animate__flipInX animated' key={index}>
+                        <span className='text-dark h2 text-lowercase' id={`note${index}`} style={{ fontFamily: 'cursive, sans-serif' }}>{note.text}</span>
                     </div>
-
                 ))}
             </div>
             <ProgressBar
                 now={state.progress}
                 label={`${state.progress.toFixed()}%`}
                 variant="dark"
-                // style={{ "flexDirection": "row-reverse" }} 
                 className='border bg-light'
             />
         </div>

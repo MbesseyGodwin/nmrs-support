@@ -3,146 +3,77 @@ import axios from "axios";
 import db from "../shared/indexedDB/DB";
 import { useLiveQuery } from 'dexie-react-hooks';
 
+// Define a React memoized functional component for rendering HTS cards
 const HtsCards = React.memo(() => {
+    // State to store HTS data
     const [htsData, setHtsData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    // Fetch live data using Dexie's useLiveQuery hook
+    const liveData = useLiveQuery(() => db.htslist.get(1), []);
 
-    const liveData = useLiveQuery(() => {
-        return db.htslist.get(1);
-    }, []);
-
+    // Effect to update component state when liveData changes
     useEffect(() => {
-        if (Array.isArray(liveData)) { // Check if liveData is an array
-            setHtsData(liveData);
-        } else {
-            console.error("Live data is not an array:", liveData);
-        }
+        // Check if liveData is an array before updating the state
+        Array.isArray(liveData) ? setHtsData(liveData) : console.error("Live data is not an array:", liveData);
     }, [liveData]);
 
-    // Ensure that htsData is an array before filtering
-    const totalHtsNegative = Array.isArray(htsData)
-        ? htsData.filter((item) => item.FinalResult === 'Negative').length
-        : 0;
+    // Function to get metric based on the provided filter
+    const getMetric = (filter) => {
+        if (Array.isArray(htsData)) {
+            if (filter === '') {
+                return htsData.length;
+            } else if (filter === 'Negative') {
+                return htsData.filter((item) => item.FinalResult === filter).length;
+            } else if (filter === 'Positive') {
+                return htsData.filter((item) => item.FinalResult === filter).length;
+            } else if (filter === 'PositiveLinkage') {
+                return htsData.filter((item) => item.FinalResult === 'Positive' && item.PepfarID !== null).length;
+            }
+        }
+        return "Loading...";
+    };
 
-    const totalHtsPositive = Array.isArray(htsData)
-        ? htsData.filter((item) => item.FinalResult === 'Positive').length
-        : 0;
-
-    const linkage = Array.isArray(htsData)
-        ? htsData.filter((item) => item.FinalResult === 'Positive' && item.PepfarID !== null).length
-        : 0;
-
-    const linkagePercentage = Array.isArray(htsData)
-        ? (linkage / totalHtsPositive) * 100
-        : 0;
-
+    // Render the component
     return (
         <div>
             <div className="row">
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card d-block">
-                        <div className="card-body carousel-item active">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        <h3 className="mb-0">{isLoading ? (
-                                            "Loading..."
-                                        ) : (
-                                            htsData.length
-                                        )}</h3>
-
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success ">
-                                        <span className="mdi mdi mdi-human-male-female icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">
-                                Total Tested
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        <h3 className="mb-0">{isLoading ? (
-                                            "Loading..."
-                                        ) : (
-                                            totalHtsNegative
-                                        )}</h3>
-
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success">
-                                        <span className="mdi mdi-magnify-minus icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">
-                                Tested Negative
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        <h3 className="mb-0">{isLoading ? (
-                                            <h3 className="mb-0">Loading...</h3>
-                                        ) : (
-                                            <h3 className="mb-0">{totalHtsPositive}</h3>
-                                        )}</h3>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success">
-                                        <span className="mdi mdi-magnify-plus icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">Tested Positive</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        <h3 className="mb-0">{linkage}</h3>
-                                        <p className="text-success ml-2 mb-0 font-weight-medium">{`+${linkagePercentage.toFixed()}%`}</p>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success ">
-                                        <span className="mdi mdi-shield-half-full icon-item"></span>
-                                    </div>
-
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">
-                                Linkage
-                            </h6>
-                        </div>
-                    </div>
-                </div>
+                {/* Render metric cards for different categories */}
+                {metricCard("Total Tested", getMetric(''), "mdi-human-male-female")}
+                {metricCard("Tested Negative", getMetric('Negative'), "mdi-magnify-minus")}
+                {metricCard("Tested Positive", getMetric('Positive'), "mdi-magnify-plus")}
+                {metricCard("Linkage", getMetric('PositiveLinkage'), "mdi-shield-half-full")}
             </div>
         </div>
     );
+
+    // Function to render individual metric cards
+    function metricCard(title, value, iconClass, additionalValue = "") {
+        return (
+            <div className="col-xl-3 col-sm-6 grid-margin stretch-card" key={title}>
+                <div className="card">
+                    <div className="card-body">
+                        <div className="row">
+                            <div className="col-9">
+                                <div className="d-flex align-items-center align-self-start">
+                                    {/* Display metric value and additional value if provided */}
+                                    <h3 className="mb-0">{value}</h3>
+                                    {additionalValue && <p className="text-success ml-2 mb-0 font-weight-medium">{additionalValue}</p>}
+                                </div>
+                            </div>
+                            <div className="col-3">
+                                <div className={`icon icon-box-success`}>
+                                    {/* Display the icon based on the provided class */}
+                                    <span className={`mdi ${iconClass} icon-item`}></span>
+                                </div>
+                            </div>
+                        </div>
+                        {/* Display metric title */}
+                        <h6 className="font-weight-normal small">{title}</h6>
+                    </div>
+                </div>
+            </div>
+        );
+    }
 });
 
+// Export the component
 export default HtsCards;

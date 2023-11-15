@@ -94,16 +94,18 @@ function PushData() {
         const datimCode = globalpropertiesData.find((prop) => prop.property === 'facility_datim_code')?.property_value;
         const state = globalpropertiesData.find((prop) => prop.property === 'State')?.property_value;
 
+        console.log(globalpropertiesData);
+
         const data = {
             name: facilityName,
             datimCode: datimCode,
             lga: [],
             state: state,
             htsData: htsData,
-            iitData: htsData,
-            ahdData: htsData,
-            viralloadData: htsData,
-            pbsData: htsData,
+            iitData: [],
+            ahdData: [],
+            viralloadData: [],
+            pbsData: [],
             datetime: formattedDate
         };
 
@@ -153,7 +155,7 @@ function PushData() {
                 <Modal.Header className='bg-light'>
                     <Modal.Title className='text-dark'>
                         <span className={pushStatus ? 'text-success' : 'text-danger'}>
-                            {pushStatus ? `Completed` : 'Please Wait'}
+                            {pushStatus ? `Completed ` : 'Please Wait '}
                             {pushStatus ? <i className="fa fa-check"></i> : <i className="fa fa-spinner fa-spin"></i>}
                         </span>
                     </Modal.Title>

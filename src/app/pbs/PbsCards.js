@@ -5,7 +5,7 @@ import axios from "axios";
 const MetricCard = ({ title, value, iconClass }) => (
   <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
     <div className="card">
-      <div className="card-body carousel-item active">
+      <div className="card-body">
         {/* Row for metric value, icon, and label */}
         <div className="row">
           <div className="col-9">
@@ -28,53 +28,62 @@ const MetricCard = ({ title, value, iconClass }) => (
   </div>
 );
 
-// ViralLoadCards component to display different metrics
-const ViralLoadCards = () => {
-  // State variables for metric data and loading status
-  const [vlData, setVlData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+// PbsCards component to display different metrics
+const PbsCards = () => {
+  // State variables for metric data
+  const [validPrints, setValidPrints] = useState([]);
+  const [patientWithoutPbs, setPatientWithoutPbs] = useState([]);
+  const [invalidPrints, setInvalidPrints] = useState([]);
+  const [recapture, setRecapture] = useState([]);
+  // Loading state to indicate when data is being fetched
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch data for viral load metrics on component mount
+  // Fetch data for different metrics on component mount
   useEffect(() => {
-    const getVlData = async () => {
-      setIsLoading(true);
+    const fetchData = async (url, setter) => {
       try {
         // Fetch data from the provided URL
-        const response = await axios.get("http://localhost:5000/");
+        const response = await axios.get(url);
         // Set the fetched data using the provided setter function
-        setVlData(response.data);
+        setter(response.data);
       } catch (error) {
-        console.error(error);
+        console.error(`Error fetching data: ${error}`);
       } finally {
         // Set loading state to false after data fetching is complete
         setIsLoading(false);
       }
     };
-    getVlData();
+
+    // Fetch data for each metric using the fetchData function
+    fetchData("http://localhost:5000/fingerprints", setValidPrints);
+    fetchData("http://localhost:5000/", setPatientWithoutPbs);
+    fetchData("http://localhost:5000/", setInvalidPrints);
+    fetchData("http://localhost:5000/recapture", setRecapture);
   }, []); // Empty dependency array ensures this effect runs only once on component mount
 
-  // Render MetricCard components for each viral load metric
+  // Render MetricCard components for each metric
   return (
     <div>
+      {/* Row to display MetricCard components */}
       <div className="row">
         <MetricCard
-          title="Total Eligible"
-          value={isLoading ? "Loading..." : "NOT SET"}
+          title="Valid PBS"
+          value={isLoading ? "Loading..." : validPrints.length}
           iconClass="mdi-human-male-female"
         />
         <MetricCard
-          title="Sample collected"
-          value={isLoading ? "Loading..." : "NOT SET"}
+          title="Patients without PBS"
+          value="NOT SET"
           iconClass="mdi-magnify-minus"
         />
         <MetricCard
-          title="Total Suppressed"
-          value={isLoading ? "Loading..." : "NOT SET"}
+          title="Invalid Prints"
+          value="NOT SET"
           iconClass="mdi-magnify-plus"
         />
         <MetricCard
-          title="Total Unsuppressed"
-          value="NOT SET"
+          title="Recaptured Prints"
+          value={isLoading ? "Loading..." : recapture.length}
           iconClass="mdi-shield-half-full"
         />
       </div>
@@ -82,4 +91,4 @@ const ViralLoadCards = () => {
   );
 };
 
-export default ViralLoadCards;
+export default PbsCards;

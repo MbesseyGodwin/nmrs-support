@@ -40,9 +40,7 @@ const BackToTop = () => {
           className="btn bg-success mx-1"
           style={{ whiteSpace: "nowrap" }}
         >
-          {/* <i className="ml-2 mdi mdi-arrow-up"></i> */}
-          {/* <i class="fa-solid fa-turn-up m-0"></i> */}
-          <i class="fa-solid fa-turn-up fa-bounce m-0"></i>
+          <i className="fa-solid fa-turn-up fa-bounce m-0"></i>
         </button>
       )}
     </>

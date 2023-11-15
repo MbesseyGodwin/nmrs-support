@@ -1,140 +1,85 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function ViralLoadCards() {
-
-    const [vlData, setVlData] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
-
-    useEffect(() => {
-        const getVlData = async () => {
-            setIsLoading(true);
-            try {
-                const response = await axios.get("http://localhost:5000/");
-                setVlData(response.data);
-            } catch (error) {
-                console.error(error);
-            } finally {
-                setIsLoading(false);
-            }
-        };
-        getVlData();
-    }, []);
-
-    // console.log(vlData);
-
-    return (
-        <div>
-            {/* <nav aria-label="breadcrumb" className="bg-black">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item text-orange-600"><a href="#">OpenMRS</a></li>
-                    <li className="breadcrumb-item text-orange-600"><a href="#">Home</a></li>
-                    <li className="breadcrumb-item text-orange-600 text-info active" aria-current="page">Viral-Load</li>
-                    <li style={{ marginLeft: 'auto' }}><a href="#" className='text-danger'>Reload</a></li>
-                </ol>
-            </nav> */}
-
-            <div className="row">
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card d-block">
-
-                        <div className="card-body carousel-item active">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        {isLoading ? (
-                                            <h3 className="mb-0">Loading...</h3>
-                                        ) : (
-                                            <h3 className="mb-0">NOT SET</h3>
-                                        )}
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success ">
-                                        <span className="mdi mdi mdi-human-male-female icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">
-                                Total Eligible
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        <h3 className="mb-0">{isLoading ? (
-                                            <h3 className="mb-0">Loading...</h3>
-                                        ) : (
-                                            <h3 className="mb-0">NOT SET</h3>
-                                        )}</h3>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success">
-                                        <span className="mdi mdi-magnify-minus icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">
-                                Sample collected
-                            </h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        <h3 className="mb-0">{isLoading ? (
-                                            <h3 className="mb-0">Loading...</h3>
-                                        ) : (
-                                            <h3 className="mb-0">NOT SET</h3>
-                                        )}</h3>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success">
-                                        <span className="mdi mdi-magnify-plus icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">Total Suppressed</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
-                    <div className="card">
-                        <div className="card-body">
-                            <div className="row">
-                                <div className="col-9">
-                                    <div className="d-flex align-items-center align-self-start">
-                                        <h3 className="mb-0">NOT SET</h3>
-                                    </div>
-                                </div>
-                                <div className="col-3">
-                                    <div className="icon icon-box-success ">
-                                        <span className="mdi mdi-shield-half-full icon-item"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <h6 className="font-weight-normal small">
-                                Total Unsuppressed
-                            </h6>
-                        </div>
-                    </div>
-                </div>
+// ViralLoadCard component to display each viral load metric with its title, value, and icon
+const ViralLoadCard = ({ title, value, iconClass }) => (
+  <div className="col-xl-3 col-sm-6 grid-margin stretch-card">
+    <div className="card">
+      <div className="card-body carousel-item active">
+        {/* Row for metric value, icon, and label */}
+        <div className="row">
+          <div className="col-9">
+            <div className="d-flex align-items-center align-self-start">
+              {/* Display metric value */}
+              <h3 className="mb-0">{value}</h3>
             </div>
+          </div>
+          {/* Metric icon */}
+          <div className="col-3">
+            <div className={`icon icon-box-success`}>
+              <span className={`mdi ${iconClass} icon-item`}></span>
+            </div>
+          </div>
         </div>
+        {/* Metric label */}
+        <h6 className="font-weight-normal small">{title}</h6>
+      </div>
+    </div>
+  </div>
+);
 
-    )
-}
+// ViralLoadCards component to fetch and display different viral load metrics
+const ViralLoadCards = () => {
+  // State variables for viral load data and loading status
+  const [vlData, setVlData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Fetch data for viral load metrics on component mount
+  useEffect(() => {
+    const getVlData = async () => {
+      setIsLoading(true);
+      try {
+        // Fetch data from the provided URL
+        const response = await axios.get("http://localhost:5000/");
+        // Set the fetched data using the provided setter function
+        setVlData(response.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        // Set loading state to false after data fetching is complete
+        setIsLoading(false);
+      }
+    };
+    getVlData();
+  }, []); // Empty dependency array ensures this effect runs only once on component mount
+
+  // Render ViralLoadCard components for each viral load metric
+  return (
+    <div>
+      <div className="row">
+        <ViralLoadCard
+          title="Total Eligible"
+          value={isLoading ? "Loading..." : "NOT SET"}
+          iconClass="mdi-human-male-female"
+        />
+        <ViralLoadCard
+          title="Sample collected"
+          value={isLoading ? "Loading..." : "NOT SET"}
+          iconClass="mdi-magnify-minus"
+        />
+        <ViralLoadCard
+          title="Total Suppressed"
+          value={isLoading ? "Loading..." : "NOT SET"}
+          iconClass="mdi-magnify-plus"
+        />
+        <ViralLoadCard
+          title="Total Unsuppressed"
+          value="NOT SET"
+          iconClass="mdi-shield-half-full"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default ViralLoadCards;

@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import BackToTop from './BackToTop';
 import PushData from './PushData';
+import Logout from '../logout/Logout';
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
   useEffect(() => {
     // Clean up by removing the class when the component unmounts
     return () => {
@@ -58,6 +59,8 @@ const Navbar = () => {
         <div className="container justify-content-end">
           {/* Component for pushing data */}
           <PushData />
+
+          <Logout onLogout={onLogout} />
           
           {/* Component for scrolling back to top */}
           <BackToTop />

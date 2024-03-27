@@ -6,7 +6,7 @@
         "@amcharts/amcharts4": "^4.10.34",
         "@lourenci/react-kanban": "^0.13.0",
         "@mdi/font": "^4.2.95",
-        "@tinymce/tinymce-react": "^3.3.2",
+        "@tinymce/tinymce-react": "^5.0.0",
         "amcharts3": "^3.21.15",
         "animate.css": "^4.1.1",
         "axios": "^1.3.2",
